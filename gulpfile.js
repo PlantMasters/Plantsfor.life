@@ -21,7 +21,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./public/styles'))
 });
 gulp.task('javascript', function() {
-    gulp.src('./main/js/app.js')
+    gulp.src('./main/js/**/*.js')
         //.pipe(ngAnnotate())
         // .pipe(uglify())
         .pipe(concat('all.min.js'))

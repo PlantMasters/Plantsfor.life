@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var uglifycss = require('gulp-uglifycss');
 var ngAnnotate = require('gulp-ng-annotate');
 var server = require('gulp-webserver');
-//var htmlmin = require('gulp-htmlmin');
+var htmlmin = require('gulp-htmlmin');
 
 
 var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/views/**/**/*.html', './main/*.html'], ['default']); 
@@ -21,7 +21,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./public/styles'))
 });
 gulp.task('javascript', function() {
-    gulp.src('./main/js/**/*.js')
+    gulp.src('./main/js/app.js')
         //.pipe(ngAnnotate())
         // .pipe(uglify())
         .pipe(concat('all.min.js'))

@@ -18,6 +18,11 @@
     "gulp-stylus": "^2.3.1",
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "fs": "0.0.2",
+    "mongoose": "^4.4.11",
+    "q": "^1.4.1"
   }
 }

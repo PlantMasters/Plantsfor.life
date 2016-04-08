@@ -6,6 +6,7 @@ var uglifycss = require('gulp-uglifycss');
 var ngAnnotate = require('gulp-ng-annotate');
 var server = require('gulp-webserver');
 var htmlmin = require('gulp-htmlmin');
+var babel = require('gulp-babel');
 
 
 var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/views/**/**/*.html', './main/*.html'], ['default']); 
@@ -24,6 +25,9 @@ gulp.task('javascript', function() {
     gulp.src('./main/js/**/*.js')
         //.pipe(ngAnnotate())
         // .pipe(uglify())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest('./public/scripts'))
 });

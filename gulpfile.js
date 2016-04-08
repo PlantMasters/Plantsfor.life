@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var uglifycss = require('gulp-uglifycss');
 var ngAnnotate = require('gulp-ng-annotate');
 var server = require('gulp-webserver');
-//var htmlmin = require('gulp-htmlmin');
+var htmlmin = require('gulp-htmlmin');
 
 
 var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/views/**/**/*.html', './main/*.html'], ['default']); 
@@ -29,12 +29,12 @@ gulp.task('javascript', function() {
 });
 gulp.task('html', function() {
     gulp.src('./main/views/**/*.html')
-        // .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public/views'))
 });
 gulp.task('index', function() {
     gulp.src('./main/*.html')
-        // .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public'))
 });
 gulp.task('default', ['sass', 'javascript', 'html', 'index']);

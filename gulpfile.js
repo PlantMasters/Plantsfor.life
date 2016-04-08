@@ -29,12 +29,12 @@ gulp.task('javascript', function() {
 });
 gulp.task('html', function() {
     gulp.src('./main/views/**/*.html')
-        // .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public/views'))
 });
 gulp.task('index', function() {
     gulp.src('./main/*.html')
-        // .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public'))
 });
 gulp.task('default', ['sass', 'javascript', 'html', 'index']);

@@ -2,7 +2,7 @@
   "name": "plant-masters",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -24,5 +24,11 @@
     "fs": "0.0.2",
     "mongoose": "^4.4.11",
     "q": "^1.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
   }
 }

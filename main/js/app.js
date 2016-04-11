@@ -7,4 +7,5 @@ angular.module('plantMasters', ['ui.router'])
             controller: 'landingCtrl',
             templateUrl: 'views/landing.html'
         })
+        $urlRouterProvider.otherwise('/');
 })

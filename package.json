@@ -2,7 +2,7 @@
   "name": "plant-masters",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -10,20 +10,35 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "fs": "0.0.2",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-htmlmin": "^1.3.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
+<<<<<<< HEAD
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
     "express": "~4.13.1",
     "fs": "0.0.2",
+=======
+    "gulp-webserver": "^0.9.1",
+>>>>>>> master
     "mongoose": "^4.4.11",
     "q": "^1.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
   }
 }

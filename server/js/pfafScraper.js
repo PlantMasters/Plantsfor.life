@@ -42,7 +42,7 @@ let crawl = () => {
 //visits the page and determines whether we care about it or not
 let visitPage = (file, callback) => {
     // Make the request
-    fs.readFile("../data/" + file, "utf-8", (error, data) => {
+    fs.readFile("../data/plants/" + file, "utf-8", (error, data) => {
             if (error) {
                 console.log(error);
                 callback();
@@ -170,7 +170,7 @@ let searchForTerms = (text) => {
     }
 };
 
-q.all([dh.getQueued()]).then((queued)=> {
+q.all([dh.getQueued("../data/plants/")]).then((queued)=> {
     queued = queued[0];
     for (let i = 0; i < queued.length - 1; i++) {
         pagesToVisit.push(String(queued[i]));

@@ -1,0 +1,44 @@
+<div class="mainContainer">
+    <div class="searchInputBox">
+        <div class="searchInputSpacer">
+            <input class="input" placeholder="Search by use"></input>
+        </div>
+    </div>
+    <div class="searchContainer">
+        <div class="searchType">
+            <div class="arrow" ng-click="toggleShow()"></div><div class="searchTitle">Search by Medical Uses</div><br>
+            <div ng-show="show" class="usesRepeatCont" ng-repeat="use in medicalUses">
+                <div ng-click="medicalSelect(use)" class="usesRepeat" ng-class="{ 'selectedToSearch': medicalIsActive(use) }">{{use}}</div>
+            </div>
+        </div>
+        <div class="searchType">
+            <div class="arrow" ng-click="toggleShow()"></div><div class="searchTitle">Search by Edible Uses</div><br>
+            <div class="usesRepeatCont" ng-repeat="use in edibleUses">
+                <div class="usesRepeat" ng-click="edibleSelect(use)" class="usesRepeat" ng-class="{ 'selectedToSearch': edibleIsActive(use) }">{{use}}</div>
+            </div>
+        </div>
+        <div class="searchType">
+            <div class="arrow" ng-click="toggleShow()"></div><div class="searchTitle">Search by Other Uses</div><br>
+            <div class="usesRepeatCont" ng-repeat="use in otherUses">
+                <div class="usesRepeat" ng-click="otherSelect(use)" class="usesRepeat" ng-class="{ 'selectedToSearch': otherIsActive(use) }">{{use}}</div>
+            </div>
+        </div>
+        <div class="searchType">
+            <div class="arrow" ng-click="toggleShow()"></div><div class="searchTitle">Search by Hardiness Zone</div><br>
+            <input class="input" placeholder="Or search by zip code"></input>
+            <div class=" circle">1</div>
+            <div class="input circle">2</div>
+            <div class="input circle">3</div>
+            <div class="input circle">4</div>
+            <div class="input circle">5</div>
+            <div class="input circle">6</div>
+            <div class="input circle">7</div>
+            <div class="input circle">8</div>
+            <div class="input circle">9</div>
+            <div class="input circle">10</div>
+            <div class="input circle">11</div>
+            <div class="input circle">12</div>
+            <div class="input circle">13</div>
+        </div>
+    </div>
+</div>

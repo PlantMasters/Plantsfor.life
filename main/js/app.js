@@ -4,8 +4,8 @@ angular.module('plantMasters', ['ui.router'])
     $stateProvider
         .state('landing', {
             url:'/',
-            controller: 'landingCtrl',
-            templateUrl: 'views/landing.html'
+            controller: 'mainCtrl',
+            templateUrl: 'views/main.html'
         })
         $urlRouterProvider.otherwise('/');
 })

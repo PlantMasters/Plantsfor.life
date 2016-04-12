@@ -1,22 +1,21 @@
+
 var express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
-var mongoose = require('mongoose');
+
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 var keys = require('./keys.json');
 
 var app = express();
 
-mongoose.set('debug', true); //log connection methods
-mongoose.connect('mongodb://localhost/plants');
-mongoose.connection.once('open', function() {
-    console.log('connected to MongoDB');
-});
+var config = require('./server/config/config.js')[env];
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static(__dirname + '/public'));
+require('./server/config/express.js')(app, config);
 
-var port = 3000;
-app.listen(port, function() {
-  console.log('listening to port ', port);
-}); 
+require('./server/config/mongoose.js')(config);
+
+require('./server/config/passport.js')();
+
+require('./server/config/routes.js')(app);
+
+app.listen(config.port);
+console.log("Connected to Express!  Listening on port " + config.port + "...");

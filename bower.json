@@ -1,0 +1,22 @@
+{
+  "name": "plant-masters",
+  "description": "Plants can provide us with rope and paper, oils and lubricants, fuels, water proofing and wood preservatives, dyes, construction materials and more.",
+  "main": "server.js",
+  "authors": [
+    "David Andelin <iandelin@outlook.com>",
+    "Jessica Hathaway <>",
+    "Jessica Morrell <>",
+    "Tom Pridham <>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/PlantMasters/masters-of-the-plants",
+  "moduleType": [
+    "node"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "toastr": "^2.1.2",
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18"
+  }
+}

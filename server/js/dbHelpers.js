@@ -10,6 +10,7 @@ const fs = require("fs");
 const plant = require("../schemas/plant");
 const zone = require("../schemas/zone");
 
+mongoose.set("debug", true);
 mongoose.connect("mongodb://127.0.0.1:27017/plantMaster");
 mongoose.connection.once("open", () => {
     console.log("connected to mongodb")
@@ -17,16 +18,19 @@ mongoose.connection.once("open", () => {
 const promises = [];
 
 module.exports = {
-    postPlant: (data) => {
+    postPlant(data){
         let defer = q.defer();
-        plant.findOneAndUpdate({latin: data.latin}, data, {upsert: true, overwrite: true}, (err, s) => {
+        plant.findOneAndUpdate({latin: data.latin}, data, {upsert: true}, (err, s) => {
+            // console.log(data);
             if (err) {
+                console.log(err);
                 defer.reject(new Error(err));
             } else {
+                // console.log(s)
                 defer.resolve();
             }
         });
-        promises.push(defer);
+        promises.push(defer.promise);
     },
     postZone: (data)=> {
         let defer = q.defer();
@@ -37,7 +41,28 @@ module.exports = {
                 defer.resolve(s);
             }
         });
-        promises.push(defer);
+        promises.push(defer.promise);
+    },
+    postUses(data){
+        let defer = q.defer();
+        plant.findOne({latin: data.latin}, (err, result)=>{
+            if(result){
+            result.uses.push(data);
+            result.save((err, s) => {
+                // console.log(data);
+                if (err) {
+                    console.log(err);
+                    defer.reject(new Error(err));
+                } else {
+                    // console.log(s)
+                    defer.resolve();
+                }
+            });}
+            else{
+                defer.reject();
+            }
+        });
+        promises.push(defer.promise);
     },
     getQueued: (path) => {
         let defer = q.defer();
@@ -51,9 +76,8 @@ module.exports = {
         return defer.promise;
     },
     close: ()=> {
-        q.all(promises).done(()=> {
+        q.allSettled(promises).done(()=> {
             mongoose.connection.close();
-
         })
     }
 };

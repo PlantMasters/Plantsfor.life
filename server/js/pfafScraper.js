@@ -71,89 +71,89 @@ let searchForTerms = (text) => {
                 //latin name
                 case 0:
                     temp = text.slice(i + len, i + len + 200);
-                    ret.latin = temp.match(/([^<]*)</)[1].trim();
+                    ret.latin = temp.match(/([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //common name
                 case 1:
                     temp = text.slice(i + len, i + len + 200);
-                    ret.name = temp.match(/>([^<]*)</)[1].trim();
+                    ret.name = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //family
                 case 2:
                     temp = text.slice(i + len, i + len + 200);
-                    ret.family = temp.match(/>([^<]*)</)[1].trim();
+                    ret.family = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //hazards
                 case 3:
                     temp = text.slice(i + len, i + len + 5000);
-                    ret.hazards = temp.match(/>([^<]*)</)[1].trim();
+                    ret.hazards = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //range
                 case 4:
                     temp = text.slice(i + len, i + len + 1000);
-                    ret.range = temp.match(/>([^<]*)</)[1].trim();
+                    ret.range = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //habitat
                 case 5:
                     temp = text.slice(i + len, i + len + 1000);
-                    ret.habitat = temp.match(/>([^<]*)</)[1].trim();
+                    ret.habitat = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //edibility
                 case 6:
                     temp = text.slice(i + len, i + len + 100);
-                    ret.edibility = temp.match(/>([^<]*)</)[1].trim();
+                    ret.edibility = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //medicinal
                 case 7:
                     temp = text.slice(i + len, i + len + 100);
-                    ret.medicinal = temp.match(/>([^<]*)</)[1].trim();
+                    ret.medicinal = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //characteristics
                 case 8:
-                    temp = text.slice(i + len, i + len + 5000);
-                    ret.characteristics = temp.match(/(.*)<h2/)[1].trim();
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
+                    ret.characteristics = temp.match(/(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //possible locations
                 case 9:
-                    temp = text.slice(i + len, i + len + 1000);
-                    ret.locations = temp.match(/([^<]*)</)[1].trim();
+                    temp = text.slice(i + len, i + len + 1000 > text.length ? text.length : i + len + 1000);
+                    ret.locations = temp.match(/([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     break;
                 //edible uses
                 case 10:
-                    temp = text.slice(i + len, i + len + 5000);
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     if (temp.match(/em>([^<]*)<h2/)) {
-                        ret.eUses = temp.match(/em>([^<]*)<h2/)[1].trim();
+                        ret.eDesc = temp.match(/em>([^<]*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
                     } else {
-                        ret.eUses = temp.match(/em>(.*)<h2/)[1].trim();
+                        ret.eDesc = temp.match(/em>(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
                     }
                     break;
                 //medicinal uses
                 case 11:
-                    temp = text.slice(i + len, i + len + 5000);
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     if (temp.match(/em>([^<]*)<h2/)) {
-                        ret.mUses = temp.match(/em>([^<]*)<h2/)[1].trim();
+                        ret.mDesc = temp.match(/em>([^<]*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
                     } else {
-                        ret.mUses = temp.match(/em>(.*)<h2/)[1].trim();
+                        ret.mDesc = temp.match(/em>(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
                     }
                     break;
                 //other uses
                 case 12:
-                    temp = text.slice(i + len, i + len + 5000);
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     if (temp.match(/em>([^<]*)<h2/)) {
-                        ret.other = String(temp.match(/em>([^<]*)<h2/)[1].trim());
+                        ret.oDesc = String(temp.match(/em>([^<]*)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     } else {
-                        ret.other = String(temp.match(/em>(.*)<h2/)[1].trim());
+                        ret.oDesc = String(temp.match(/em>(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     }
                     break;
                 //cultivation
                 case 13:
-                    temp = text.slice(i + len, i + len + 5000);
-                    ret.cultivation = String(temp.match(/(.*)<h2/)[1].trim());
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
+                    ret.cultivation = String(temp.match(/(.*?)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;
                 //propagation
                 case 14:
-                    temp = text.slice(i + len, i + len + 5000);
-                    ret.propagation = String(temp.match(/(.*)<h2/)[1].trim());
+                    temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
+                    ret.propagation = String(temp.match(/(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;
             }
             termCount++;

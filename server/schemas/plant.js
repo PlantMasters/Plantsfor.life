@@ -3,56 +3,71 @@
  */
 "use strict";
 
-var mongoose = require('mongoose');
-//noinspection JSUnresolvedVariable
-var Schema = mongoose.Schema;
-
-var plant = new Schema({
-    "latin":{
-        type:String
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+let Uses  = new Schema({
+    "medical": {
+        type: Array,
+        default: []
     },
-    "name":{
-        type:String
+    "edible": {
+        type: Array,
+        default: []
     },
-    "family":{
-        type:String
-    },
-    "hazards":{
-        type:String
-    },
-    "range":{
-        type:String
-    },
-    "habitat":{
-        type:String
-    },
-    "edibility":{
-        type:Number
-    },
-    "medicinal":{
-        type:Number
-    },
-    "characteristics":{
-        type:String
-    },
-    "locations":{
-        type:String
-    },
-    "eUses":{
-        type:String
-    },
-    "mUses":{
-        type:String
-    },
-    "other":{
-        type:String
-    },
-    "cultivation":{
-        type:String
-    },
-    "propagation":{
-        type:String
+    "other": {
+        type: Array,
+        default: []
     }
+});
+
+let plant = new Schema({
+    "latin": {
+        type: String,
+        required: true
+    },
+    "name": {
+        type: String
+    },
+    "family": {
+        type: String
+    },
+    "hazards": {
+        type: String
+    },
+    "range": {
+        type: String
+    },
+    "habitat": {
+        type: String
+    },
+    "edibility": {
+        type: Number
+    },
+    "medicinal": {
+        type: Number
+    },
+    "characteristics": {
+        type: String
+    },
+    "locations": {
+        type: String
+    },
+    "eDesc": {
+        type: String
+    },
+    "mDesc": {
+        type: String
+    },
+    "oDesc": {
+        type: String
+    },
+    "cultivation": {
+        type: String
+    },
+    "propagation": {
+        type: String
+    },
+    "uses": [Uses]
 });
 
 //noinspection JSUnresolvedFunction

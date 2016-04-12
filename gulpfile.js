@@ -9,7 +9,7 @@ var htmlmin = require('gulp-htmlmin');
 var babel = require('gulp-babel');
 
 
-var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/views/**/**/*.html', './main/*.html'], ['default']); 
+var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/styles/*.css', './main/views/**/**/*.html', './main/*.html'], ['default']);
 watcher.on('change', function( event ) {
         console.log('File ' + event.path + ' was ' + event.type + ' at ' + new Date() + ' , running tasks...');
 });
@@ -18,8 +18,13 @@ gulp.task('sass', function() {
     gulp.src('./main/styles/*.scss')
         .pipe(sass())
         .pipe(uglifycss())
-        .pipe(concat('styles.css')) 
+        .pipe(concat('styles.css'))
         .pipe(gulp.dest('./public/styles'))
+});
+gulp.task('css', function() {
+  gulp.src('./main/styles/*.css')
+  .pipe(uglifycss())
+  .pipe(gulp.dest('./public/styles'))
 });
 gulp.task('javascript', function() {
     gulp.src('./main/js/**/*.js')
@@ -41,4 +46,4 @@ gulp.task('index', function() {
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public'))
 });
-gulp.task('default', ['sass', 'javascript', 'html', 'index']);
+gulp.task('default', ['sass', 'css', 'javascript', 'html', 'index']);

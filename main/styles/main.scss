@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
 
+
 body {
     background-color: #eee;
     margin: 0px;
@@ -11,6 +12,7 @@ body {
     width: 100%;
     padding: 10px;
     padding-right: 20px;
+    overflow: auto;
 }
 
 .searchInputBox {
@@ -63,7 +65,7 @@ body {
   display: inline-block;
   border-radius: 5px;
   padding: 7px;
-  -webkit-transition: background-color .2s;  /*Safari*/ 
+  -webkit-transition: background-color .2s;  /*Safari*/
   transition: background-color .2s;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
   text-decoration:none;
@@ -239,4 +241,3 @@ body {
     width: 30%;
   }
 }
-

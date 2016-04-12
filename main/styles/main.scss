@@ -185,6 +185,10 @@ body {
     color: #fff;
 }
 
+.zones {
+    display: inline-block;
+}
+
 .circle {
     display: inline-block;
     font-size: 20px;
@@ -213,10 +217,17 @@ body {
     color: #000;
      -webkit-transition: color .5s; /* Safari */
     transition: color .5s;
+    cursor: pointer;
 }
 
 .circle:active {
     border-color: #000;
+}
+
+.zoneSelectedToSearch {
+    border-color: #000;
+    background-color: #27AE60;
+    color: #fff;
 }
 
 @media screen and (min-width: 600px) {

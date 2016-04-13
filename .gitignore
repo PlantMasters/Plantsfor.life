@@ -5,3 +5,7 @@ keys.js
 *.out
 data
 *.log
+public/styles
+public/scripts
+public/views
+public/index.html

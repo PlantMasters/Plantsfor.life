@@ -56,7 +56,7 @@ let crawl = () => {
 //         console.log(result);
         for (let term in result) {
             // console.log(`opp`)
-            dh.postUses(result[term].uses);
+            dh.postUses(result[term]);
         }
         dh.close();
     });

@@ -120,6 +120,10 @@ body {
     color: #fff;
 }
 
+.zones {
+    display: inline-block;
+}
+
 .circle {
     display: inline-block;
     font-size: 2em;
@@ -147,6 +151,7 @@ body {
     color: #000;
      -webkit-transition: color .5s; /* Safari */
     transition: color .5s;
+    cursor: pointer;
 }
 
 .circle:active {

@@ -1,13 +1,13 @@
 angular.module('plantMasters').value('Toastr', toastr);
 
-angular.module('plantMasters').factory('Notifier', function(mvToastr){
+angular.module('plantMasters').factory('Notifier', function(Toastr){
   return {
     notify: function(msg) {
-      mvToastr.success(msg);
+      Toastr.success(msg);
       console.log(msg);
     },
     error: function(msg) {
-      mvToastr.error(msg);
+      Toastr.error(msg);
     }
   };
 });

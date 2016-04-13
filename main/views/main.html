@@ -5,7 +5,7 @@
       <div class="searchInputBox">
         <div class="searchInputSpacer">
           <form ng-submit="searchInputUse()">
-            <input class="input" placeholder="Search by use"></input>
+            <input class="input" placeholder="Search by use" ng-model="typedUse">
           </form>
         </div>
       </div>
@@ -42,6 +42,8 @@
           <div class="zones" ng-repeat="zone in zones">
             <div ng-class="{ 'zoneSelectedToSearch': zoneIsActive(zone) }" ng-click="hardinessZone(zone)" class="circle">{{zone}}</div>
           </div>
+
+
         </div>
       </div>
     </div>

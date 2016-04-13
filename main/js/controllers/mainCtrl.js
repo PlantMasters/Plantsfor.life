@@ -1,4 +1,4 @@
-angular.module('plantMasters').controller('mainCtrl', function($scope) {
+angular.module('plantMasters').controller('mainCtrl', function($scope, $window) {
 
   $window.navigator.geolocation.getCurrentPosition(function(position) {
     var location = [ position.coords.latitude, position.coords.longitude ]
@@ -6,8 +6,9 @@ angular.module('plantMasters').controller('mainCtrl', function($scope) {
     $scope.$apply(function () {
       $scope.coordinates = location;
     });
-    
-   $scope.medicalUses = ["Band Aids", "Blood Thinner", "Blood Clotter", "Anti-Inflametory", "Fever Reducer"];
+  })
+
+   $scope.medicalUses = ["Band Aids", "Blood Thinner", "Blood Clotter", "Anti-Inflammatory", "Fever Reducer"];
    $scope.edibleUses = ["Preservative", "Fiber", "Vitamin C", "Great in Pies"];
    $scope.otherUses = ["Insecticide", "Oil", "Paint", "Wood", "Microscope", "Waterproofing"];
    $scope.zones = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
@@ -16,6 +17,10 @@ angular.module('plantMasters').controller('mainCtrl', function($scope) {
        console.log($scope.typedUse);
        //send typed use to backend and return plants with that use;
    }
+   $scope.medicalShow = true;
+   $scope.edibleShow = true;
+   $scope.otherShow = true;
+   $scope.hardinessShow = true;
    $scope.show = true;
    $scope.toggleShow = function() {
        if ($scope.show) {
@@ -138,7 +143,7 @@ angular.module('plantMasters').controller('mainCtrl', function($scope) {
        for (var i = 0; i < $scope.otherSelected.length; i++) {
            if ($scope.otherSelected[i] === use) {
                found = true;
-               $scope.otherSelected.splice($scope.otherSelected[i], 1);
+               $scope.otherSelected.splice(i, 1);
                console.log($scope.otherSelected);
            }
        }

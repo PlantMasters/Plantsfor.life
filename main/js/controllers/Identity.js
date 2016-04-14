@@ -1,4 +1,4 @@
-angular.module('plantMasters').factory('Identity', function() {
+angular.module('plantMasters').factory('Identity', function($window) {
   var currentUser;
   var test= 'THIS IS A TEST';
   if(!!$window.bootstrappedUserObject) {

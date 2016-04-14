@@ -21,7 +21,7 @@
 	        <li><a href="/feedback">Feedback</a></li>
 	      </ul>
 				<div ng-controller="NavBarLoginCtrl" class="navbar-right">
-				  <form ng-if="!identity.isAuthenticated()" class="navbar-form">
+				  <form ng-if="!bootstrappedUser" class="navbar-form">
 				    <ul class="nav navbar-nav">
 				      <div class="form-group"><a href="/signup" class="btn btn-link">Register</a></div>
 				    </ul>
@@ -33,8 +33,9 @@
 				    </div>
 				    <button ng-click="signin(username, password)" class="btn btn-primary">Sign In </button>
 				  </form>
-				  <ul ng-if="identity.isAuthenticated()" class="nav navbar-nav navbar-right">
-				    <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"> {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}<strong class="caret"></strong></a>
+				  <!-- <ul ng-if="identity.isAuthenticated()" class="nav navbar-nav navbar-right"> -->
+				  <ul ng-if="bootstrappedUser" class="nav navbar-nav navbar-right">
+				    <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"> {{bootstrappedUser.firstName + " " + bootstrappedUser.lastName}}<strong class="caret"></strong></a>
 				      <ul class="dropdown-menu">
 				        <li ng-if="identity.currentUser.isAdmin()"><a href="/admin/users">User Admin</a></li>
 				        <li><a href="/profile">Profile</a></li>

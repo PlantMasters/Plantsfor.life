@@ -1,4 +1,4 @@
-angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, Identity, mvNotifier, Auth, $location, $window) {
+angular.module('plantMasters').controller('NavBarLoginCtrl', function($http, $scope, Identity, mvNotifier, Auth, $location, $window) {
   $scope.identity = Identity;
   console.log(Identity);
 
@@ -6,6 +6,7 @@ angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, Id
     Auth.authenticateUser(username, password).then(function(success) {
       if (success) {
         mvNotifier.notify('You have successfully signed in!');
+        window.location.reload();
       } else {
         mvNotifier.error('Username/Password combination incorrect');
       }
@@ -18,12 +19,24 @@ angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, Id
       $scope.password = "";
       mvNotifier.notify('You have successfully logged out!');
       $location.path('/');
+      window.location.reload();
     });
   };
+  var userCall = function() {
+    $http.get('/bootstrappedUser').success(function(data, status, headers, config) {
+        $scope.bootstrappedUser = data;
+        console.log(data);
+    }).catch(function (err){
+      $scope.bootstrappedUser = undefined;
+      console.log("ERROR!!!!");
+    })
+  };
+  userCall();
 
-  if(!!$window.bootstrappedUserObject) {
-    currentUser = new User();
-    angular.extend(currentUser, $window.bootstrappedUserObject);
-  }
+  //this does nothing!!!>??
+  // if(!!$window.bootstrappedUserObject) {
+  //   currentUser = new User();
+  //   angular.extend(currentUser, $window.bootstrappedUserObject);
+  // }
 
 });

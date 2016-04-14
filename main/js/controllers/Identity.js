@@ -1,16 +1,16 @@
-angular.module('plantMasters').factory('Identity', function($http) {
+angular.module('plantMasters').factory('Identity', function() {
   var currentUser;
 
-  var userCall = function() {
-    $http.get('/bootstrappedUser').success(function(data, status, headers, config) {
-        currentUser = data;
-        console.log(data);
-    }).catch(function (err){
-      currentUser = undefined;
-      console.log("ERROR!!!!");
-    })
-  };
-  userCall();
+  // var userCall = function() {
+  //   $http.get('/bootstrappedUser').success(function(data, status, headers, config) {
+  //       currentUser = data;
+  //       console.log(data);
+  //   }).catch(function (err){
+  //     currentUser = undefined;
+  //     console.log("ERROR!!!!");
+  //   })
+  // };
+  // userCall();
 
   return {
     currentUser: currentUser,

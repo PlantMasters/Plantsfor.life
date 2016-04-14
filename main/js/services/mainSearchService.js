@@ -1,5 +1,6 @@
-angular.module('plantMasters').service('mainSearchService', function($http, $q) {
-    this.currentHardinessZones = [];
+angular.module('plantMasters').service('mainSearchService', function($http, $q, $rootScope) {
+    this.currentHardinessZones = ['1', '2'];
+    $rootScope.plants = this.currentHardinessZones;
     this.manageCurrentZones = function(aNum) {
         var found = false
         for (var i = 0; i < this.currentHardinessZones.length; i++) {
@@ -52,4 +53,11 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q) 
            this.otherSelected.push(use);
        }
    };
+   
+//    this.findPlants = function() {
+//        return $http({
+//            method: 'GET',
+//            url: '/findPlants/' + 
+//        })
+//    }
 })

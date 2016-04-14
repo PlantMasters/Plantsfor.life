@@ -2,6 +2,7 @@ var auth = require('./auth.js'),
   users = require('./users'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
+  Plants = require('../schemas/plant');
 
 module.exports = function(app) {
 
@@ -25,4 +26,40 @@ module.exports = function(app) {
       bootstrappedUser: req.user
     });
   });
+  
+  
+  
+  // /plants?zone=5&medical=[]&edible=[]&other=[]
+  app.put('/plants', function(req, res, next) {
+      //req.body = []
+      var plantsArray = []
+      Plants.find({'uses.other': {$in: req.body.other}}, function(err, plants) {
+          if (err) {
+              res.status(500).send(err);
+          }
+          else {
+              plantsArray.push(plants);
+              Plants.find({'uses.medical': {$in: req.body.medical}}, function(err, medicalPlants) {
+                    if (err) {
+                        res.status(500).send(err);
+                    }
+                    else {
+                        plantsArray.push(medicalPlants);
+                        //console.log(plants);
+                        res.send(plantsArray);
+                    }
+                })
+          }
+          
+      })
+    //   Plants.find({'uses.medical': {$in: req.body.medical}}, function(err, plants) {
+    //       if (err) {
+    //           res.status(500).send(err);
+    //       }
+    //       else {
+    //           plantsArray.push(plants);
+    //           console.log(plants);
+    //       }
+    //   })
+  })
 };

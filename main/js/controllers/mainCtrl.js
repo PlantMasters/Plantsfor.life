@@ -10,8 +10,8 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window, 
 
    $scope.medicalUses = ["Alternative Medicine", "Bacteria/Viruses/Fungi/Parasites", "Bites/Stings", "Bones", "Bowels/Bladder",
  "Cancer", "Chest/Lungs", "Ear/Nose/Throat/Eyes", "Fevers", "General Well Being", "Heart/Blood", "Infectious Diseases", "Liver/Kidneys", "Nerves/Muscles", "Other", "Pain Relief", "Sex/Reproduction", "Skin/Hands/Feet", "Stomach", "Wounds/Bruises", "Whole Body"];
-   $scope.edibleUses = ["Chocolate", "Coffee", "Coloring", "Condiment", "Curdling", "Drink", "Egg", "Gelatine", "Gum", "Milk", "Oil", "Pectin", "Rutin", "Salt", "Stabilizer", "Sweetener", "Tea"];
    $scope.otherUses = ["Building", "Clothing", "Dyes/Paints/Ink/Paper", "Fertilizers", "Fire/Lighting", "Bathroom", "Garden", "Home", "Kitchen", "Other", "Pesticides", "Woodwork/Crafts"];
+   $scope.edibleUses = ["Chocolate", "Coffee", "Coloring", "Condiment", "Curdling", "Drink", "Egg", "Gelatine", "Gum", "Milk", "Oil", "Pectin", "Rutin", "Salt", "Stabilizer", "Sweetener", "Tea"];
    $scope.zones = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
    $scope.typedUse;
    $scope.searchInputUse = function() {

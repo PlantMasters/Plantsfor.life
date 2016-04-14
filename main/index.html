@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="./styles/normalize.css"/>
 	<link rel="stylesheet" type="text/css" href="./styles/skeleton.css"/>
 	<link rel="stylesheet" type="text/css" href="./styles/styles.css"/>
-    <link rel="stylesheet" type="text/css" href="./vendor/toastr/toastr.css"/>
+  <link rel="stylesheet" type="text/css" href="./vendor/toastr/toastr.css"/>
 	<title>Plant Master</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 	        <li><a href="/feedback">Feedback</a></li>
 	      </ul>
 				<div ng-controller="NavBarLoginCtrl" class="navbar-right">
-				  <form ng-hide="identity.isAuthenticated()" class="navbar-form">
+				  <form ng-if="!identity.isAuthenticated()" class="navbar-form">
 				    <ul class="nav navbar-nav">
 				      <div class="form-group"><a href="/signup" class="btn btn-link">Register</a></div>
 				    </ul>
@@ -33,10 +33,10 @@
 				    </div>
 				    <button ng-click="signin(username, password)" class="btn btn-primary">Sign In </button>
 				  </form>
-				  <ul ng-show="identity.isAuthenticated()" class="nav navbar-nav navbar-right">
+				  <ul ng-if="identity.isAuthenticated()" class="nav navbar-nav navbar-right">
 				    <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"> {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}<strong class="caret"></strong></a>
 				      <ul class="dropdown-menu">
-				        <li ng-show="identity.currentUser.isAdmin()"><a href="/admin/users">User Admin</a></li>
+				        <li ng-if="identity.currentUser.isAdmin()"><a href="/admin/users">User Admin</a></li>
 				        <li><a href="/profile">Profile</a></li>
 				        <li><a href="" ng-click="signout()">Sign Out</a></li>
 				      </ul>
@@ -52,6 +52,7 @@
     <script src="./vendor/angular/angular.js"></script>
 		<script src="./vendor/angular-resource/angular-resource.js"></script>
     <script src="./vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./vendor/jquery/dist/jquery.js"></script>
     <script src="./vendor/toastr/toastr.js"></script>
 	<script src="./scripts/all.min.js"></script>
 </body>

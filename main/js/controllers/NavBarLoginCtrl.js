@@ -1,12 +1,12 @@
 angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, $http, Identity, mvNotifier, Auth, $location) {
-  $scope.identity = Identity;
   console.log("someone loves me?");
+  $scope.identity = Identity;
   $scope.signin = function(username, password) {
     Auth.authenticateUser(username, password).then(function(success) {
       if (success) {
         mvNotifier.notify('You have successfully signed in!');
       } else {
-        mvNotifier.notify('Username/Password combination incorrect');
+        mvNotifier.error('Username/Password combination incorrect');
       }
     });
   };

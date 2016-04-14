@@ -6,5 +6,5 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, mainSe
         console.log('WATCHING');
         console.log($rootScope.plants);
     })
-    
+
 })

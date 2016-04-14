@@ -5,7 +5,7 @@
 
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-let Uses  = new Schema({
+let Uses = new Schema({
     "medical": {
         type: Array,
         default: []
@@ -67,7 +67,13 @@ let plant = new Schema({
     "propagation": {
         type: String
     },
-    "uses": [Uses]
+    "uses": [Uses],
+    "zone": {
+        type: Number
+    },
+    "size": {
+        type: Array
+    }
 });
 
 //noinspection JSUnresolvedFunction

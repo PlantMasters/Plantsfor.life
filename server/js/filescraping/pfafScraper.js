@@ -112,6 +112,18 @@ let searchForTerms = (text) => {
                 case 8:
                     temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     ret.characteristics = temp.match(/(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim();
+                    if (ret.characteristics.match(/growing to(.*\dm)/)) {
+                        temp = ret.characteristics.match(/growing to(.*\dm)/)[1].trim();
+                        temp = temp.split("m");
+                        ret.size = [];
+                        let size = temp.length == 3 ? 2 : 1;
+                        for (let j = 0; j < size; j++) {
+                            ret.size.push(temp[j].match(/(\b\d[\d,.]*\b)/)[1]);
+                        }
+                    }
+                    if (ret.characteristics.match(/zone(.\d)/)) {
+                        ret.zone = ret.characteristics.match(/zone(.\d)/)[1];
+                    }
                     break;
                 //possible locations
                 case 9:
@@ -151,7 +163,7 @@ let searchForTerms = (text) => {
                     ret.cultivation = String(temp.match(/(.*?)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;
                 //propagation
-                case 14:
+                case 14:git 
                     temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     ret.propagation = String(temp.match(/(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;
@@ -160,6 +172,12 @@ let searchForTerms = (text) => {
             //once we've found all data we care about
             if (termCount >= searchTerms.length) {
                 //write data to file
+                for (let obj in ret) {
+                    if (typeof ret[obj] === "string") {
+                        ret[obj] = ret[obj].replace(/(\[.*?])/g, "").replace(/(.*[a-z];.*?\.)/, "").replace(/\b(\w+)\b\.+\b\1\b/, "$1").trim();
+                        ret[obj] = ret[obj].replace(/\.([a-zA-Z])/g, ". $1").replace(/(  )/g, " ");
+                    }
+                }
                 dh.postPlant(ret);
                 break;
             }

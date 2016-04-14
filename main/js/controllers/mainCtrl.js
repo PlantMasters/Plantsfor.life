@@ -1,4 +1,4 @@
-angular.module('plantMasters').controller('mainCtrl', function($scope, $window) {
+angular.module('plantMasters').controller('mainCtrl', function($scope, $window, mainSearchService) {
 
   $window.navigator.geolocation.getCurrentPosition(function(position) {
     var location = [ position.coords.latitude, position.coords.longitude ]
@@ -6,7 +6,7 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window) 
     $scope.$apply(function () {
       $scope.coordinates = location;
     });
-  })
+  });
 
    $scope.medicalUses = ["Band Aids", "Blood Thinner", "Blood Clotter", "Anti-Inflammatory", "Fever Reducer"];
    $scope.edibleUses = ["Preservative", "Fiber", "Vitamin C", "Great in Pies"];
@@ -21,74 +21,32 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window) 
    $scope.edibleShow = true;
    $scope.otherShow = true;
    $scope.hardinessShow = true;
-   $scope.show = true;
-   $scope.toggleShow = function() {
-       if ($scope.show) {
-           $scope.show = false;
-       }
-       else {
-           $scope.show = true;
-       }
-   }
 
    //zone array to send with uses to the backend and retrieve plants
-   $scope.currentHardinessZone = [];
-
+   $scope.currentHardinessZone = mainSearchService.currentHardinessZones;
    //function that manages the zones array and then invokes a function that will send zones and uses to backend
    $scope.hardinessZone = function(aNum) {
-       var found = false
-       for (var i = 0; i < $scope.currentHardinessZone.length; i++) {
-           if ($scope.currentHardinessZone[i] === aNum) {
-               found = true;
-               $scope.currentHardinessZone.splice(i, 1);
-               console.log($scope.currentHardinessZone);
-           }
-       }
-       if (!found) {
-           $scope.currentHardinessZone.push(aNum);
-       }
-       console.log($scope.currentHardinessZone);
-       //invoke function here
+       mainSearchService.manageCurrentZones(aNum);
    }
-
     //function that returns true or false to toggle green color on front end
    $scope.zoneIsActive = function(zone) {
-       var foundUse = false;
-    //    console.log("THIS IS MY ZONE");
-    //    console.log(zone);
-       for (var i = 0; i < $scope.currentHardinessZone.length; i++) {
-         if ($scope.currentHardinessZone[i] === zone) {
-             //console.log('one');
-             //console.log ($scope.currentHardinessZone[i]);
-             return true
-         }
-       }
-       if (!foundUse) {
-           return false
-       }
-   }
-
-
+        var foundUse = false;
+        for (var i = 0; i < $scope.currentHardinessZone.length; i++) {
+            if ($scope.currentHardinessZone[i] === zone) {
+                return true
+            }
+        }
+        if (!foundUse) {
+            return false
+        }
+    };
+   
    //medical uses array
-   $scope.medicalSelected = [];
-
+   $scope.medicalSelected = mainSearchService.medicalSelected;
    //function that manages medical uses array and then invokes a function that will send zones and uses to backend
    $scope.medicalSelect = function(use) {
-       console.log(use);
-       var found = false;
-       for (var i = 0; i < $scope.medicalSelected.length; i++) {
-           if ($scope.medicalSelected[i] === use) {
-               found = true;
-               $scope.medicalSelected.splice(i, 1);
-               console.log($scope.medicalSelected);
-           }
-       }
-       if (!found) {
-           $scope.medicalSelected.push(use);
-       }
-       console.log($scope.medicalSelected);
+       mainSearchService.manageMedicalSelected(use);
    }
-
    //function that returns true or false to toggle green color on front end
    $scope.medicalIsActive = function(use) {
        var foundUse = false;
@@ -103,24 +61,11 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window) 
    }
 
    //edible uses array
-   $scope.edibleSelected = [];
-
+   $scope.edibleSelected = mainSearchService.edibleSelected;
    //function that manages edible uses array and then invokes a function that will send zones and uses to backend
    $scope.edibleSelect = function(use) {
-       var found = false;
-       for (var i = 0; i < $scope.edibleSelected.length; i++) {
-           if ($scope.edibleSelected[i] === use) {
-               found = true;
-               $scope.edibleSelected.splice(i, 1);
-               console.log($scope.edibleSelected);
-           }
-       }
-       if (!found) {
-           $scope.edibleSelected.push(use);
-       }
-       console.log($scope.edibleSelected);
+        mainSearchService.manageEdibleSelect(use);
    }
-
    //function that returns true or false to toggle green color on front end
    $scope.edibleIsActive = function(use) {
        var foundUse = false;
@@ -135,24 +80,11 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window) 
    }
 
    //other uses array
-   $scope.otherSelected = [];
-
+   $scope.otherSelected = mainSearchService.otherSelected;
    //function that manages other uses array and then invokes a function that will send zones and uses to backend
    $scope.otherSelect = function(use) {
-       var found = false;
-       for (var i = 0; i < $scope.otherSelected.length; i++) {
-           if ($scope.otherSelected[i] === use) {
-               found = true;
-               $scope.otherSelected.splice(i, 1);
-               console.log($scope.otherSelected);
-           }
-       }
-       if (!found) {
-           $scope.otherSelected.push(use);
-       }
-       console.log($scope.otherSelected);
+       mainSearchService.manageOtherSelect(use);
    }
-
    //function that returns true or false to toggle green color on front end
    $scope.otherIsActive = function(use) {
        var foundUse = false;
@@ -166,3 +98,5 @@ angular.module('plantMasters').controller('mainCtrl', function($scope, $window) 
        }
    }
 })
+
+

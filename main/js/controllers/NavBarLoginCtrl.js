@@ -1,6 +1,7 @@
-angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, $http, Identity, mvNotifier, Auth, $location) {
-  console.log("someone loves me?");
+angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, Identity, mvNotifier, Auth, $location, $window) {
   $scope.identity = Identity;
+  console.log(Identity);
+
   $scope.signin = function(username, password) {
     Auth.authenticateUser(username, password).then(function(success) {
       if (success) {
@@ -19,7 +20,10 @@ angular.module('plantMasters').controller('NavBarLoginCtrl', function($scope, $h
       $location.path('/');
     });
   };
-  $http.get('/bootstrappedUser').success(function(data, status, headers, config) {
-      $scope.bootstrappedUser = data;
-  });
+
+  if(!!$window.bootstrappedUserObject) {
+    currentUser = new User();
+    angular.extend(currentUser, $window.bootstrappedUserObject);
+  }
+
 });

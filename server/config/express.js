@@ -1,4 +1,5 @@
 var express = require('express'),
+  logger = require('morgan'),
   bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
   session = require('express-session'),
@@ -10,6 +11,7 @@ module.exports = function(app, config) {
   app.set('views', config.rootPath + '/public');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
+  app.use(logger('dev'));
   app.use(cookieParser());
   app.use(bodyParser.json());
   app.use(session({secret: misspell.secret, resave:false, saveUninitialized:false}));
@@ -18,10 +20,4 @@ module.exports = function(app, config) {
   app.use(express.static(config.rootPath + '/public'));
 
   //End of Configuration Section
-  app.get('/bootstrappedUser', function(req, res) {
-      if (req.user)
-          res.json(req.user);
-      else
-          res.status(401).end();
-  });
 };

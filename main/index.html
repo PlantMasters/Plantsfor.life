@@ -33,7 +33,7 @@
                         <form ng-if="!identity.currentUser._id" class="navbar-form">
                             <ul class="nav navbar-nav">
                                 <div class="form-group">
-                                    <a href="/signup" class="btn btn-link">Register</a>
+                                    <a ui-sref="signup" class="btn btn-link">Register</a>
                                 </div>
                             </ul>
                             <div class="form-group">
@@ -52,11 +52,11 @@
                                     <strong class="caret"></strong>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li ng-if="identity.currentUser.isAdmin()">
+                                    <!-- <li ng-if="identity.currentUser.isAdmin()">
                                         <a href="/admin/users">User Admin</a>
-                                    </li>
+                                    </li> -->
                                     <li>
-                                        <a href="/profile">Profile</a>
+                                        <a ui-sref="profile">Profile</a>
                                     </li>
                                     <li>
                                         <a href="" ng-click="signout()">Sign Out</a>

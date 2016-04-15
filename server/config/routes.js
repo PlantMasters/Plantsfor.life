@@ -30,46 +30,68 @@ module.exports = function(app) {
   
   // /plants?zone=5&medical=[]&edible=[]&other=[]
   app.put('/plants', function(req, res, next) {
+      console.log('REQ.BODY');
+      console.log(req.body);
       var plantsArray = [];
-      var zonePlus = 4;
-      if(Number(req.body.zone)>8){
-          zonePlus = 12-req.body.zone;
-      }
-      Plants.find({$and: [{'uses.other': {$in: req.body.other}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err0, plants) {
-          if (err0) {
-             res.status(500).send(err);
-          }
-          else {
-             plantsArray.push(plants);
-              Plants.find({$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err1, medicalPlants) {
-                    if (err1) {
-                        res.status(500).send(err);
-                    }
-                    else {
-                        plantsArray.push(medicalPlants);
-                        Plants.find({$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err2, ediblePlants) {
-                            if (err2) {
-                                res.status(500).send(err2);
-                            }
-                            else {
-                                plantsArray.push(ediblePlants);
-                                res.send(plantsArray);
-                            }
-                        })
-                    }
-                })
-          }
-      })
+      
+      
+      if (req.body.zone) {
+        
+        Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, function(err0, plants) {
+            if (err0) {
+                res.status(500).send(err0);
+            } else {
+                plantsArray.push(plants);
+                console.log(plantsArray);
+                console.log(plantsArray.length);
+                res.send(plantsArray);
+            }
+            
+        })
+        //console.log(plantsArray);
+         //res.send(plantsArray);
+      } 
+    //   else {
+    //       Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, function(err0, plants) {
+    //         if (err0) {
+    //             res.status(500).send(err0);
+    //         } else {
+    //             plantsArray.push(plants);
+    //             console.log(plantsArray);
+    //             console.log(plantsArray.length);
+    //             res.send(plantsArray);
+    //         }
+            
+    //     })
+          
+    //     //   Plants.find({'uses.other': {$in: req.body.other}}, function(err0, plants) {
+    //     //     if (err0) {
+    //     //         res.status(500).send(err0);
+    //     //     }
+    //     //     else {
+    //     //         plantsArray.push(plants);
+    //     //         Plants.find({'uses.medical': {$in: req.body.medical}}, function(err1, medicalPlants) {
+    //     //                 if (err1) {
+    //     //                     res.status(500).send(err1);
+    //     //                 }
+    //     //                 else {
+    //     //                     plantsArray.push(medicalPlants);
+    //     //                     Plants.find({'uses.edible': {$in: req.body.edible}}, function(err2, ediblePlants) {
+    //     //                         if (err2) {
+    //     //                             res.status(500).send(err2);
+    //     //                         }
+    //     //                         else {
+    //     //                             plantsArray.push(ediblePlants);
+    //     //                             res.send(plantsArray);
+    //     //                         }
+    //     //                     })
+    //     //                 }
+    //     //             })
+    //     //     }
+    //     // })
+    //   }
   }) 
       
-    //   Plants.find({'uses.medical': {$in: req.body.medical}}, function(err, plants) {
-    //       if (err) {
-    //           res.status(500).send(err);
-    //       }
-    //       else {
-    //           plantsArray.push(plants);
-    //           console.log(plants);
-    //       }
-    //   })
+    
 
 }

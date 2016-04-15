@@ -9,7 +9,7 @@ angular.module('plantMasters', ['ngResource', 'ui.router'])
         return Auth.authorizeAuthenticatedUserForRoute()
       }
     }
-  }
+  };
   $stateProvider
     .state('main', {
       url: '/',
@@ -34,7 +34,7 @@ angular.module('plantMasters', ['ngResource', 'ui.router'])
       templateUrl: 'views/profile.html',
       controller: 'ProfileCtrl',
       resolve: routeRoleChecks.user
-    })
+    });
 
   $urlRouterProvider.otherwise('/');
-})
+});

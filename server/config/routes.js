@@ -27,31 +27,42 @@ module.exports = function(app) {
     });
   });
   
-  
+
   
   // /plants?zone=5&medical=[]&edible=[]&other=[]
   app.put('/plants', function(req, res, next) {
-      //req.body = []
-      var plantsArray = []
-      Plants.find({'uses.other': {$in: req.body.other}}, function(err, plants) {
-          if (err) {
-              res.status(500).send(err);
+      var plantsArray = [];
+      var zonePlus = 4;
+      if(Number(req.body.zone)>8){
+          zonePlus = 12-req.body.zone;
+      }
+      Plants.find({$and: [{'uses.other': {$in: req.body.other}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err0, plants) {
+          if (err0) {
+             res.status(500).send(err);
           }
           else {
-              plantsArray.push(plants);
-              Plants.find({'uses.medical': {$in: req.body.medical}}, function(err, medicalPlants) {
-                    if (err) {
+             plantsArray.push(plants);
+              Plants.find({$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err1, medicalPlants) {
+                    if (err1) {
                         res.status(500).send(err);
                     }
                     else {
                         plantsArray.push(medicalPlants);
-                        //console.log(plants);
-                        res.send(plantsArray);
+                        Plants.find({$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': {$gte: req.body.zone, $lte: (Number(req.body.zone) + zonePlus)}}]}, function(err2, ediblePlants) {
+                            if (err2) {
+                                res.status(500).send(err2);
+                            }
+                            else {
+                                plantsArray.push(ediblePlants);
+                                res.send(plantsArray);
+                            }
+                        })
                     }
                 })
           }
-          
       })
+  }) 
+      
     //   Plants.find({'uses.medical': {$in: req.body.medical}}, function(err, plants) {
     //       if (err) {
     //           res.status(500).send(err);
@@ -61,5 +72,5 @@ module.exports = function(app) {
     //           console.log(plants);
     //       }
     //   })
-  })
-};
+
+}

@@ -1,20 +1,40 @@
-angular.module('plantMasters', ['ngResource','ui.router'])
+angular.module('plantMasters', ['ngResource', 'ui.router'])
+
+
 
 .config(function($urlRouterProvider, $stateProvider) {
-    $stateProvider
-        .state('main', {
-            url:'/',
-            views: {
-                'search': {
-                    templateUrl: 'views/main.html',
-                    controller: 'mainCtrl'
-                },
-                'results': {
-                    templateUrl: 'views/results.html',
-                    controller: 'resultsCtrl'
-                }
-            }
-        })
+  var routeRoleChecks = {
+    user: {
+      auth: function(Auth) {
+        return Auth.authorizeAuthenticatedUserForRoute()
+      }
+    }
+  }
+  $stateProvider
+    .state('main', {
+      url: '/',
+      views: {
+        'search': {
+          templateUrl: 'views/main.html',
+          controller: 'mainCtrl'
+        },
+        'results': {
+          templateUrl: 'views/results.html',
+          controller: 'resultsCtrl'
+        }
+      }
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'views/signup.html',
+      controller: 'SignupCtrl'
+    })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'views/profile.html',
+      controller: 'ProfileCtrl',
+      resolve: routeRoleChecks.user
+    })
 
-        $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/');
 })

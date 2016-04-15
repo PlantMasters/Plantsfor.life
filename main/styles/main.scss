@@ -5,31 +5,35 @@ body {
   background-color: #eee;
   margin: 0;
 }
+
 a, a:link, a:visited, a:hover, a:active {
   color: #434644;
   text-decoration: none;
 }
 
-nav{
-  padding:5px;
+nav {
+  padding: 5px;
   display: inline-block;
   list-style: none;
-  width:100%;
-  height:40px;
+  width: 97vw;
+  height: 40px;
 }
-.nav-link{
+
+.nav-link {
   display: inline-block;
   //float: left;
   font-size: 20px;
   vertical-align: middle;
   padding-left: 5px;
-  padding-right:5px;
+  padding-right: 5px;
 }
 
-.signin{
+
+.signin {
   display: inline-block;
   float: right;
 }
+
 .zones {
   display: inline-block;
 }
@@ -56,7 +60,7 @@ nav{
   content: "";
   display: block;
   width: 85%;
-  margin: 1em auto 0;
+  margin: 20px auto 0;
   border-bottom: 1px solid #bfbfbf;
 }
 
@@ -88,12 +92,14 @@ nav{
 
 .searchTitle {
   font-family: 'Oswald', 'Helvetica', 'Arial', sans-serif;
-  text-align: left;
+  text-align: center;
+  //align-items:center;
   font-size: 1.5em;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
   color: #434644;
+  width: 100%;
 }
 
 .arrow {

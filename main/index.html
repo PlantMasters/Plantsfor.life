@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app="plantMasters" class="html">
-<<<<<<< HEAD
 <head>
     <link rel="stylesheet" type="text/css" href="./styles/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="./styles/skeleton.css"/>
@@ -17,10 +16,10 @@
             <a class="nav-link" ui-sref="app">App</a>
             <a class="nav-link" ui-sref="about">About</a>
             <a class="nav-link" ui-sref="feedback">Feedback</a>
-            <a class="nav-link" ui-sref="signup" ng-if="!identity.currentUser._id">Register</a>
         </div>
         <div ng-controller="NavBarLoginCtrl" class="signin">
             <form ng-if="!identity.currentUser._id" class="">
+                <a class="" ui-sref="signup" ng-if="!identity.currentUser._id">Register</a>
                 <input type="text" placeholder="Username" ng-model="username" class=""/>
                 <input type="password" placeholder="Password" ng-model="password" class=""/>
                 <button ng-click="signin(username, password)" class="">Sign In</button>

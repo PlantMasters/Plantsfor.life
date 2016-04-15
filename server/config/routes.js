@@ -64,31 +64,6 @@ module.exports = function(app) {
             
         })
           
-    //     //   Plants.find({'uses.other': {$in: req.body.other}}, function(err0, plants) {
-    //     //     if (err0) {
-    //     //         res.status(500).send(err0);
-    //     //     }
-    //     //     else {
-    //     //         plantsArray.push(plants);
-    //     //         Plants.find({'uses.medical': {$in: req.body.medical}}, function(err1, medicalPlants) {
-    //     //                 if (err1) {
-    //     //                     res.status(500).send(err1);
-    //     //                 }
-    //     //                 else {
-    //     //                     plantsArray.push(medicalPlants);
-    //     //                     Plants.find({'uses.edible': {$in: req.body.edible}}, function(err2, ediblePlants) {
-    //     //                         if (err2) {
-    //     //                             res.status(500).send(err2);
-    //     //                         }
-    //     //                         else {
-    //     //                             plantsArray.push(ediblePlants);
-    //     //                             res.send(plantsArray);
-    //     //                         }
-    //     //                     })
-    //     //                 }
-    //     //             })
-    //     //     }
-    //     // })
        }
   }) 
       

@@ -20,9 +20,8 @@ module.exports = function(app) {
     res.send(404);
   });
 
-  app.get('*', function(req, res, next) {
-    res.render('index', {
-      bootstrappedUser: req.user
-    });
+  app.get('/bootstrappedUser', function(req, res){
+      if(req.user)
+          res.json(req.user);
   });
 };

@@ -1,4 +1,4 @@
-angular.module('plantMasters', ['ui.router'])
+angular.module('plantMasters', ['ngResource','ui.router'])
 
 .config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
@@ -15,6 +15,6 @@ angular.module('plantMasters', ['ui.router'])
                 }
             }
         })
-        
+
         $urlRouterProvider.otherwise('/');
 })

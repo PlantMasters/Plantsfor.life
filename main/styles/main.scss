@@ -1,6 +1,103 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
 
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?q23mq');
+    src:    url('fonts/icomoon.eot?q23mq#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?q23mq') format('truetype'),
+        url('fonts/icomoon.woff?q23mq') format('woff'),
+        url('fonts/icomoon.svg?q23mq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-garden:before {
+    content: "\e902";
+}
+.icon-greenhouse:before {
+    content: "\e903";
+}
+.icon-tools:before {
+    content: "\e905";
+}
+.icon-wateringcan:before {
+    content: "\e908";
+}
+.icon-carrot:before {
+    content: "\e909";
+}
+.icon-garlic:before {
+    content: "\e90a";
+}
+.icon-potato:before {
+    content: "\e90d";
+}
+.icon-tree:before {
+    content: "\e90e";
+}
+.icon-downarrow:before {
+    content: "\e90f";
+    font-size: .7em;
+    padding-right: 15px;
+}
+
+.icon-loading:before {
+    content: "\e910";
+}
+.icon-rightarrow:before {
+    content: "\e911";
+}
+.icon-info:before {
+    content: "\e912";
+}
+.icon-leaf2:before {
+    content: "\e913";
+}
+.icon-home:before {
+    content: "\e900";
+}
+.icon-droplet:before {
+    content: "\e901";
+}
+.icon-spinner2:before {
+    content: "\e904";
+}
+.icon-leaf:before {
+    content: "\e906";
+}
+.icon-earth:before {
+    content: "\e907";
+}
+.icon-plus:before {
+    content: "\e914";
+}
+.icon-minus:before {
+    content: "\e915";
+}
+.icon-circle-right:before {
+    content: "\e90b";
+}
+.icon-circle-down:before {
+    content: "\e90c";
+}
+
+
 body {
   background-color: #eee;
   margin: 0;
@@ -101,11 +198,10 @@ nav {
 
 .searchTitle {
   font-family: 'Oswald', 'Helvetica', 'Arial', sans-serif;
-  text-align: center;
-  //align-items:center;
+  text-align: left;
+  display: inline-block;
   font-size: 1.5em;
   margin-bottom: 10px;
-  display: inline-block;
   margin-top: 10px;
   color: #434644;
   width: 100%;

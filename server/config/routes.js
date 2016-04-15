@@ -51,18 +51,18 @@ module.exports = function(app) {
         //console.log(plantsArray);
          //res.send(plantsArray);
       } 
-    //   else {
-    //       Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, function(err0, plants) {
-    //         if (err0) {
-    //             res.status(500).send(err0);
-    //         } else {
-    //             plantsArray.push(plants);
-    //             console.log(plantsArray);
-    //             console.log(plantsArray.length);
-    //             res.send(plantsArray);
-    //         }
+      else {
+          Plants.find({$or: [ {'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, function(err0, plants) {
+            if (err0) {
+                res.status(500).send(err0);
+            } else {
+                plantsArray.push(plants);
+                console.log(plantsArray);
+                console.log(plantsArray.length);
+                res.send(plantsArray);
+            }
             
-    //     })
+        })
           
     //     //   Plants.find({'uses.other': {$in: req.body.other}}, function(err0, plants) {
     //     //     if (err0) {
@@ -89,7 +89,7 @@ module.exports = function(app) {
     //     //             })
     //     //     }
     //     // })
-    //   }
+       }
   }) 
       
     

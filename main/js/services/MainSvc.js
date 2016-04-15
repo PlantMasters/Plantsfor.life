@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 angular.module('plantMasters').service('MainSvc', function($http, $q) {
 // 
@@ -15,4 +15,4 @@ angular.module('plantMasters').service('MainSvc', function($http, $q) {
 //   })
 // }
 
-})
+});

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="mainContainer">
 
   <div class="row">
@@ -46,62 +45,6 @@
           </div>
 
 
-=======
-<div class="mainContainer three columns">
-
-    <div class="row">
-
-        <div class="searchContainer">
-            <div class="searchInputBox">
-                <div class="searchInputSpacer">
-                    <form ng-submit="searchInputUse()">
-                        <input class="input" placeholder="Search by use" ng-model="typedUse">
-                    </form>
-                </div>
-            </div>
-            <div class="searchInputBox">
-                <div class="arrow" ng-click="medicalShow = !medicalShow"></div>
-                <p class="searchTitle">Search by Medical Uses</p>
-                <br>
-                <div ng-show="medicalShow" class="usesRepeatCont" ng-repeat="use in medicalUses">
-                    <div ng-click="medicalSelect(use)" class="usesRepeat"
-                         ng-class="{ 'selectedToSearch': medicalIsActive(use) }">{{use}}
-                    </div>
-                </div>
-            </div>
-            <div class="searchInputBox">
-                <div class="arrow" ng-click="edibleShow = !edibleShow"></div>
-                <p class="searchTitle">Search by Edible Uses</p>
-                <br>
-                <div ng-show="edibleShow" class="usesRepeatCont" ng-repeat="use in edibleUses">
-                    <div class="usesRepeat" ng-click="edibleSelect(use)"
-                         ng-class="{ 'selectedToSearch': edibleIsActive(use) }">{{use}}
-                    </div>
-                </div>
-            </div>
-            <div class="searchInputBox">
-                <div class="arrow" ng-click="otherShow = !otherShow"></div>
-                <p class="searchTitle">Search by Other Uses</p>
-                <br>
-                <div ng-show="otherShow" class="usesRepeatCont" ng-repeat="use in otherUses">
-                    <div class="usesRepeat" ng-click="otherSelect(use)"
-                         ng-class="{ 'selectedToSearch': otherIsActive(use) }">{{use}}
-                    </div>
-                </div>
-            </div>
-            <div class="searchInputBox">
-                <div class="arrow" ng-click="hardinessShow = !hardinessShow"></div>
-                <div class="searchTitle">Search by Hardiness Zone</div>
-                <br>
-                <div ng-show="hardinessShow">
-                    <div class="zones" ng-repeat="zone in zones">
-                        <div ng-class="{ 'zoneSelectedToSearch': zoneIsActive(zone) }" ng-click="hardinessZone(zone)"
-                             class="circle">{{zone}}
-                        </div>
-                    </div>
-                </div>
-            </div>
->>>>>>> master
         </div>
     </div>
 </div>

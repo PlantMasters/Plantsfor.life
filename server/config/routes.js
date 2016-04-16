@@ -2,6 +2,7 @@ var auth = require('./auth.js'),
   users = require('./users'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
+  Plants = require('../schemas/plant');
 
 module.exports = function(app) {
 
@@ -24,4 +25,34 @@ module.exports = function(app) {
       if(req.user)
           res.json(req.user);
   });
-};
+  
+
+  
+  // /plants?zone=5&medical=[]&edible=[]&other=[]
+  app.put('/plants', function(req, res, next) {      
+      if (req.body.zone) {
+            Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {}, {limit: 50}, function(err0, plants) {
+                if (err0) {
+                    res.status(500).send(err0);
+                } else {
+                    res.send(plants);
+                }
+                
+            })
+      } 
+      else {
+            Plants.find({$or: [ {'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, {}, {limit: 50}, function(err0, plants) {
+                if (err0) {
+                    res.status(500).send(err0);
+                } else {
+                    res.send(plants);
+                }
+                
+            })
+          
+      }
+  }) 
+      
+    
+
+}

@@ -25,7 +25,7 @@ angular.module('plantMasters').controller('mainCtrl', function ($scope, $window,
     //function that returns true or false to toggle green color on front end
 
   $scope.zoneIsActive = function(zone) {
-      if ($scope.currentHardinessZone === zone) {
+      if (mainSearchService.currentHardinessZones === zone) {
           return true
       } else {
           return false

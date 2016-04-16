@@ -29,37 +29,23 @@ module.exports = function(app) {
 
   
   // /plants?zone=5&medical=[]&edible=[]&other=[]
-  app.put('/plants', function(req, res, next) {
-      console.log('REQ.BODY');
-      console.log(req.body);
-      var plantsArray = [];
-      
-      
+  app.put('/plants', function(req, res, next) {      
       if (req.body.zone) {
-        
             Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {}, {limit: 50}, function(err0, plants) {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
-                    plantsArray.push(plants);
-                    console.log(plantsArray);
-                    console.log(plantsArray.length);
-                    res.send(plantsArray);
+                    res.send(plants);
                 }
                 
             })
-        //console.log(plantsArray);
-         //res.send(plantsArray);
       } 
       else {
             Plants.find({$or: [ {'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, {}, {limit: 50}, function(err0, plants) {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
-                    plantsArray.push(plants);
-                    console.log(plantsArray);
-                    console.log(plantsArray.length);
-                    res.send(plantsArray);
+                    res.send(plants);
                 }
                 
             })

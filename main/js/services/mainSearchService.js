@@ -1,10 +1,16 @@
 angular.module('plantMasters').service('mainSearchService', function($http, $q, $rootScope) {
   this.currentHardinessZones;
-  this.plants = [];
+  $rootScope.plants = [];
   this.manageCurrentZones = function(aNum) {
-      this.currentHardinessZones = aNum
-      console.log(this.currentHardinessZones);
-      this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
+      if (this.currentHardinessZones === aNum) {
+          this.currentHardinessZones = undefined;
+          this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
+      }
+      else {
+        this.currentHardinessZones = aNum
+        console.log(this.currentHardinessZones);
+        this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
+      }
   };
   this.medicalSelected = [];
   this.manageMedicalSelected = function(use) {
@@ -58,9 +64,9 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
              url: '/plants',
              data: {zone: z, other: o, medical: m, edible: e}
          }).then(function(response) {
-             console.log(response.data);
-             //need to push to this.plants
-             
+             $rootScope.plants = response.data;
+             console.log($rootScope.plants);
+             //need to push to this.plants   
          })
      }
 

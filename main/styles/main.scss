@@ -53,7 +53,7 @@
 }
 .icon-downarrow:before {
     content: "\e90f";
-    font-size: .7em;
+    font-size: 16px;
     padding-right: 15px;
 }
 
@@ -62,6 +62,7 @@
 }
 .icon-rightarrow:before {
     content: "\e911";
+    font-size: 26px;
 }
 .icon-info:before {
     content: "\e912";
@@ -92,9 +93,11 @@
 }
 .icon-circle-right:before {
     content: "\e90b";
+    padding-right: 15px;
 }
 .icon-circle-down:before {
     content: "\e90c";
+    padding-right: 15px;
 }
 
 

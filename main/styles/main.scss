@@ -120,17 +120,19 @@ a, a:link, a:visited, a:hover, a:active {
                                   not supported by any browser */
 }
 
+
+
 nav {
   padding: 5px;
   display: inline-block;
   list-style: none;
   width: 97vw;
   height: 40px;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
 }
 
 .nav-link {
   display: inline-block;
-  //float: left;
   font-size: 20px;
   vertical-align: middle;
   padding-left: 5px;
@@ -261,25 +263,23 @@ nav {
   display: inline-block;
   font-size: 2em;
   color: #A5A5A5;
-  //text-align: left;
   border: 1px solid #bfbfbf;
   background-color: #fff;
   -webkit-transition: border-color .5s; /* Safari */
   transition: border-color .5s;
-  padding: 5px 5px 5px 10px;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  padding: 0 5px 10px 5px;
+  margin: 5px;
   width: 40px;
   height: 40px;
   border-radius: 200px;
   text-align: center;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
   font-weight: 100;
-  // line-height: 75px;
+
 }
 
 .circle:hover {
-  border-color: #000;
+  background-color: #C4C4C4;
   -webkit-transition: color .5s; /* Safari */
   transition: color .5s;
   cursor: pointer;

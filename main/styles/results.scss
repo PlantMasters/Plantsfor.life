@@ -4,16 +4,15 @@
 }
 
 .plantsContainer {
-    width: 38%;
-    margin: 40px;
-    vertical-align: top;
-    display: inline-block;
     border: 1px solid #bfbfbf;
     border-radius: 2px;
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: .8em;
     background-color: #f9f9f9;
     padding: 3px 12px 3px 12px;
+    word-wrap: break-word;
+    min-height: 200px;
+    margin: 20px;
 }
 
 .plantName {

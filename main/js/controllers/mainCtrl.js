@@ -102,9 +102,9 @@ angular.module('plantMasters').controller('mainCtrl', function ($scope, $window,
     }
 
     //toggles arrow class
-    $scope.arrowIsActive = false;
-    $scope.activeArrow = function() {
-      $scope.arrowIsActive = !$scope.arrowIsActive;
-    }
+    $scope.medicalArrow = true;
+    $scope.edibleArrow = true;
+    $scope.otherArrow = true;
+    $scope.hardinessArrow = true;
 
 });

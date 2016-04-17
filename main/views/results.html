@@ -1,1 +1,13 @@
-<div class=" nine columns mainContainer">this is a test</div>
+<div class=" nine columns mainContainer resultsContainer">
+    <div class = "plantsContainer" ng-repeat= "plant in plants">
+        <div class= "plantName">{{plant.name}}</div>
+        <div class="plantLatin">{{plant.latin}}</div>
+        Medicinal Rating: {{plant.medicinal}}
+        Edibility: {{plant.edibility}}
+        <div ng-repeat="use in plant.uses">
+            Other: {{use.other}}
+            Edible: {{use.edible}}
+            Medical: {{use.medical}}
+        </div>
+    </div>
+</div>

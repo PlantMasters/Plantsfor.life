@@ -1,0 +1,29 @@
+.resultsContainer {
+    overflow: auto;
+    height: 100vh;
+}
+
+.plantsContainer {
+    width: 38%;
+    margin: 40px;
+    vertical-align: top;
+    display: inline-block;
+    border: 1px solid #bfbfbf;
+    border-radius: 2px;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: .8em;
+    background-color: #f9f9f9;
+    padding: 3px 12px 3px 12px;
+}
+
+.plantName {
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.5em;
+    display: block;
+}
+
+.plantLatin {
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.2em;
+    display: block;
+}

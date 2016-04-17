@@ -23,17 +23,15 @@ angular.module('plantMasters').controller('mainCtrl', function ($scope, $window,
         mainSearchService.manageCurrentZones(aNum);
     };
     //function that returns true or false to toggle green color on front end
-    $scope.zoneIsActive = function (zone) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.currentHardinessZone.length; i++) {
-            if ($scope.currentHardinessZone[i] === zone) {
-                return true
-            }
-        }
-        if (!foundUse) {
-            return false
-        }
-    };
+
+  $scope.zoneIsActive = function(zone) {
+      if (mainSearchService.currentHardinessZones === zone) {
+          return true
+      } else {
+          return false
+      }
+  };
+
 
     //medical uses array
     $scope.medicalSelected = mainSearchService.medicalSelected;

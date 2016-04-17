@@ -1,17 +1,16 @@
 angular.module('plantMasters').service('mainSearchService', function($http, $q, $rootScope) {
-  this.currentHardinessZones = [];
-  $rootScope.plants = this.currentHardinessZones;
+  this.currentHardinessZones;
+  $rootScope.plants = [];
   this.manageCurrentZones = function(aNum) {
-    var found = false
-    for (var i = 0; i < this.currentHardinessZones.length; i++) {
-      if (this.currentHardinessZones[i] === aNum) {
-        found = true;
-        this.currentHardinessZones.splice(i, 1);
+      if (this.currentHardinessZones === aNum) {
+          this.currentHardinessZones = undefined;
+          this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
       }
-    }
-    if (!found) {
-      this.currentHardinessZones.push(aNum);
-    }
+      else {
+        this.currentHardinessZones = aNum
+        console.log(this.currentHardinessZones);
+        this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
+      }
   };
   this.medicalSelected = [];
   this.manageMedicalSelected = function(use) {
@@ -25,7 +24,6 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
     if (!found) {
       this.medicalSelected.push(use);
     }
-    // console.log('Line 28 ' + this.medicalSelected);
   };
   this.edibleSelected = [];
   this.manageEdibleSelect = function(use) {
@@ -34,10 +32,14 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
       if (this.edibleSelected[i] === use) {
         found = true;
         this.edibleSelected.splice(i, 1);
+        console.log(this.edibleSelected);
+        this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected);
       }
     }
     if (!found) {
+        console.log(this.edibleSelected);
       this.edibleSelected.push(use);
+      this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected);
     }
   };
   this.otherSelected = [];
@@ -54,19 +56,26 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
     }
   };
 
-  //    this.findPlants = function() {
-  //        return $http({
-  //            method: 'GET',
-  //            url: '/findPlants/' +
-  //        })
-  //    }
+     this.findPlants = function(z, o, m, e) {
+         console.log('ON MY WAY');
+         console.log(z, o, m, e);
+         return $http({
+             method: 'PUT',
+             url: '/plants',
+             data: {zone: z, other: o, medical: m, edible: e}
+         }).then(function(response) {
+             $rootScope.plants = response.data;
+             console.log($rootScope.plants);
+             //need to push to this.plants   
+         })
+     }
 
 
 
-
-
+this.finalMedicalArrayOuter = [];
   this.addMedicalSpecific = function() {
-    this.finalMedicalArray = [];
+     this.finalMedicalArray = [];
+     this.finalMedicalArrayOuter = this.finalMedicalArray;
 
     var alternativeMed = ['Alternative', 'Aromatherapy', 'Bach', 'Homeopathy'];
     var bacteria = ['Anthelmintic', 'Antibacterial', 'Antibiotic', 'Antifungal', 'Antiviral', 'Parasiticide', 'Vermifuge', 'Warts'];
@@ -199,13 +208,16 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
         }
       }
     }
-    // console.log('Line 201 ' + this.finalMedicalArray);
+     //console.log('Line 201 ' + this.finalMedicalArray);
+     //console.log('OUTER' + this.finalMedicalArrayOuter);
+     this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected);
     return this.finalMedicalArray;
   }
 
-
+  this.finalOtherArrayOuter = [];
   this.addOtherSpecific = function() {
     this.finalOtherArray = [];
+    this.finalOtherArrayOuter = this.finalOtherArray;
 
     var building = ['Insulation', 'Pipes', 'Pitch', 'Plaster', 'Roofing', 'Thatching'];
     var clothing = ['Buttons', 'Darning ball', 'Fibre', 'Latex', 'Leather', 'Needles', 'Pins', 'Raffia', 'Starch', 'Stuffing', 'Tannin', 'Weaving'];
@@ -283,11 +295,13 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
       }
 
     }
-    // console.log('Line 209 ' + this.finalOtherArray);
+    //console.log('Line 209 ' + this.finalOtherArray);
+    //console.log('OUTER OTHER' + this.finalOtherArrayOuter)
+    this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected);
     return this.finalOtherArray;
   }
 
-  //FOUR ARRAYS WE NEED TO SEND TO BACKEND
+    //FOUR ARRAYS WE NEED TO SEND TO BACKEND
   //finalMedicalArray
   //finalOtherArray
   //edibleSelected

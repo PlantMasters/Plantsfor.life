@@ -29,10 +29,10 @@ gulp.task('css', function() {
 gulp.task('javascript', function() {
     gulp.src('./main/js/**/*.js')
         //.pipe(ngAnnotate())
-        // .pipe(uglify())
         .pipe(babel({
             presets: ['es2015']
         }))
+        // .pipe(uglify())
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest('./public/scripts'))
 });

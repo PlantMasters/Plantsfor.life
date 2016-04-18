@@ -1,4 +1,4 @@
-angular.module('plantMasters', ['ngResource', 'ui.router'])
+angular.module('plantMasters', ['ngResource', 'ui.router', 'angularModalService'])
 
 
 

@@ -18,3 +18,26 @@
     font-size: 16px;
     margin-top: 0px;
 }
+
+.forms {
+    display: block;
+    margin: auto;
+    text-align: left;
+    width: 240px;
+}
+
+.signUpInput {
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 240px;
+}
+
+.signUpLabel {
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.cancelButton {
+    float: right;
+}

@@ -1,0 +1,43 @@
+.signUpContainer {
+    display: block;
+    width: 100%
+}
+
+.signUpHeader {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+}
+
+.requiredFields {
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+.forms {
+    display: block;
+    margin: auto;
+    text-align: left;
+    width: 240px;
+}
+
+.signUpInput {
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 240px;
+}
+
+.signUpLabel {
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.cancelButton {
+    float: right;
+}

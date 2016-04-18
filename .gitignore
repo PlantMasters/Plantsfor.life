@@ -7,6 +7,7 @@ data
 *.log
 public/styles
 public/scripts
+public/scripts/all.min.js
 public/views
 public/index.html
 .vscode

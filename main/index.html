@@ -6,23 +6,24 @@
     <link rel="stylesheet" type="text/css" href="./styles/styles.css"/>
     <link rel="stylesheet" type="text/css" href="./vendor/toastr/toastr.css"/>
     <title>Plant Master</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
 <nav class="">
     <div id="navbar" class="">
         <!-- <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img alt="Brand" src="./images/logo2.png" style="width:50px;height:50px" class="inverted"/></a> -->
         <div class="nav-link">
-            <a class="nav-link" ui-sref="main">Home</a>
+            <a class="nav-link" ui-sref="main"><span class="icon-leaf-flipped leaf-home"></span></a>
             <a class="nav-link" ui-sref="app">App</a>
             <a class="nav-link" ui-sref="about">About</a>
             <a class="nav-link" ui-sref="feedback">Feedback</a>
         </div>
         <div ng-controller="NavBarLoginCtrl" class="signin">
             <form ng-if="!identity.currentUser._id" class="">
-                <a class="" ui-sref="signup" ng-if="!identity.currentUser._id">Register</a>
                 <input type="text" placeholder="Username" ng-model="username" class=""/>
                 <input type="password" placeholder="Password" ng-model="password" class=""/>
                 <button ng-click="signin(username, password)" class="">Sign In</button>
+                <button class="register" ui-sref="signup" ng-if="!identity.currentUser._id">Register</button>
             </form>
             <div ng-if="identity.currentUser._id" class="">
                 <a ui-sref="user"  class="">
@@ -45,9 +46,10 @@
         </div>
     </div>
 </nav>
-<ui-view></ui-view>
+
 <div ui-view="search"></div>
 <div ui-view="results"></div>
+
 <script src="./vendor/angular/angular.js"></script>
 <script src="./vendor/angular-resource/angular-resource.js"></script>
 <script src="./vendor/angular-ui-router/release/angular-ui-router.js"></script>

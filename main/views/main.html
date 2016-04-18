@@ -1,3 +1,4 @@
+
 <div class="mainContainer three columns">
 
 
@@ -10,32 +11,28 @@
       </div>
     </div>
     <div class="searchType">
-      <div class="arrow" ng-click="medicalShow = !medicalShow"></div>
-      <div class="searchTitle noselect">Search by Medical Uses</div>
+      <div class="searchTitle noselect"><span ng-class="{'icon-circle-down' : medicalArrow, 'icon-circle-right' : !medicalArrow}" ng-click="medicalArrow = !medicalArrow; medicalShow = !medicalShow"></span>Search by Medical Uses</div>
       <br>
       <div ng-show="medicalShow" class="usesRepeatCont" ng-repeat="use in medicalUses">
         <div ng-click="medicalSelect(use)" class="usesRepeat noselect" ng-class="{ 'selectedToSearch': medicalIsActive(use) }">{{use}}</div>
       </div>
     </div>
     <div class="searchType">
-      <div class="arrow" ng-click="edibleShow = !edibleShow"></div>
-      <div class="searchTitle noselect">Search by Edible Uses</div>
+      <div class="searchTitle noselect"><span ng-class="{'icon-circle-down' : edibleArrow, 'icon-circle-right' : !edibleArrow}" ng-click="edibleArrow = !edibleArrow; edibleShow = !edibleShow"></span>Search by Edible Uses</div>
       <br>
       <div ng-show="edibleShow" class="usesRepeatCont" ng-repeat="use in edibleUses">
         <div class="usesRepeat noselect" ng-click="edibleSelect(use)" ng-class="{ 'selectedToSearch': edibleIsActive(use) }">{{use}}</div>
       </div>
     </div>
     <div class="searchType">
-      <div class="arrow" ng-click="otherShow = !otherShow"></div>
-      <div class="searchTitle noselect">Search by Other Uses</div>
+      <div class="searchTitle noselect"><span ng-class="{'icon-circle-down' : otherArrow, 'icon-circle-right' : !otherArrow}" ng-click="otherArrow = !otherArrow; otherShow = !otherShow"></span>Search by Other Uses</div>
       <br>
       <div ng-show="otherShow" class="usesRepeatCont" ng-repeat="use in otherUses">
         <div class="usesRepeat noselect" ng-click="otherSelect(use)" ng-class="{ 'selectedToSearch': otherIsActive(use) }">{{use}}</div>
       </div>
     </div>
     <div class="searchType">
-      <div class="arrow" ng-click="hardinessShow = !hardinessShow"></div>
-      <div class="searchTitle noselect">Search by Hardiness Zone</div>
+      <div class="searchTitle noselect"><span ng-class="{'icon-circle-down' : hardinessArrow, 'icon-circle-right' : !hardinessArrow}" ng-click="hardinessArrow = !hardinessArrow; hardinessShow = !hardinessShow"></span>Search by Hardiness Zone</div>
       <br>
       <div ng-show="hardinessShow">
         <input type="input" class="input" ng-model="zip" placeholder="Or search by zip code" />

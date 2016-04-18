@@ -1,12 +1,12 @@
-<div class=" nine columns mainContainer resultsContainer">
-    <div class = "plantsContainer" ng-repeat= "plant in plants">
+<div class="resultsContainer nine columns">
+    <div class="plantsContainer five columns offset-by-one" ng-repeat= "plant in plants">
         <div class= "plantName">{{plant.name}}</div>
         <div class="plantLatin">{{plant.latin}}</div>
         Medicinal Rating: {{plant.medicinal}}
         Edibility: {{plant.edibility}}
         <div ng-repeat="use in plant.uses">
-            Other: {{use.other}}
-            Edible: {{use.edible}}
+            Other: {{use.other}}<br/>
+            Edible: {{use.edible}}<br/>
             Medical: {{use.medical}}
         </div>
     </div>

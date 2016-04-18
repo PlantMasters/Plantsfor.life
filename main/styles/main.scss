@@ -114,6 +114,7 @@ nav {
 
 .mainContainer {
   background-color: #fff;
+  min-width: 15%;
 }
 
 .searchContainer {
@@ -262,6 +263,11 @@ nav {
   border-color: #000;
   background-color: #9AB87A;
   color: #fff;
+}
+
+.add-to-garden-results {
+  font-size: 2em;
+  color: #A7C18B; 
 }
 
 //ICONS

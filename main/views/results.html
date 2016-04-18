@@ -1,5 +1,6 @@
 <div class="resultsContainer nine columns">
-    <div class="plantsContainer five columns offset-by-one" ng-repeat="plant in plants">
+
+    <div class="plantsContainer" ng-repeat="plant in plants">
         <div class= "plantName">{{plant.name}}</div>
         <div class="plantLatin">{{plant.latin}}</div>
         Medicinal Rating: {{plant.medicinal}}
@@ -13,6 +14,6 @@
            {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
        </div> -->
         <br/>
-        <button ng-controller="ModalCtrl" ng-click="showCustom()">Show Modal</button>
+        <button ng-click="showCustom(plant)">Show Modal</button>
     </div>
 </div>

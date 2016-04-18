@@ -3,8 +3,8 @@
     <div class="plantsContainer" ng-repeat="plant in plants">
         <div class= "plantName">{{plant.name}}</div>
         <div class="plantLatin">{{plant.latin}}</div>
-        Medicinal Rating: {{plant.medicinal}}
-        Edibility: {{plant.edibility}}
+        <div>Medicinal Rating: {{plant.medicinal}}</div>
+        <div>Edibility: {{plant.edibility}}</div>
         <!-- <div ng-repeat="use in plant.uses">
             Other: {{use.other}}<br/>
             Edible: {{use.edible}}<br/>
@@ -14,6 +14,7 @@
            {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
        </div> -->
         <br/>
-        <button ng-click="showCustom(plant)">Show Modal</button>
+        <span class="icon-plus add-to-garden-results" ng-click=""></span>
+        <button class="modal-button" ng-click="showCustom(plant)">More Info</button>
     </div>
 </div>

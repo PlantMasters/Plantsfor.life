@@ -27,78 +27,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-garden:before {
-    content: "\e902";
-}
-.icon-greenhouse:before {
-    content: "\e903";
-}
-.icon-tools:before {
-    content: "\e905";
-}
-.icon-wateringcan:before {
-    content: "\e908";
-}
-.icon-carrot:before {
-    content: "\e909";
-}
-.icon-garlic:before {
-    content: "\e90a";
-}
-.icon-potato:before {
-    content: "\e90d";
-}
-.icon-tree:before {
-    content: "\e90e";
-}
-.icon-downarrow:before {
-    content: "\e90f";
-    font-size: 16px;
-    padding-right: 15px;
-}
-
-.icon-loading:before {
-    content: "\e910";
-}
-.icon-rightarrow:before {
-    content: "\e911";
-    font-size: 26px;
-}
-.icon-info:before {
-    content: "\e912";
-}
-.icon-leaf2:before {
-    content: "\e913";
-}
-.icon-home:before {
-    content: "\e900";
-}
-.icon-droplet:before {
-    content: "\e901";
-}
-.icon-spinner2:before {
-    content: "\e904";
-}
-.icon-leaf:before {
-    content: "\e906";
-}
-.icon-earth:before {
-    content: "\e907";
-}
-.icon-plus:before {
-    content: "\e914";
-}
-.icon-minus:before {
-    content: "\e915";
-}
-.icon-circle-right:before {
-    content: "\e90b";
-    padding-right: 15px;
-}
-.icon-circle-down:before {
-    content: "\e90c";
-    padding-right: 15px;
-}
 
 
 body {
@@ -121,14 +49,21 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 
-
 nav {
   padding: 5px;
   display: inline-block;
   list-style: none;
-  width: 97vw;
+  width: 100vw;
   height: 40px;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+#navbar a:hover {
+  color: #c2cc72;
 }
 
 .nav-link {
@@ -139,11 +74,24 @@ nav {
   padding-right: 5px;
 }
 
+.leaf-home {
+  font-size: 2em;
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+}
 
 .signin {
   display: inline-block;
   float: right;
+  padding-right: 40px;
 }
+
+.signin input {
+  margin-right: 10px;
+}
+
 
 .zones {
   display: inline-block;
@@ -156,6 +104,8 @@ nav {
 .searchContainer {
   overflow: auto;
   height: 100vh;
+  float: left;
+  margin-top: 40px;
 }
 
 .searchInputBox {
@@ -246,12 +196,11 @@ nav {
 }
 
 .usesRepeat:after {
-  background-color: #80C242;
+  background-color: #c2cc72;
 }
 
 .selectedToSearch {
-  //background-color: #31B746;
-  background-color: #27AE60;
+  background-color: #c2cc72;
   color: #fff;
 }
 
@@ -291,8 +240,85 @@ nav {
 
 .zoneSelectedToSearch {
   border-color: #000;
-  background-color: #27AE60;
+  background-color: #A0C55F;
   color: #fff;
+}
+
+//ICONS
+.icon-garden:before {
+    content: "\e902";
+}
+.icon-greenhouse:before {
+    content: "\e903";
+}
+.icon-tools:before {
+    content: "\e905";
+}
+.icon-wateringcan:before {
+    content: "\e908";
+}
+.icon-carrot:before {
+    content: "\e909";
+}
+.icon-garlic:before {
+    content: "\e90a";
+}
+.icon-potato:before {
+    content: "\e90d";
+}
+.icon-tree:before {
+    content: "\e90e";
+}
+.icon-downarrow:before {
+    content: "\e90f";
+    font-size: 16px;
+    padding-right: 15px;
+}
+
+.icon-loading:before {
+    content: "\e910";
+}
+.icon-rightarrow:before {
+    content: "\e911";
+    font-size: 26px;
+}
+.icon-info:before {
+    content: "\e912";
+}
+.icon-leaf2:before {
+    content: "\e913";
+}
+.icon-home:before {
+    content: "\e900";
+}
+.icon-droplet:before {
+    content: "\e901";
+}
+.icon-spinner2:before {
+    content: "\e904";
+}
+.icon-leaf:before {
+    content: "\e906";
+}
+.icon-earth:before {
+    content: "\e907";
+}
+.icon-plus:before {
+    content: "\e914";
+}
+.icon-minus:before {
+    content: "\e915";
+}
+.icon-circle-right:before {
+    content: "\e90b";
+    padding-right: 15px;
+}
+.icon-circle-down:before {
+    content: "\e90c";
+    padding-right: 15px;
+}
+.icon-leaf-flipped:before {
+    content: "\e916";
 }
 
 // @media screen and (min-width: 600px) {

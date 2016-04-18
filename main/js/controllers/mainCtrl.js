@@ -27,42 +27,76 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         "Whole Body": false
     };
     $scope.otherUses = {
-        "Building":false,
-        "Clothing":false,
-        "Dyes/Paints/Ink/Paper":false,
-        "Fertilizers":false,
-        "Fire/Lighting":false,
-        "Bathroom":false,
-        "Garden":false,
-        "Home":false,
-        "Kitchen":false,
-        "Other":false,
-        "Pesticides":false,
-        "Woodwork/Crafts":false
+        "Building": false,
+        "Clothing": false,
+        "Dyes/Paints/Ink/Paper": false,
+        "Fertilizers": false,
+        "Fire/Lighting": false,
+        "Bathroom": false,
+        "Garden": false,
+        "Home": false,
+        "Kitchen": false,
+        "Other": false,
+        "Pesticides": false,
+        "Woodwork/Crafts": false
     };
     $scope.edibleUses = {
-        "Chocolate":false,
-        "Coffee":false,
-        "Coloring":false,
-        "Condiment":false,
-        "Curdling":false,
-        "Drink":false,
-        "Egg":false,
-        "Gelatine":false,
-        "Gum":false,
-        "Milk":false,
-        "Oil":false,
-        "Pectin":false,
-        "Rutin":false,
-        "Salt":false,
-        "Stabilizer":false,
-        "Sweetener":false,
-        "Tea":false
+        "Chocolate": false,
+        "Coffee": false,
+        "Coloring": false,
+        "Condiment": false,
+        "Curdling": false,
+        "Drink": false,
+        "Egg": false,
+        "Gelatine": false,
+        "Gum": false,
+        "Milk": false,
+        "Oil": false,
+        "Pectin": false,
+        "Rutin": false,
+        "Salt": false,
+        "Stabilizer": false,
+        "Sweetener": false,
+        "Tea": false
     };
-    $scope.zones = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    $scope.zones = {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false
+    };
     $scope.typedUse = [];
 
 
+    //watches medicalSelected array for changes, pushes specific changes
+    $scope.$watch('medicalUses',
+        (newVal, oldVal) => {
+            if (newVal != oldVal) {
+                console.log("whatever");
+                // Only increment the counter if the value changed
+                mainSearchService.addMedicalSpecific(newVal);
+            }
+        }, true);
+
+    // watches otherSelected array for changes, pushes specific changes
+    $scope.$watch('otherUses'
+        , function (newVal, oldVal) {
+            if (newVal != oldVal) {
+                mainSearchService.addOtherSpecific();
+            }
+        }, true);
+    $scope.$watch('zones'
+        , function (newVal, oldVal) {
+            console.log("popop");
+            if (newVal != oldVal) {
+                mainSearchService.addOtherSpecific();
+            }
+        }, true);
     $scope.searchInputUse = function () {
         // console.log($scope.typedUse);
         //send typed use to backend and return plants with that use;
@@ -72,13 +106,20 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
     $scope.currentHardinessZone = mainSearchService.currentHardinessZones;
     //function that manages the zones array and then invokes a function that will send zones and uses to backend
     $scope.hardinessZone = function (aNum) {
+        for (let obj in $scope.zones) {
+            console.log(obj);
+            if ($scope.zones[obj] && obj != aNum) {
+                $scope.zones[obj] = false;
+            }
+        }
+        $scope.zones[aNum] = true;
         mainSearchService.manageCurrentZones(aNum);
     };
 
     //function that returns true or false to toggle green color on front end
-    $scope.zoneIsActive = function (zone) {
-        return mainSearchService.currentHardinessZones === zone;
-    };
+    // $scope.zoneIsActive = function (zone) {
+    //     return mainSearchService.currentHardinessZones === zone;
+    // };
 
 
     //medical uses array
@@ -101,16 +142,6 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
     // };
 
 
-    //watches medicalSelected array for changes, pushes specific changes
-    $scope.$watchCollection('medicalSelected', function (newVal) {
-        mainSearchService.addMedicalSpecific();
-    }, true);
-
-    //watches otherSelected array for changes, pushes specific changes
-    // $scope.$watchCollection('otherSelected', function (newVal) {
-    //     mainSearchService.addOtherSpecific();
-    // }, true);
-
     //edible uses array
     $scope.edibleSelected = mainSearchService.edibleSelected;
     //function that manages edible uses array and then invokes a function that will send zones and uses to backend
@@ -118,17 +149,17 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         mainSearchService.manageEdibleSelect(use);
     };
     //function that returns true or false to toggle green color on front end
-    $scope.edibleIsActive = function (use) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.edibleSelected.length; i++) {
-            if ($scope.edibleSelected[i] === use) {
-                return true
-            }
-        }
-        if (!foundUse) {
-            return false
-        }
-    };
+    // $scope.edibleIsActive = function (use) {
+    //     var foundUse = false;
+    //     for (var i = 0; i < $scope.edibleSelected.length; i++) {
+    //         if ($scope.edibleSelected[i] === use) {
+    //             return true
+    //         }
+    //     }
+    //     if (!foundUse) {
+    //         return false
+    //     }
+    // };
 
     //other uses array
     $scope.otherSelected = mainSearchService.otherSelected;
@@ -137,15 +168,15 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         mainSearchService.manageOtherSelect(use);
     };
     //function that returns true or false to toggle green color on front end
-    $scope.otherIsActive = function (use) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.otherSelected.length; i++) {
-            if ($scope.otherSelected[i] === use) {
-                return true
-            }
-        }
-        if (!foundUse) {
-            return false
-        }
-    };
+    // $scope.otherIsActive = function (use) {
+    //     var foundUse = false;
+    //     for (var i = 0; i < $scope.otherSelected.length; i++) {
+    //         if ($scope.otherSelected[i] === use) {
+    //             return true
+    //         }
+    //     }
+    //     if (!foundUse) {
+    //         return false
+    //     }
+    // };
 });

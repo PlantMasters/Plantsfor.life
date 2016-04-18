@@ -58,142 +58,43 @@ angular.module('plantMasters').service('mainSearchService', function ($http, $q,
         }
     };
 
-    
-
 
     this.finalMedicalArrayOuter = [];
     this.addMedicalSpecific = function () {
         this.finalMedicalArray = [];
         this.finalMedicalArrayOuter = this.finalMedicalArray;
 
-        let alternativeMed = ['Alternative', 'Aromatherapy', 'Bach', 'Homeopathy'];
-        let bacteria = ['Anthelmintic', 'Antibacterial', 'Antibiotic', 'Antifungal', 'Antiviral', 'Parasiticide', 'Vermifuge', 'Warts'];
-        let bites = ['Antidote', 'Stings'];
-        let bones = ['Antiarthritic', 'Antiinflammatory', 'Antirheumatic'];
-        let bowels = ['Antihaemorrhoidal', 'Aperient', 'Carminative', 'Cathartic', 'Hydrogogue', 'Laxative', 'Purgative'];
-        let cancer = ['Antitumor', 'Cancer', 'Cytostatic', 'Cytotoxic', 'Resolvent'];
-        let chest = ['Antiasthmatic', 'Antitussive', 'Decongestant', 'Demulcent', 'Expectorant', 'Pectoral'];
-        let ear = ['Errhine', 'Mouthwash', 'Mydriatic', 'Odontalgic', 'Ophthalmic', 'Sialagogue', 'Sternutatory'];
-        let fevers = ['Antipyretic', 'Febrifuge'];
-        let general = ['Antiscorbutic', 'Balsamic', 'Nutritive', 'Tonic'];
-        let heart = ['Anticholesterolemic', 'Anticoagulant', 'Blood purifier', 'Blood tonic', 'Cardiac', 'Cardiotonic', 'Haemolytic', 'Hypoglycaemic', 'Hypotensive', 'Vasoconstrictor', 'Vasodilator'];
-        let infectious = ['Antiperiodic', 'Antiscrophulatic', 'TB', 'VD'];
-        let liver = ['Antibilious', 'Cholagogue', 'Diuretic', 'Haemostatic', 'Hepatic', 'Kidney', 'Lithontripic'];
-        let nerves = ['Antispasmodic', 'Nervine'];
-        let otherMed = ['Antidandruff', 'Antihydrotic', 'Antiphlogistic', 'Antivinous', 'Appetizer', 'Aromatic', 'Astringent', 'Bitter', 'Deodorant', 'Diaphoretic', 'Emollient', 'Enuresis', 'Hallucinogenic', 'Hypnotic', 'Irritant', 'Miscellany', 'Refrigerant', 'Restorative', 'Rubefacient',
-            'Sedative', 'Stimulant'
-        ];
-        let pain = ['Anaesthetic', 'Analgesic', 'Anodyne', 'Lenitive', 'Narcotic'];
-        let sex = ['Abortifacient', 'Anaphrodisiac', 'Aphrodisiac', 'Birthing aid', 'Contraceptive', 'Emmenagogue', 'Galactofuge', 'Galactogogue', 'Infertility', 'Oxytoxic', 'Uterine tonic', "Women's complaints"];
-        let skin = ['Acrid', 'Antidermatosic', 'Antipruritic', 'Foot care', 'Skin', 'Vesicant'];
-        let stomach = ['Antacid', 'Antiemetic', 'Digestive', 'Emetic', 'Stomachic'];
-        let wounds = ['Antiecchymotic', 'Antiseptic', 'Detergent', 'Disinfectant', 'Plaster', 'Poultice', 'Salve', 'Styptic', 'Vulnerary'];
-        let wholeBody = ['Adaptogen', 'Deobstruent', 'Depurative'];
+        let medCats = {
+            alternativeMed: ['Alternative', 'Aromatherapy', 'Bach', 'Homeopathy'],
+            bacteria: ['Anthelmintic', 'Antibacterial', 'Antibiotic', 'Antifungal', 'Antiviral', 'Parasiticide', 'Vermifuge', 'Warts'],
+            bites: ['Antidote', 'Stings'],
+            bones: ['Antiarthritic', 'Antiinflammatory', 'Antirheumatic'],
+            bowels: ['Antihaemorrhoidal', 'Aperient', 'Carminative', 'Cathartic', 'Hydrogogue', 'Laxative', 'Purgative'],
+            cancer: ['Antitumor', 'Cancer', 'Cytostatic', 'Cytotoxic', 'Resolvent'],
+            chest: ['Antiasthmatic', 'Antitussive', 'Decongestant', 'Demulcent', 'Expectorant', 'Pectoral'],
+            ear: ['Errhine', 'Mouthwash', 'Mydriatic', 'Odontalgic', 'Ophthalmic', 'Sialagogue', 'Sternutatory'],
+            fevers: ['Antipyretic', 'Febrifuge'],
+            general: ['Antiscorbutic', 'Balsamic', 'Nutritive', 'Tonic'],
+            heart: ['Anticholesterolemic', 'Anticoagulant', 'Blood purifier', 'Blood tonic', 'Cardiac', 'Cardiotonic', 'Haemolytic', 'Hypoglycaemic', 'Hypotensive', 'Vasoconstrictor', 'Vasodilator'],
+            infectious: ['Antiperiodic', 'Antiscrophulatic', 'TB', 'VD'],
+            liver: ['Antibilious', 'Cholagogue', 'Diuretic', 'Haemostatic', 'Hepatic', 'Kidney', 'Lithontripic'],
+            nerves: ['Antispasmodic', 'Nervine'],
+            otherMed: ['Antidandruff', 'Antihydrotic', 'Antiphlogistic', 'Antivinous', 'Appetizer', 'Aromatic', 'Astringent', 'Bitter', 'Deodorant', 'Diaphoretic', 'Emollient', 'Enuresis', 'Hallucinogenic', 'Hypnotic', 'Irritant', 'Miscellany', 'Refrigerant', 'Restorative', 'Rubefacient',
+                'Sedative', 'Stimulant'
+            ],
+            pain: ['Anaesthetic', 'Analgesic', 'Anodyne', 'Lenitive', 'Narcotic'],
+            sex: ['Abortifacient', 'Anaphrodisiac', 'Aphrodisiac', 'Birthing aid', 'Contraceptive', 'Emmenagogue', 'Galactofuge', 'Galactogogue', 'Infertility', 'Oxytoxic', 'Uterine tonic', "Women's complaints"],
+            skin: ['Acrid', 'Antidermatosic', 'Antipruritic', 'Foot care', 'Skin', 'Vesicant'],
+            stomach: ['Antacid', 'Antiemetic', 'Digestive', 'Emetic', 'Stomachic'],
+            wounds: ['Antiecchymotic', 'Antiseptic', 'Detergent', 'Disinfectant', 'Plaster', 'Poultice', 'Salve', 'Styptic', 'Vulnerary'],
+            wholeBody: ['Adaptogen', 'Deobstruent', 'Depurative']
+        };
 
         for (let i = 0; i < this.medicalSelected.length; i++) {
+            console.log(this.medicalSelected[i]);
             if (this.medicalSelected[i] === "Alternative Medicine") {
                 for (let j = 0; j < alternativeMed.length; j++) {
                     this.finalMedicalArray.push(alternativeMed[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Bacteria/Viruses/Fungi/Parasites") {
-                for (let j = 0; j < bacteria.length; j++) {
-                    this.finalMedicalArray.push(bacteria[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Bites/Stings") {
-                for (let j = 0; j < bites.length; j++) {
-                    this.finalMedicalArray.push(bites[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Bones") {
-                for (let j = 0; j < bones.length; j++) {
-                    this.finalMedicalArray.push(bones[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Bowels/Bladder") {
-                for (let j = 0; j < bowels.length; j++) {
-                    this.finalMedicalArray.push(bowels[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Cancer") {
-                for (let j = 0; j < cancer.length; j++) {
-                    this.finalMedicalArray.push(cancer[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Chest/Lungs") {
-                for (let j = 0; j < chest.length; j++) {
-                    this.finalMedicalArray.push(chest[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Ear/Nose/Throat/Eyes") {
-                for (let j = 0; j < ear.length; j++) {
-                    this.finalMedicalArray.push(ear[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Fevers") {
-                for (let j = 0; j < fevers.length; j++) {
-                    this.finalMedicalArray.push(fevers[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "General Well Being") {
-                for (let j = 0; j < general.length; j++) {
-                    this.finalMedicalArray.push(general[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Heart/Blood") {
-                for (let j = 0; j < heart.length; j++) {
-                    this.finalMedicalArray.push(heart[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Infectious Diseases") {
-                for (let j = 0; j < infectious.length; j++) {
-                    this.finalMedicalArray.push(infectious[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Liver/Kidneys") {
-                for (let j = 0; j < liver.length; j++) {
-                    this.finalMedicalArray.push(liver[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Nerves/Muscles") {
-                for (let j = 0; j < nerves.length; j++) {
-                    this.finalMedicalArray.push(nerves[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Other") {
-                for (let j = 0; j < otherMed.length; j++) {
-                    this.finalMedicalArray.push(otherMed[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Pain Relief") {
-                for (let j = 0; j < pain.length; j++) {
-                    this.finalMedicalArray.push(pain[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Sex/Reproduction") {
-                for (let j = 0; j < sex.length; j++) {
-                    this.finalMedicalArray.push(sex[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Skin/Hands/Feet") {
-                for (let j = 0; j < skin.length; j++) {
-                    this.finalMedicalArray.push(skin[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Stomach") {
-                for (let j = 0; j < stomach.length; j++) {
-                    this.finalMedicalArray.push(stomach[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Wounds/Bruises") {
-                for (let j = 0; j < wounds.length; j++) {
-                    this.finalMedicalArray.push(wounds[j]);
-                }
-            }
-            if (this.medicalSelected[i] === "Whole Body") {
-                for (let j = 0; j < wholeBody.length; j++) {
-                    this.finalMedicalArray.push(wholeBody[j]);
                 }
             }
         }
@@ -290,8 +191,8 @@ angular.module('plantMasters').service('mainSearchService', function ($http, $q,
         this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected);
         return this.finalOtherArray;
     };
-    
-    
+
+
     this.findPlants = function (z, o, m, e) {
         // console.log('ON MY WAY');
         // console.log(z, o, m, e);
@@ -305,7 +206,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http, $q,
             //need to push to this.plants
         })
     };
-    this.samplePlants = ()=>{
+    this.samplePlants = ()=> {
         return $http.get("/plants");
         // console.log($rootScope.plants);
         //need to push to this.plants

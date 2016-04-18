@@ -13,9 +13,9 @@
                     ng-click="medicalShow = !medicalShow"></span>Search by Medical Uses
             </div>
             <br>
-            <div ng-hide="medicalShow" class="usesRepeatCont" ng-repeat="(use,val)  in medicalUses">
-                <div ng-click="val = !val" class="usesRepeat noselect"
-                     ng-class="{ 'selectedToSearch': val }">{{use}}
+            <div ng-hide="medicalShow" class="usesRepeatCont" ng-repeat="(use,val) in medicalUses">
+                <div ng-click="medicalUses[use] = !medicalUses[use]" class="usesRepeat noselect"
+                     ng-class="{'selectedToSearch': medicalUses[use]}">{{use}}
                 </div>
             </div>
         </div>
@@ -26,8 +26,8 @@
             </div>
             <br>
             <div ng-hide="edibleShow" class="usesRepeatCont" ng-repeat="(use,val) in edibleUses">
-                <div class="usesRepeat noselect" ng-click="val = !val"
-                     ng-class="{ 'selectedToSearch': val }">{{use}}
+                <div class="usesRepeat noselect" ng-click="edibleUses[use] = !edibleUses[use]"
+                     ng-class="{ 'selectedToSearch': edibleUses[use] }">{{use}}
                 </div>
             </div>
         </div>
@@ -38,8 +38,8 @@
             </div>
             <br>
             <div ng-hide="otherShow" class="usesRepeatCont" ng-repeat="(use,val)  in otherUses">
-                <div class="usesRepeat noselect" ng-click="val = !val"
-                     ng-class="{ 'selectedToSearch': val }">{{use}}
+                <div class="usesRepeat noselect" ng-click="otherUses[use] = !otherUses[use]"
+                     ng-class="{ 'selectedToSearch': otherUses[use] }">{{use}}
                 </div>
             </div>
         </div>
@@ -51,8 +51,8 @@
             <br>
             <div ng-hide="hardinessShow">
                 <!--<input type="text" class="input" ng-model="zip" placeholder="Or search by zip code" />-->
-                <div class="zones" ng-repeat="zone in zones">
-                    <div ng-class="{ 'zoneSelectedToSearch': zoneIsActive(zone) }" ng-click="hardinessZone(zone)"
+                <div class="zones" ng-repeat="(zone, val) in zones">
+                    <div ng-class="{ 'zoneSelectedToSearch': zones[zone] }" ng-click="hardinessZone(zone)"
                          class="circle noselect">{{zone}}
                     </div>
                 </div>

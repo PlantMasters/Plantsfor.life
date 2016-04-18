@@ -4,10 +4,8 @@
         <div class="plantLatin">{{plant.latin}}</div>
         Medicinal Rating: {{plant.medicinal}}
         Edibility: {{plant.edibility}}
-        <div ng-repeat="use in plant.uses">
-            Other: {{use.other}}<br/>
-            Edible: {{use.edible}}<br/>
-            Medical: {{use.medical}}
+        <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
+            {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
         </div>
     </div>
 </div>

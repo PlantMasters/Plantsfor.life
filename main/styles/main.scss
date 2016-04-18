@@ -32,6 +32,7 @@
 body {
   background-color: #eee;
   margin: 0;
+  overflow-y: hidden;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -64,6 +65,7 @@ nav {
 
 #navbar a:hover {
   color: #c2cc72;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -105,7 +107,7 @@ nav {
   overflow: auto;
   height: 100vh;
   float: left;
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .searchInputBox {
@@ -223,15 +225,16 @@ nav {
   border-radius: 200px;
   text-align: center;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 
 }
 
 .circle:hover {
-  background-color: #C4C4C4;
-  -webkit-transition: color .5s; /* Safari */
-  transition: color .5s;
+  background-color: #c2cc72;
+  -webkit-transition: .5s; /* Safari */
+  transition: .5s;
   cursor: pointer;
+  color: #fff;
 }
 
 .circle:active {

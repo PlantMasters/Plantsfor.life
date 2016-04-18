@@ -148,11 +148,4 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
             return false
         }
     };
-
-    //toggles arrow class
-    $scope.medicalArrow = true;
-    $scope.edibleArrow = true;
-    $scope.otherArrow = true;
-    $scope.hardinessArrow = true;
-
 });

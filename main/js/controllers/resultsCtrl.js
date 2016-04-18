@@ -8,15 +8,4 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, mainSe
         $scope.plants = $rootScope.plants;
     })
 
-    $scope.showCustom = function() {
-      ModalService.showModal({
-        templateUrl: "../views/plant-modal.html",
-        controller: "ModalCtrl"
-      }).then(function(modal) {
-        modal.close.then(function(result) {
-          $scope.customResult = "HMMMM???";
-        })
-      })
-    }
-
 })

@@ -9,7 +9,10 @@
             Edible: {{use.edible}}<br/>
             Medical: {{use.medical}}
         </div> -->
+        <!-- <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
+           {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
+       </div> -->
         <br/>
-        <button ng-click="showCustom()">Show Modal</button>
+        <button ng-controller="ModalCtrl" ng-click="showCustom()">Show Modal</button>
     </div>
 </div>

@@ -22,8 +22,8 @@
             <form ng-if="!identity.currentUser._id" class="">
                 <input type="text" placeholder="Username" ng-model="username" class=""/>
                 <input type="password" placeholder="Password" ng-model="password" class=""/>
-                <button ng-click="signin(username, password)" class="">Sign In</button>
-                <button class="register" ui-sref="signup" ng-if="!identity.currentUser._id">Register</button>
+                <button ng-click="signin(username, password)" class="signInButton">Sign In</button>
+                <button class="register signInButton" ui-sref="signup" ng-if="!identity.currentUser._id">Register</button>
             </form>
             <div ng-if="identity.currentUser._id" class="">
                 <a ui-sref="user"  class="">
@@ -46,7 +46,7 @@
         </div>
     </div>
 </nav>
-
+<ui-view></ui-view>
 <div ui-view="search"></div>
 <div ui-view="results"></div>
 

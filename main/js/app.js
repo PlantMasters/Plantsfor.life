@@ -34,7 +34,17 @@ angular.module('plantMasters', ['ngResource', 'ui.router'])
       templateUrl: 'views/profile.html',
       controller: 'ProfileCtrl',
       resolve: routeRoleChecks.user
-    });
+    })
+    .state('myGarden', {
+        url: '/myGarden',
+        templateUrl: 'views/myGarden.html',
+        controller: 'myGardenCtrl',
+        resolve: {
+            gardenRef: function(gardenService) {
+                return gardenService.getGarden();
+            }
+        }
+    })
 
   $urlRouterProvider.otherwise('/');
 });

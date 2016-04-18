@@ -3,6 +3,7 @@ var auth = require('./auth.js'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
   Plants = require('../schemas/plant');
+  GardenPlant = require('../schemas/myGardenPlant');
 
 module.exports = function(app) {
 
@@ -29,7 +30,7 @@ module.exports = function(app) {
 
   
   // /plants?zone=5&medical=[]&edible=[]&other=[]
-  app.put('/plants', function(req, res, next) {      
+  app.put('/plants', function(req, res, next) {    
       if (req.body.zone) {
             Plants.find({$or: [ {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]}, {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]}, {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {}, {limit: 50}, function(err0, plants) {
                 if (err0) {
@@ -52,6 +53,48 @@ module.exports = function(app) {
           
       }
   }) 
+  app.post('/gardenPlant', function(req, res, next) {
+      var newPlant = new GardenPlant;
+      newPlant.plant = req.body.plant;
+      newPlant.user = req.user._id;
+      newPlant.save(function(err, plant) {
+          if (err) {
+              res.status(500).json(err);
+          } else {
+              res.send(plant);
+          }
+      })
+      
+  })
+  app.get('/gardenPlant', function(req, res, next) {
+      GardenPlant.find({'user': req.user._id}, function(err, plants) {
+          if (err) {
+              res.status(500).json(err);
+          } else {
+              res.send(plants);
+          }
+      })
+  })
+  app.delete('/removePlant/:plantId', function(req, res, next) {
+      console.log('plantId')
+      console.log(req.params.plantId)
+      GardenPlant.remove({'_id': req.params.plantId}, function(err, plant) {
+          console.log('PLANT TO DELETE')
+          console.log(plant);
+          if (err) {
+              res.status(500).json(err);
+          } else {
+                // GardenPlant.find({'user': req.user._id}, function(err2, plants) {
+                //         if (err) {
+                //             res.status(500).json(err2);
+                //         } else {
+                //             res.send(plants);
+                //         }
+                // })
+                res.send(plant)
+          }
+      })
+  })
       
     
 

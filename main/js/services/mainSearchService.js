@@ -29,10 +29,12 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             })
     };
 
+    //return plants
     this.getPlants = () => {
         return this.plants;
     };
 
+    //search plants when zone changes
     this.manageZone = function (zones) {
         for (let obj in zones) {
             if (zones[obj]) {
@@ -42,6 +44,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
     };
 
+    //search plants when edible changes
     this.manageEdible = (edibs)=> {
         for (let obj in edibs) {
             if (edibs[obj]) {
@@ -51,6 +54,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
     };
 
+    //search plants when medical changes
     this.addMedicalSpecific = (meds) => {
         finalMedicalArray = [];
 
@@ -90,6 +94,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
+    //search plants when other changes
     this.addOtherSpecific = (others) => {
         this.finalOtherArray = [];
 

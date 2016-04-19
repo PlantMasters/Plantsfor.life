@@ -1,4 +1,6 @@
-<div ng-repeat="aPlant in myGarden">
+<div class="myGardenContainer" ng-class="{ 'myPlants': checkMyGarden() }" ng-repeat="aPlant in myGarden">
     {{aPlant.plant.name}}
     <div ng-click="removePlant(aPlant._id)">Remove</div>
 </div>
+
+<div class="myGardenContainer" ng-class="{ 'myPlantsMessage': checkMyGarden() }">You have no plants growing right now!</div>

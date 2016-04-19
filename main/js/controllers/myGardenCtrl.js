@@ -7,4 +7,12 @@ angular.module('plantMasters').controller('myGardenCtrl', function($scope, garde
             gardenService.deletePlant(plant);   
         }
     }
+    $scope.checkMyGarden = function() {
+        if (gardenRef.data.length === 0) {
+            console.log('nothing growing');
+            return false
+        } else {
+            return true
+        }
+    }
 });

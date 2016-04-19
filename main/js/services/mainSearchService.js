@@ -1,31 +1,52 @@
 "use strict";
 
-angular.module('plantMasters').service('mainSearchService', function ($http, $q, $rootScope) {
-    // this.currentHardinessZones;
+angular.module('plantMasters').service('mainSearchService', function ($http) {
+
+    //define search variables
+    let currentHardinessZone = 0;
+    let finalOtherArray = [];
+    let finalMedicalArray = [];
+    let edibleSelected = [];
     this.plants = [];
-    this.finalOtherArrayOuter = [];
-    this.finalMedicalArrayOuter = [];
-    this.otherSelected = [];
-    this.edibleSelected = [];
-    this.medicalSelected = [];
-    this.manageSearch = ()=> {
 
-    };
-    this.manageCurrentZones = function (aNum) {
-        if (this.currentHardinessZones === aNum) {
-            this.currentHardinessZones = undefined;
-            this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
-        }
-        else {
-            this.currentHardinessZones = aNum;
-            console.log(this.currentHardinessZones);
-            this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArrayOuter, this.edibleSelected)
-        }
+    //gets a random sample of plants to populate page on load
+    this.samplePlants = ()=> {
+        $http.get("/plants").then((response) => {
+            this.plants = response.data
+        })
     };
 
-    this.addMedicalSpecific = function (meds) {
-        this.finalMedicalArray = [];
-        // this.finalMedicalArrayOuter = this.finalMedicalArray;
+    //gets plants that meet search criteria
+    let findPlants = function (z, o, m, e) {
+        return $http.put('/plants', {
+                data: {zone: z, other: o, medical: m, edible: e}})
+            .then((response) => {
+                this.plants = response.data;
+                // console.log($rootScope.plants);
+                //need to push to this.plants
+            })
+    };
+
+    this.manageZone = function (zones) {
+        for (let obj in zones) {
+            if (zones[obj]) {
+                currentHardinessZone = obj;
+            }
+        }
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
+    };
+
+    this.manageEdible = (edibs)=> {
+        for (let obj in edibs) {
+            if (edibs[obj]) {
+                edibleSelected.push(obj);
+            }
+        }
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
+    };
+
+    this.addMedicalSpecific = (meds) => {
+        finalMedicalArray = [];
 
         let medCats = {
             "Alternative Medicine": ['Alternative', 'Aromatherapy', 'Bach', 'Homeopathy'],
@@ -56,14 +77,14 @@ angular.module('plantMasters').service('mainSearchService', function ($http, $q,
         for (let obj in medCats) {
             if (meds[obj]) {
                 for (let i = 0; i < medCats[obj].length; i++) {
-                    this.finalMedicalArray.push(medCats[obj][i])
+                    finalMedicalArray.push(medCats[obj][i])
                 }
             }
         }
-        this.findPlants(this.currentHardinessZones, this.finalOtherArrayOuter, this.finalMedicalArray, this.edibleSelected);
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
-    this.addOtherSpecific = function (others) {
+    this.addOtherSpecific = (others) => {
         this.finalOtherArray = [];
 
         let otherCats = {
@@ -84,37 +105,12 @@ angular.module('plantMasters').service('mainSearchService', function ($http, $q,
         for (let obj in otherCats) {
             if (others[obj]) {
                 for (let i = 0; i < otherCats[obj].length; i++) {
-                    this.finalOtherArray.push(otherCats[obj][i])
+                    finalOtherArray.push(otherCats[obj][i])
                 }
             }
         }
-        this.findPlants(this.currentHardinessZones, this.finalOtherArray, this.finalMedicalArray, this.edibleSelected);
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
-
-    this.findPlants = function (z, o, m, e) {
-        // console.log('ON MY WAY');
-        // console.log(z, o, m, e);
-        return $http({
-            method: 'PUT',
-            url: '/plants',
-            data: {zone: z, other: o, medical: m, edible: e}
-        }).then(function (response) {
-            $rootScope.plants = response.data;
-            // console.log($rootScope.plants);
-            //need to push to this.plants
-        })
-    };
-    this.samplePlants = ()=> {
-        return $http.get("/plants");
-        // console.log($rootScope.plants);
-        //need to push to this.plants
-
-    };
-    //FOUR ARRAYS WE NEED TO SEND TO BACKEND
-    //finalMedicalArray
-    //finalOtherArray
-    //edibleSelected
-    //currentHardinessZones
 
 });

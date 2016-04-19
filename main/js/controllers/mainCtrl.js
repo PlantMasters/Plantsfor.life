@@ -48,7 +48,7 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         "Curdling": false,
         "Drink": false,
         "Egg": false,
-        "Gelatine": false,
+        "Gelatin": false,
         "Gum": false,
         "Milk": false,
         "Oil": false,
@@ -72,12 +72,6 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
     };
     $scope.typedUse = [];
 
-    // $scope.medicalSelected = mainSearchService.medicalSelected;
-    // $scope.edibleSelected = mainSearchService.edibleSelected;
-    // $scope.otherSelected = mainSearchService.otherSelected;
-
-
-
     //watches medicalSelected array for changes, pushes specific changes
     $scope.$watch('medicalUses', (newVal, oldVal) => {
         if (newVal != oldVal) {
@@ -95,14 +89,14 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
     //watches edibleUses for changes
     $scope.$watch('edibleUses', (newVal, oldVal) => {
         if (newVal != oldVal) {
-            mainSearchService.addEdibleSpecific(newVal);
+            mainSearchService.manageEdible(newVal);
         }
     }, true);
 
     //watches zones for changes
     $scope.$watch('zones', (newVal, oldVal) => {
         if (newVal != oldVal) {
-            mainSearchService.addOtherSpecific(newVal);
+            mainSearchService.manageZone(newVal);
         }
     }, true);
 
@@ -118,6 +112,6 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
             }
         }
         $scope.zones[aNum] = true;
-        mainSearchService.manageCurrentZones(aNum);
+        mainSearchService.manageZone(aNum);
     };
 });

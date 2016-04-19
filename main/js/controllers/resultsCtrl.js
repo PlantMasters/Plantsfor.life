@@ -5,13 +5,10 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
     $rootScope.$watch('plants', function () {
         // console.log('ROOTSCOPE WATCHING');
         // console.log($rootScope.plants);
-        $scope.plants = $rootScope.plants;
+        $scope.plants = mainSearchService.plants;
     });
 
-    mainSearchService.samplePlants()
-        .then((response) => {
-            $rootScope.plants = response.data
-        });
+    mainSearchService.samplePlants();
 
 
 });

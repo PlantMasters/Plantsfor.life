@@ -17,6 +17,10 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
         }
     }, true);
 
+    $scope.getNum = function(num) {
+      return new Array(num);
+    }
+
     $scope.addToGarden = function (plant) {
         gardenService.postPlant(plant);
     };

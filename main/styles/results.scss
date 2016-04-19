@@ -1,6 +1,6 @@
 .resultsContainer {
     overflow: auto;
-    height: 100vh;
+    height: calc(100vh - 55px);
     float: right;
     margin-top: 55px;
     display: inline-flex;
@@ -23,10 +23,23 @@
     -webkit-box-shadow: 0 1px 1px 0 #ccc;
     -moz-box-shadow:    0 1px 1px 0 #ccc;
     box-shadow:         0 1px 1px 0 #ccc;
-    min-width: 300px;
+    min-width: 340px;
     min-height: 400px;
     flex-basis: auto;
     position: relative;
+}
+
+.plantsContainer p {
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
+
+.plantsContainer td {
+  border: none;
+}
+
+.plant-title-container {
+  float: left;
 }
 
 .plantName {
@@ -39,6 +52,11 @@
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 1.2em;
     display: block;
+}
+
+.results-rating-icon {
+  font-size: 3em;
+  font-weight: 500;
 }
 
 

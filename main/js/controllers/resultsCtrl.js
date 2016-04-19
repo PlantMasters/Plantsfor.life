@@ -1,10 +1,10 @@
-angular.module('plantMasters').controller('resultsCtrl', function($scope, mainSearchService, $rootScope, ModalService) {
+angular.module('plantMasters').controller('resultsCtrl', function($scope, mainSearchService, $rootScope, ModalService, gardenService) {
   //$scope.plants = mainSearchService.plants;
-
+  $scope.addToGarden = function(plant) {
+        gardenService.postPlant(plant);
+  }
   $scope.plants;
   $rootScope.$watch('plants', function() {
-    console.log('ROOTSCOPE WATCHING');
-    console.log($rootScope.plants);
     $scope.plants = $rootScope.plants;
   })
 

@@ -61,10 +61,12 @@ nav {
   top: 0;
   left: 0;
   background-color: #444B6E;
+  box-shadow: 0px 4px 20px #888888
 }
 #navbar a {
     color: #9AB87A;
 }
+
 #navbar a:hover {
   color: #A7C18B;
   cursor: pointer;
@@ -267,7 +269,16 @@ nav {
 
 .add-to-garden-results {
   font-size: 2em;
+  color: #9AB87A;
+}
+
+.add-to-garden-results:hover {
+  font-size: 2em;
   color: #A7C18B;
+  cursor: pointer;
+}
+.add-to-garden-results:active {
+    color:#8DAF69;
 }
 
 //ICONS

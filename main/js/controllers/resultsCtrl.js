@@ -1,4 +1,4 @@
-angular.module('plantMasters').controller('resultsCtrl', function($scope, mainSearchService, $rootScope, ModalService, gardenService) {
+angular.module('plantMasters').controller('resultsCtrl', function($scope, Identity, mainSearchService, $rootScope, ModalService, gardenService) {
   //$scope.plants = mainSearchService.plants;
   $scope.addToGarden = function(plant) {
         gardenService.postPlant(plant);

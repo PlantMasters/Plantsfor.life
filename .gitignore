@@ -10,5 +10,9 @@ public/scripts
 public/scripts/all.min.js
 public/views
 public/index.html
+<<<<<<< HEAD
+.vscodeall.min.js
+=======
 .vscode
 all.min.js
+>>>>>>> master

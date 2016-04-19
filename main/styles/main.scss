@@ -60,11 +60,13 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: #444B6E;
 }
-
+#navbar a {
+    color: #9AB87A;
+}
 #navbar a:hover {
-  color: #c2cc72;
+  color: #A7C18B;
   cursor: pointer;
 }
 
@@ -74,6 +76,7 @@ nav {
   vertical-align: middle;
   padding-left: 5px;
   padding-right: 5px;
+  color: #fff;
 }
 
 .leaf-home {
@@ -94,6 +97,16 @@ nav {
   margin-right: 10px;
 }
 
+.signInButton {
+    background-color: #9AB87A;
+    color: #fff;
+}
+
+.signInButton:hover {
+    background-color: #A7C18B;
+    color: #fff
+}
+
 
 .zones {
   display: inline-block;
@@ -101,6 +114,7 @@ nav {
 
 .mainContainer {
   background-color: #fff;
+  min-width: 15%;
 }
 
 .searchContainer {
@@ -198,12 +212,16 @@ nav {
 }
 
 .usesRepeat:after {
-  background-color: #c2cc72;
+  background-color: #9AB87A;
 }
 
 .selectedToSearch {
-  background-color: #c2cc72;
+  background-color: #9AB87A;
   color: #fff;
+}
+
+.selectedToSearch:hover {
+  background-color: #A7C18B
 }
 
 .zones {
@@ -230,7 +248,7 @@ nav {
 }
 
 .circle:hover {
-  background-color: #c2cc72;
+  background-color: #A7C18B;
   -webkit-transition: .5s; /* Safari */
   transition: .5s;
   cursor: pointer;
@@ -243,8 +261,13 @@ nav {
 
 .zoneSelectedToSearch {
   border-color: #000;
-  background-color: #A0C55F;
+  background-color: #9AB87A;
   color: #fff;
+}
+
+.add-to-garden-results {
+  font-size: 2em;
+  color: #A7C18B; 
 }
 
 //ICONS

@@ -47,8 +47,28 @@
     </div>
 </nav>
 
+<div ng-controller="wikiData" class="main-container">
+  <div class="title-wrapper">
+    <h1 class="title">Wikipedia Api Demo</h1>
+  </div>
+  <div class="form-wrapper">
+    <form ng-submit="apiCall()" name="myForm" class="search-form">
+      <input ng-model="search" class="input-search" maxlength="30"></input>
+    </form>
+  </div>
+
+  <div class="main-wrapper">
+    <div>
+      <img ng-src="{{resultsThumbnail}}" alt="" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<ui-view></ui-view>
 <div ui-view="search"></div>
 <div ui-view="results"></div>
+
 
 <script src="./vendor/angular/angular.js"></script>
 <script src="./vendor/angular-resource/angular-resource.js"></script>

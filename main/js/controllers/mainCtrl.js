@@ -1,109 +1,121 @@
-angular.module('plantMasters').controller('mainCtrl', function ($scope, $window, mainSearchService) {
-    $scope.medicalUses = ["Alternative Medicine", "Bacteria/Viruses/Fungi/Parasites", "Bites/Stings", "Bones", "Bowels/Bladder",
-        "Cancer", "Chest/Lungs", "Ear/Nose/Throat/Eyes", "Fevers", "General Well Being", "Heart/Blood", "Infectious Diseases", "Liver/Kidneys", "Nerves/Muscles", "Other", "Pain Relief", "Sex/Reproduction", "Skin/Hands/Feet", "Stomach", "Wounds/Bruises", "Whole Body"
-    ];
-    $scope.otherUses = ["Building", "Clothing", "Dyes/Paints/Ink/Paper", "Fertilizers", "Fire/Lighting", "Bathroom", "Garden", "Home", "Kitchen", "Other", "Pesticides", "Woodwork/Crafts"];
-    $scope.edibleUses = ["Chocolate", "Coffee", "Coloring", "Condiment", "Curdling", "Drink", "Egg", "Gelatine", "Gum", "Milk", "Oil", "Pectin", "Rutin", "Salt", "Stabilizer", "Sweetener", "Tea"];
-    $scope.zones = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+"use strict";
+
+angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSearchService) => {
+
+
+    //define search options
+    $scope.medicalUses = {
+        "Alternative Medicine": false,
+        "Bacteria/Viruses/Fungi/Parasites": false,
+        "Bites/Stings": false,
+        "Bones": false,
+        "Bowels/Bladder": false,
+        "Cancer": false,
+        "Chest/Lungs": false,
+        "Ear/Nose/Throat/Eyes": false,
+        "Fevers": false,
+        "General Well Being": false,
+        "Heart/Blood": false,
+        "Infectious Diseases": false,
+        "Liver/Kidneys": false,
+        "Nerves/Muscles": false,
+        "Other": false,
+        "Pain Relief": false,
+        "Sex/Reproduction": false,
+        "Skin/Hands/Feet": false,
+        "Stomach": false,
+        "Wounds/Bruises": false,
+        "Whole Body": false
+    };
+    $scope.otherUses = {
+        "Building": false,
+        "Clothing": false,
+        "Dyes/Paints/Ink/Paper": false,
+        "Fertilizers": false,
+        "Fire/Lighting": false,
+        "Bathroom": false,
+        "Garden": false,
+        "Home": false,
+        "Kitchen": false,
+        "Other": false,
+        "Pesticides": false,
+        "Woodwork/Crafts": false
+    };
+    $scope.edibleUses = {
+        "Chocolate": false,
+        "Coffee": false,
+        "Coloring": false,
+        "Condiment": false,
+        "Curdling": false,
+        "Drink": false,
+        "Egg": false,
+        "Gelatin": false,
+        "Gum": false,
+        "Milk": false,
+        "Oil": false,
+        "Pectin": false,
+        "Rutin": false,
+        "Salt": false,
+        "Stabilizer": false,
+        "Sweetener": false,
+        "Tea": false
+    };
+    $scope.zones = {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false
+    };
     $scope.typedUse = [];
-    $scope.searchInputUse = function () {
-        console.log($scope.typedUse);
-        //send typed use to backend and return plants with that use;
-    };
-    $scope.medicalShow = true;
-    $scope.edibleShow = true;
-    $scope.otherShow = true;
-    $scope.hardinessShow = true;
-
-    //zone array to send with uses to the backend and retrieve plants
-    $scope.currentHardinessZone = mainSearchService.currentHardinessZones;
-    //function that manages the zones array and then invokes a function that will send zones and uses to backend
-    $scope.hardinessZone = function (aNum) {
-        mainSearchService.manageCurrentZones(aNum);
-    };
-    //function that returns true or false to toggle green color on front end
-
-  $scope.zoneIsActive = function(zone) {
-      if (mainSearchService.currentHardinessZones === zone) {
-          return true
-      } else {
-          return false
-      }
-  };
-
-
-    //medical uses array
-    $scope.medicalSelected = mainSearchService.medicalSelected;
-    //function that manages medical uses array and then invokes a function that will send zones and uses to backend
-    $scope.medicalSelect = function (use) {
-        mainSearchService.manageMedicalSelected(use);
-    };
-    //function that returns true or false to toggle green color on front end
-    $scope.medicalIsActive = function (use) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.medicalSelected.length; i++) {
-            if ($scope.medicalSelected[i] === use) {
-                return true
-            }
-        }
-        if (!foundUse) {
-            return false
-        }
-    };
-
 
     //watches medicalSelected array for changes, pushes specific changes
-    $scope.$watchCollection('medicalSelected', function (newVal) {
-        mainSearchService.addMedicalSpecific();
+    $scope.$watch('medicalUses', (newVal, oldVal) => {
+        if (newVal != oldVal) {
+            mainSearchService.addMedicalSpecific(newVal);
+        }
     }, true);
 
-    //watches otherSelected array for changes, pushes specific changes
-    $scope.$watchCollection('otherSelected', function (newVal) {
-        mainSearchService.addOtherSpecific();
+    // watches otherSelected array for changes, pushes specific changes
+    $scope.$watch('otherUses', (newVal, oldVal) => {
+        if (newVal != oldVal) {
+            mainSearchService.addOtherSpecific(newVal);
+        }
     }, true);
 
-    //edible uses array
-    $scope.edibleSelected = mainSearchService.edibleSelected;
-    //function that manages edible uses array and then invokes a function that will send zones and uses to backend
-    $scope.edibleSelect = function (use) {
-        mainSearchService.manageEdibleSelect(use);
+    //watches edibleUses for changes
+    $scope.$watch('edibleUses', (newVal, oldVal) => {
+        if (newVal != oldVal) {
+            mainSearchService.manageEdible(newVal);
+        }
+    }, true);
+
+    //watches zones for changes
+    $scope.$watch('zones', (newVal, oldVal) => {
+        if (newVal != oldVal) {
+            mainSearchService.manageZone(newVal);
+        }
+    }, true);
+
+    $scope.searchInputUse = function () {
+        //send typed use to backend and return plants with that use;
     };
-    //function that returns true or false to toggle green color on front end
-    $scope.edibleIsActive = function (use) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.edibleSelected.length; i++) {
-            if ($scope.edibleSelected[i] === use) {
-                return true
+
+    //ensures only one zone is selected at a time
+    $scope.hardinessZone = function (aNum) {
+        for (let obj in $scope.zones) {
+            if ($scope.zones[obj] && obj != aNum) {
+                $scope.zones[obj] = false;
             }
+
+            //TODO: fix hardiness unclick
         }
-        if (!foundUse) {
-            return false
-        }
+        $scope.zones[aNum] = true;
+        mainSearchService.manageZone(aNum);
     };
-
-    //other uses array
-    $scope.otherSelected = mainSearchService.otherSelected;
-    //function that manages other uses array and then invokes a function that will send zones and uses to backend
-    $scope.otherSelect = function (use) {
-        mainSearchService.manageOtherSelect(use);
-    };
-    //function that returns true or false to toggle green color on front end
-    $scope.otherIsActive = function (use) {
-        var foundUse = false;
-        for (var i = 0; i < $scope.otherSelected.length; i++) {
-            if ($scope.otherSelected[i] === use) {
-                return true
-            }
-        }
-        if (!foundUse) {
-            return false
-        }
-    }
-
-    //toggles arrow class
-    $scope.medicalArrow = true;
-    $scope.edibleArrow = true;
-    $scope.otherArrow = true;
-    $scope.hardinessArrow = true;
-
 });

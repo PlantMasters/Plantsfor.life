@@ -27,12 +27,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
+html {
+    overflow-y: hidden;
+}
 
 body {
   background-color: #eee;
   margin: 0;
-  overflow-y: hidden;
+  //overflow-y: hidden;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -61,7 +63,7 @@ nav {
   top: 0;
   left: 0;
   background-color: #444B6E;
-  box-shadow: 0px 4px 20px #888888
+  box-shadow: 0px 4px 20px #626262
 }
 #navbar a {
     color: #9AB87A;
@@ -269,12 +271,12 @@ nav {
 
 .add-to-garden-results {
   font-size: 2em;
-  color: #9AB87A; 
+  color: #9AB87A;
 }
 
 .add-to-garden-results:hover {
   font-size: 2em;
-  color: #A7C18B; 
+  color: #A7C18B;
   cursor: pointer;
 }
 .add-to-garden-results:active {
@@ -282,6 +284,15 @@ nav {
 }
 
 //ICONS
+.icon-bandaid:before {
+    content: "\e917";
+}
+.icon-hamburger:before {
+    content: "\e918";
+}
+.icon-x:before {
+    content: "\e919";
+}
 .icon-garden:before {
     content: "\e902";
 }

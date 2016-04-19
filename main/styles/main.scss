@@ -282,6 +282,15 @@ nav {
 }
 
 //ICONS
+.icon-bandaid:before {
+    content: "\e917";
+}
+.icon-hamburger:before {
+    content: "\e918";
+}
+.icon-x:before {
+    content: "\e919";
+}
 .icon-garden:before {
     content: "\e902";
 }

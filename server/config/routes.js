@@ -76,22 +76,16 @@ module.exports = function(app) {
       })
   })
   app.delete('/removePlant/:plantId', function(req, res, next) {
-      console.log('plantId')
-      console.log(req.params.plantId)
       GardenPlant.remove({'_id': req.params.plantId}, function(err, plant) {
-          console.log('PLANT TO DELETE')
-          console.log(plant);
+          if (err) {
+              res.status(500).json(err);
+          }
+      })
+      GardenPlant.find({'user': req.user._id}, function(err, plants) {
           if (err) {
               res.status(500).json(err);
           } else {
-                // GardenPlant.find({'user': req.user._id}, function(err2, plants) {
-                //         if (err) {
-                //             res.status(500).json(err2);
-                //         } else {
-                //             res.send(plants);
-                //         }
-                // })
-                res.send(plant)
+              res.send(plants)
           }
       })
   })

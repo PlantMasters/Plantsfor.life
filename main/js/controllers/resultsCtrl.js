@@ -1,7 +1,15 @@
-angular.module('plantMasters').controller('resultsCtrl', function($scope, Identity, mainSearchService, $rootScope, ModalService, gardenService) {
+angular.module('plantMasters').controller('resultsCtrl', function($scope, Identity, mvNotifier, mainSearchService, $rootScope, ModalService, gardenService) {
   //$scope.plants = mainSearchService.plants;
+  $scope.identity = Identity;
+  console.log("IDENTITY");
+  console.log($scope.identity)
   $scope.addToGarden = function(plant) {
-        gardenService.postPlant(plant);
+      if ($scope.identity.currentUser._id) {
+          gardenService.postPlant(plant)
+          mvNotifier.notify('Plant successfully added to your garden');
+      } else {
+          mvNotifier.error('Please log in or sign up to add to your garden');
+      }
   }
   $scope.plants;
   $rootScope.$watch('plants', function() {

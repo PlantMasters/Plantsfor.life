@@ -1,5 +1,6 @@
 <div class="resultsContainer nine columns">
-    <div class="plantsContainer five columns offset-by-one" ng-repeat= "plant in plants">
+
+    <div class="plantsContainer" ng-repeat="plant in plants">
         <div class= "plantName">{{plant.name}}</div>
         <div class="plantLatin">{{plant.latin}}</div>
         Medicinal Rating: {{plant.medicinal}}
@@ -7,5 +8,8 @@
         <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
             {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
         </div>
+        <br/>
+        <span class="icon-plus add-to-garden-results" ng-click="addToGarden(plant._id)"></span>
+        <button class="modal-button" ng-click="showCustom(plant)">More Info</button>
     </div>
 </div>

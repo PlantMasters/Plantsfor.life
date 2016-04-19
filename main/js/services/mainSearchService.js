@@ -33,11 +33,11 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     this.getPlants = () => {
         return this.plants;
     };
-
+    
     //search plants when zone changes
     this.manageZone = function (zones) {
         for (let obj in zones) {
-            if (zones[obj]) {
+                if (zones[obj]) {
                 currentHardinessZone = obj;
             }
         }

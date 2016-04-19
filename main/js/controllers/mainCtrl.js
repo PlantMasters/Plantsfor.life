@@ -1,6 +1,8 @@
+
 "use strict";
 
 angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSearchService) => {
+
 
     //define search options
     $scope.medicalUses = {

@@ -1,41 +1,42 @@
-<div class="container">
-  <div class="well">
-    <form name="signupForm" class="form-horizontal">
+<div class="signUpContainer">
+  <div class="">
+    <form name="signupForm" class="">
       <fieldset>
-        <h1>New User Information
-          <h5>*required fields</h5>
-        </h1>
-        <legend>New User Information</legend>
-        <div class="form-group">
-          <label for="email" class="col-md-2 control-label">*Email</label>
-          <div class="col-md-7">
-            <input name="email" type="email" placeholder="Email" ng-model="email" required="required" class="form-control"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password" class="col-md-2 control-label">*Password</label>
-          <div class="col-md-7">
-            <input name="password" type="password" placeholder="Password" ng-model="password" required="required" class="form-control"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="fname" class="col-md-2 control-label">*First Name</label>
-          <div class="col-md-7">
-            <input name="fname" type="text" placeholder="First Name" ng-model="fname" required="required" class="form-control"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="lname" class="col-md-2 control-label">*Last Name</label>
-          <div class="col-md-7">
-            <input name="lname" type="text" placeholder="Last Name" ng-model="lname" required="required" class="form-control"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-10 col-md-offset-2">
-            <div class="pull-right">
-              <button ng-click="signup()" ng-disabled="signupForm.$invalid" class="btn btn-primary">Submit</button>&nbsp;<a href="/" class="btn btn-default">Cancel</a>
+        <div class="signUpHeader">New User Form</div>
+        <div class="signUpHeader requiredFields">*required fields</div>
+        <div class="forms">
+            <div class="">
+            <div for="email" class="signUpLabel">*Email</div>
+            <div class="col-md-7">
+                <input name="email" type="email" placeholder="Email" ng-model="email" required="required" class="input signUpInput"/>
             </div>
-          </div>
+            </div>
+            <div class="">
+            <div for="password" class="signUpLabel">*Password</div>
+            <div class="col-md-7">
+                <input name="password" type="password" placeholder="Password" ng-model="password" required="required" class="input signUpInput"/>
+            </div>
+            </div>
+            <div class="">
+            <div for="fname" class="signUpLabel">*First Name</div>
+            <div class="col-md-7">
+                <input name="fname" type="text" placeholder="First Name" ng-model="fname" required="required" class="input signUpInput"/>
+            </div>
+            </div>
+            <div class="">
+            <div for="lname" class="signUpLabel">*Last Name</div>
+            <div class="col-md-7">
+                <input name="lname" type="text" placeholder="Last Name" ng-model="lname" required="required" class="input signUpInput"/>
+            </div>
+            </div>
+            <div class="">
+            <div class="col-md-10 col-md-offset-2">
+                <div class="pull-right">
+                <button ng-click="signup()" ng-disabled="signupForm.$invalid" class="signInButton">Submit</button> 
+                <button class="cancelButton"><a href="/">Cancel</a></button>
+                </div>
+            </div>
+            </div>
         </div>
       </fieldset>
     </form>

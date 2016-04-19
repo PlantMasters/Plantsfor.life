@@ -1,14 +1,11 @@
-angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService, $rootScope) {
-    //$scope.plants = mainSearchService.plants;
+angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService) {
 
     $scope.plants;
-    $rootScope.$watch('plants', function () {
-        // console.log('ROOTSCOPE WATCHING');
-        // console.log($rootScope.plants);
-        $scope.plants = mainSearchService.plants;
-    });
-
     mainSearchService.samplePlants();
 
-
+    $scope.$watch(() =>{return mainSearchService.plants}, (newVal, oldVal) => {
+        if (newVal != oldVal) {
+            $scope.plants = mainSearchService.getPlants();
+        }
+    }, true);
 });

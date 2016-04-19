@@ -7,6 +7,7 @@ let Plants = require('../schemas/plant');
 
 module.exports = {
     searchPlants: function (req, res) {
+        console.log(req.body);
         if (req.body.zone) {
             Plants.find({$or: [
                 {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
@@ -14,11 +15,11 @@ module.exports = {
                 {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {},
                 {limit: 50}, (err0, plants) =>{
                 if (err0) {
+                    console.log(err0);
                     res.status(500).send(err0);
                 } else {
                     res.send(plants);
                 }
-
             })
         }
         else {

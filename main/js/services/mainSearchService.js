@@ -8,23 +8,29 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     let finalMedicalArray = [];
     let edibleSelected = [];
     this.plants = [];
+    let _this = this;
 
     //gets a random sample of plants to populate page on load
     this.samplePlants = ()=> {
         $http.get("/plants").then((response) => {
-            this.plants = response.data
+            _this.plants = response.data
         })
     };
 
     //gets plants that meet search criteria
     let findPlants = function (z, o, m, e) {
-        return $http.put('/plants', {
-                data: {zone: z, other: o, medical: m, edible: e}})
+        $http({
+            method: 'PUT',
+            url: '/plants',
+            data: {zone: z, other: o, medical: m, edible: e}})
             .then((response) => {
-                this.plants = response.data;
-                // console.log($rootScope.plants);
-                //need to push to this.plants
+                console.log(`whatever`);
+                _this.plants = response.data;
             })
+    };
+
+    this.getPlants = () => {
+        return this.plants;
     };
 
     this.manageZone = function (zones) {
@@ -111,6 +117,4 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         }
         findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
-
-
 });

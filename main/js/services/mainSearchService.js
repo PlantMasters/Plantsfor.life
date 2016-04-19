@@ -57,16 +57,12 @@ angular.module('plantMasters').service('mainSearchService', function($http, $q, 
   };
 
      this.findPlants = function(z, o, m, e) {
-         console.log('ON MY WAY');
-         console.log(z, o, m, e);
          return $http({
              method: 'PUT',
              url: '/plants',
              data: {zone: z, other: o, medical: m, edible: e}
          }).then(function(response) {
-             $rootScope.plants = response.data;
-             console.log($rootScope.plants);
-             //need to push to this.plants   
+             $rootScope.plants = response.data;  
          })
      }
 

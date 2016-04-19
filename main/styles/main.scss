@@ -267,7 +267,16 @@ nav {
 
 .add-to-garden-results {
   font-size: 2em;
+  color: #9AB87A; 
+}
+
+.add-to-garden-results:hover {
+  font-size: 2em;
   color: #A7C18B; 
+  cursor: pointer;
+}
+.add-to-garden-results:active {
+    color:#8DAF69;
 }
 
 //ICONS

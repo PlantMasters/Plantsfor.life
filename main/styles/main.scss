@@ -269,12 +269,12 @@ nav {
 
 .add-to-garden-results {
   font-size: 2em;
-  color: #9AB87A; 
+  color: #9AB87A;
 }
 
 .add-to-garden-results:hover {
   font-size: 2em;
-  color: #A7C18B; 
+  color: #A7C18B;
   cursor: pointer;
 }
 .add-to-garden-results:active {
@@ -282,6 +282,15 @@ nav {
 }
 
 //ICONS
+.icon-bandaid:before {
+    content: "\e917";
+}
+.icon-hamburger:before {
+    content: "\e918";
+}
+.icon-x:before {
+    content: "\e919";
+}
 .icon-garden:before {
     content: "\e902";
 }

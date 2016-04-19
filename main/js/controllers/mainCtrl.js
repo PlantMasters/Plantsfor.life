@@ -112,6 +112,8 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
             if ($scope.zones[obj] && obj != aNum) {
                 $scope.zones[obj] = false;
             }
+
+            //TODO: fix hardiness unclick
         }
         $scope.zones[aNum] = true;
         mainSearchService.manageZone(aNum);

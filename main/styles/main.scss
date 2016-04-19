@@ -267,10 +267,19 @@ nav {
 
 .add-to-garden-results {
   font-size: 2em;
-  color: #A7C18B; 
+  color: #A7C18B;
 }
 
 //ICONS
+.icon-bandaid:before {
+    content: "\e917";
+}
+.icon-hamburger:before {
+    content: "\e918";
+}
+.icon-x:before {
+    content: "\e919";
+}
 .icon-garden:before {
     content: "\e902";
 }

@@ -59,6 +59,12 @@
   font-weight: 500;
 }
 
+#uses-div {
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break:break-all;
+}
+
 
 //MODALS
 #overlay {
@@ -66,10 +72,9 @@
     left: 25%;
     top: 25%;
     padding: 25px;
-    border: 1px solid #bfbfbf;
-    -webkit-box-shadow: 0 1px 1px 0 #ccc;
-    -moz-box-shadow:    0 1px 1px 0 #ccc;
-    box-shadow:         0 1px 1px 0 #ccc;
+    -webkit-box-shadow: 1px #ccc;
+    -moz-box-shadow:    1px #ccc;
+    box-shadow:         1px #ccc;
     background-color: #ffffff;
     width: 50%;
     height: 50%;

@@ -1,6 +1,6 @@
 <div class="resultsContainer nine columns">
 
-  <div class="plantsContainer" ng-repeat="plant in plants">
+  <div class="plantsContainer" ng-repeat="plant in plants" ng-click="showCustom(plant)">
     <div class="plant-image-container">
     </div>
     <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
@@ -25,10 +25,10 @@
         <td><span class="icon-carrot results-rating-icon" ng-repeat="i in getNum(plant.edibility) track by $index"></span></td>
       </tr>
     </table>
-    <!-- <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
-            {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
-        </div> -->
+    <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
+            {{prop}}: <div id="uses-div" ng-repeat="uses in use"> {{uses}}, &nbsp</div>
+        </div>
     <br/>
-    <button class="modal-button" ng-click="showCustom(plant)">More Info</button>
+
   </div>
 </div>

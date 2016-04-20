@@ -14,15 +14,15 @@
           <td class="table-head">Family</td>
           <td>{{plant.family}}</td>
         </tr>
-        <tr>
+        <tr ng-if="plant.uses[0].medical.length > 0">
           <td class="table-head">Medical Uses</td>
           <td><span ng-repeat="use in plant.uses[0].medical">{{use}}{{$last ? '' : ', '}}</span></td>
         </tr>
-        <tr>
+        <tr ng-if="plant.uses[0].edible.length > 0">
           <td class="table-head">Edible Uses</td>
           <td><span ng-repeat="use in plant.uses[0].edible">{{use}}{{$last ? '' : ', '}}</span></td>
         </tr>
-        <tr>
+        <tr ng-if="plant.uses[0].other.length > 0">
           <td class="table-head">Other Uses</td>
           <td><span ng-repeat="use in plant.uses[0].other">{{use}}{{$last ? '' : ', '}}</span></td>
         </tr>

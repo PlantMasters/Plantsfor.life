@@ -27,10 +27,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-    overflow-y: hidden;
-}
-
 body {
   background-color: #eee;
   margin: 0;
@@ -138,6 +134,13 @@ nav {
 
 .searchContainer {
   overflow: auto;
+  /* Firefox */
+  height: -moz-calc(100vh - 45px);
+  /* WebKit */
+  height: -webkit-calc(100vh - 45px);
+  /* Opera */
+  //height: -o-calc(100vh - 45px);
+  /* Standard */
   height: calc(100vh - 45px);
   float: left;
   margin-top: 45px;

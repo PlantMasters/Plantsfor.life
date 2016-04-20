@@ -31,6 +31,7 @@ module.exports = function (app) {
 
     app.put('/plants', results.searchPlants);
     app.get("/plants", results.samplePlants);
+    app.post("/plants", results.searchResults);
 
     app.post('/gardenPlant', function (req, res) {
         var newPlant = new GardenPlant;

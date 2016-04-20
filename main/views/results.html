@@ -1,6 +1,6 @@
 <div class="resultsContainer nine columns">
 
-  <div class="plantsContainer" ng-repeat="plant in plants" ng-click="showCustom(plant)">
+  <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant)">
     <div class="plant-image-container">
     </div>
     <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
@@ -8,27 +8,32 @@
 
     <div class="clearfix"></div>
 
-    <div class="plantName">{{plant.name}}</div>
-    <div class="plantLatin">{{plant.latin}}</div>
+    <div class="results-desc-container">
 
-    <table>
-      <tr>
-        <td>
-          <p>Medicinal Rating: </p>
-        </td>
-        <td><span class="icon-bandaid results-rating-icon" ng-repeat="i in getNum(plant.medicinal) track by $index"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <p>Edibility Rating: </p>
-        </td>
-        <td><span class="icon-carrot results-rating-icon" ng-repeat="i in getNum(plant.edibility) track by $index"></span></td>
-      </tr>
-    </table>
-    <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
-            {{prop}}: <div id="uses-div" ng-repeat="uses in use"> {{uses}}, &nbsp</div>
-        </div>
-    <br/>
+      <div class="plantName">{{plant.name}}</div>
+      <div class="plantLatin">{{plant.latin}}</div>
 
+      <table>
+        <tr>
+
+          <td><span class="icon-bandaid results-rating-icon" ng-repeat="i in getNum(plant.medicinal) track by $index" title="Medicinal Rating"></span></td>
+        </tr>
+        <tr>
+
+          <td><span class="icon-carrot results-rating-icon" ng-repeat="i in getNum(plant.edibility) track by $index" title="Edibility Rating"></span></td>
+        </tr>
+        <tr>
+
+          <td>
+            <p title="Hardiness Zone">{{plant.zone}}</p>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <!-- <div id="uses-div" ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
+            {{prop}}: <div ng-repeat="uses in use"> {{uses}}, &nbsp</div>
+        </div> -->
+      <br/>
+    </div>
   </div>
 </div>

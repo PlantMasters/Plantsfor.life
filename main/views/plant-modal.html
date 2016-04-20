@@ -1,11 +1,43 @@
 <div id="custom-modal">
   <div id="overlay">
-    <div class="modal-title-container">
-     <h4>{{plant.name}}</h4>
-     <h6>{{plant.latin}}</h6>
-     <h6>{{plant.family}}</h6>
+    <div class="modal-img-container">
+
     </div>
-    <a href ng-click="close()">Close</a>
+    <div class="modal-title-container">
+      <h4>{{plant.name}}</h4>
+      <h6>{{plant.latin}}</h6>
+    </div>
+
+    <table class="u-full-width">
+      <tbody>
+        <tr>
+          <td class="table-head">Family</td>
+          <td>{{plant.family}}</td>
+        </tr>
+        <tr>
+          <td class="table-head">Medical Uses</td>
+          <td><span ng-repeat="use in plant.uses[0].medical">{{use}}{{$last ? '' : ', '}}</span></td>
+        </tr>
+        <tr>
+          <td class="table-head">Edible Uses</td>
+          <td><span ng-repeat="use in plant.uses[0].edible">{{use}}{{$last ? '' : ', '}}</span></td>
+        </tr>
+        <tr>
+          <td class="table-head">Other Uses</td>
+          <td><span ng-repeat="use in plant.uses[0].other">{{use}}{{$last ? '' : ', '}}</span></td>
+        </tr>
+        <tr>
+          <td class="table-head">Habitat</td>
+          <td>{{plant.habitat}}</td>
+        </tr>
+        <tr>
+          <td class="table-head">Range</td>
+          <td>{{plant.range}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <span href class="icon-x modal-close-icon" ng-click="close()"></span>
   </div>
   <div id="fade" ng-click="close()"></div>
 </div>

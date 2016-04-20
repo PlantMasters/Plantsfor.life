@@ -1,6 +1,10 @@
+/*jshint esversion: 6 */
 /**
  * Created by Tom on 4/18/2016.
  */
+
+// TODO: Add the ability to switch to adidtional pages of results...
+
 "use strict";
 
 let Plants = require('../schemas/plant');
@@ -39,6 +43,21 @@ module.exports = {
             {$sample: {size: 25}}, (err,plants)=>{
                 err ? res.status(500).send(err) : res.send(plants);
             }
-        )
+        );
+    },
+    //This searches for plants that match the string input into the input field...
+    // TODO: Create a lowercase_name field in the database for the latin and common name fields.  This will negate the need for toUpperCase thing...
+    searchResults: (req, res)=> {
+
+      var result = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
+      var reger = new RegExp(".*"+ result +".*");
+      Plants.find({$or: [{'name': {$regex:reger}}, {'latin': {$regex:reger}}]}, {}, {limit: 50}, function (err0, plants) {
+          if (err0) {
+              res.status(500).send(err0);
+          } else {
+              res.send(plants);
+          }
+
+      });
     }
 };

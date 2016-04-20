@@ -30,6 +30,7 @@ module.exports = function (app) {
 
     app.put('/plants', results.searchPlants);
     app.get("/plants", results.samplePlants);
+    app.post("/plants", results.searchResults);
 
     app.post('/gardenPlant', function(req, res, next) {
       var newPlant = new GardenPlant;
@@ -79,4 +80,3 @@ module.exports = function (app) {
         })
     })
 };
-

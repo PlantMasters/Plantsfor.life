@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 "use strict";
 
 angular.module('plantMasters').service('mainSearchService', function ($http) {
@@ -14,7 +15,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     this.samplePlants = ()=> {
         $http.get("/plants").then((response) => {
             _this.plants = response.data
-        })
+        });
     };
 
     //gets plants that meet search criteria
@@ -24,16 +25,25 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             url: '/plants',
             data: {zone: z, other: o, medical: m, edible: e}})
             .then((response) => {
-                console.log(`whatever`);
                 _this.plants = response.data;
             })
+    };
+    //gets plants that match the input field data...
+     this.searchName = function (n) {
+        $http({
+            method: 'POST',
+            url: '/plants',
+            data: {name: n}})
+            .then((response) => {
+                _this.plants = response.data;
+            });
     };
 
     //return plants
     this.getPlants = () => {
         return this.plants;
     };
-    
+
     //search plants when zone changes
     this.manageZone = function (zones) {
         for (let obj in zones) {

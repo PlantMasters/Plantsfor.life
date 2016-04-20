@@ -1,7 +1,6 @@
 <div id="custom-modal">
   <div id="overlay">
     <div class="modal-img-container">
-<div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
     </div>
     <div class="modal-title-container">
       <h4>{{plant.name}}</h4>
@@ -42,6 +41,8 @@
         </tr>
       </tbody>
     </table>
+
+    <button class="add-to-garden-button">Add to My Garden</button>
 
     <span href class="icon-x modal-close-icon" ng-click="close()"></span>
   </div>

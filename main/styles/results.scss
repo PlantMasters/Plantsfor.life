@@ -157,6 +157,7 @@
   margin-bottom: 0;
 }
 
+
 .modal-button {
   position: absolute;
   bottom: 0;
@@ -173,4 +174,17 @@
 
 .table-head {
   font-weight: bold;
+}
+
+.add-to-garden-button {
+  margin: 0 auto;
+  display: block;
+  background-color: #9AB87A;
+  color: #fff;
+}
+
+.add-to-garden-button:hover {
+  color: #fff;
+  background-color: #A7C18B;
+  cursor: pointer;
 }

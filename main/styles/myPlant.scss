@@ -1,0 +1,70 @@
+.myPlantContainer {
+    border: 1px solid #bfbfbf;
+    background-color: #e5e5e5;
+    box-shadow: 0 5px 5px 0 #ccc;
+    border-radius: 2px;
+    margin-top: 100px;
+    width: 70%;
+    min-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myPlantName {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: 300;  
+    text-align: center; 
+}
+
+.myPlantLatin {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.myPlantDetails {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.myPlantImage {
+    background-color: #000;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.editDetailContainer {
+    width: calc(100% - 271px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.editDetail {
+    display:inline-block;
+    margin-left: 10px;
+}
+
+.myPlantDetailHeader {
+    display: block;
+    margin-left: 10px;
+}
+
+.editDetailInput:hover {
+    cursor: pointer;
+}
+
+// .myPlantDetailValue {
+    
+// }

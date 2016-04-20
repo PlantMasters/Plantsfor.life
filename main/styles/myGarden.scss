@@ -4,21 +4,13 @@
 }
 
 .gardenImage {
-  background: url(../images/farm-house.jpg);
+  background: url(../images/farm-picture.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: 50% 65%;
   width: 100%;
   height: 300px;
   margin-top: 50px;
-}
-
-.blackBox {
-    background-color: #000;
-    width: 100%;
-    height: 300px;
-    opacity: .3;
-    margin-top: 50px;
 }
 
 .myPlantsMessage {
@@ -28,11 +20,12 @@
 .gardenHeader {
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 80px;
+    font-weight: 100;
     text-align: center;
     vertical-align: center;
     color: #fff;
     opacity: 1;
-    margin-top: 50px;
+    padding-top: 100px;
     height: 300px;
 }
 
@@ -48,16 +41,43 @@
     word-wrap: break-word;
     margin-bottom: 20px;
     margin-top: 100px;
+    margin-left: 30px;
     -webkit-box-shadow: 0 1px 1px 0 #ccc;
     -moz-box-shadow:    0 1px 1px 0 #ccc;
     box-shadow:         0 1px 1px 0 #ccc;
-    min-width: 340px;
-    min-height: 400px;
+    min-width: 300px;
+    min-height: 250px;
     flex-basis: auto;
     position: relative;
     display: inline-block; 
+    cursor: pointer;
 }
 
 .plantsMargin {
     margin-top: 50px;
+}
+
+.gardenPlantName {
+    display: block;
+    width: 98%;
+    position: absolute;
+    bottom: 0px;
+    left: 3px;
+    border-top: 1px solid #bfbfbf; 
+}
+
+.gardenPlantNameText {
+    display: inline-block;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 2em;
+}
+
+.gardenPlantLatin {
+    font-size: 1.5em;
+}
+
+.removeGardenPlant {
+    background-color: #C50727;/*#AC0622;/*#BD362F;/*#C95D57;/*#9E142B;*/
+    color: #fff;
+    display: inline-block;
 }

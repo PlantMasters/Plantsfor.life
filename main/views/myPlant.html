@@ -1,0 +1,26 @@
+<div class="myPlantView">
+    <div class="myPlantContainer">
+        <div class="myPlantName">{{myPlant.plant.name}}</div>
+        <div class="myPlantLatin">{{myPlant.plant.latin}}</div>
+        <div class="myPlantDetails">
+            <div class="myPlantImage"></div>
+            <div class="editDetailContainer">
+                <div class="myPlantDetailHeader">Variety:</div>
+                <form class="editDetailInput" ng-submit="hideVarietyInput();updateVariety(newVar)">
+                    <input type="text" ng-hide="varietyBoolean" placeholder="myPlantDate" ng-model="newVar" class="editDetail"/>
+                </form>
+                <!--<button class="editDetail" ng-hide="varietyBoolean" ng-click="hideVarietyInput();updateVariety(newVar)">Update</button>-->
+                <div class="myPlantDetailValue editDetail editDetailInput" ng-show="varietyBoolean" ng-click="showVarietyInput()">{{myPlantDate}}</div>
+                <!--<button class="editDetail" ng-show="varietyBoolean" ng-click="showVarietyInput()">Edit</button>-->
+            </div>
+            <div class="editDetailContainer">
+                <div class="myPlantDetailHeader">Date Planted:</div>
+                <input type="text" ng-hide="dateBoolean" placeholder="myPlantDate" ng-model="newDate" class=""/>
+                <button ng-hide="dateBoolean" ng-click="hideDateInput();updateDate(newDate)">Update</button>
+                <div ng-show="dateBoolean">{{myPlantDate}}</div>
+                <button ng-show="dateBoolean" ng-click="showDateInput()">Edit</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

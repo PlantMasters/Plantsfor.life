@@ -68,5 +68,15 @@ module.exports = function (app) {
             }
         })
     })
+    
+    app.get('/getGardenPlant/:plantId', function(req, res, next) {
+        GardenPlant.findById(req.params.plantId, function(err, plant) {
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.send(plant);
+            }
+        })
+    })
 };
 

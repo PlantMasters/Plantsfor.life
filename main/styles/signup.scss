@@ -1,6 +1,8 @@
 .signUpContainer {
     display: block;
-    width: 100%
+    width: 100%;
+    overflow: auto;
+    height: none;
 }
 
 .signUpHeader {

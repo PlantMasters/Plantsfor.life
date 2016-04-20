@@ -1,20 +1,34 @@
 <div class="resultsContainer nine columns">
 
-    <div class="plantsContainer" ng-repeat="plant in plants">
-        <div class= "plantName">{{plant.name}}</div>
-        <div class="plantLatin">{{plant.latin}}</div>
-        <div>Medicinal Rating: {{plant.medicinal}}</div>
-        <div>Edibility: {{plant.edibility}}</div>
-        <!-- <div ng-repeat="use in plant.uses">
-            Other: {{use.other}}<br/>
-            Edible: {{use.edible}}<br/>
-            Medical: {{use.medical}}
-        </div> -->
-        <!-- <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
-           {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
-       </div> -->
-        <br/>
-        <span class="icon-plus add-to-garden-results" ng-click=""></span>
-        <button class="modal-button" ng-click="showCustom(plant)">More Info</button>
+  <div class="plantsContainer" ng-repeat="plant in plants">
+    <div class="plant-image-container">
     </div>
+    <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
+
+
+    <div class="clearfix"></div>
+
+    <div class="plantName">{{plant.name}}</div>
+    <div class="plantLatin">{{plant.latin}}</div>
+
+    <table>
+      <tr>
+        <td>
+          <p>Medicinal Rating: </p>
+        </td>
+        <td><span class="icon-bandaid results-rating-icon" ng-repeat="i in getNum(plant.medicinal) track by $index"></span></td>
+      </tr>
+      <tr>
+        <td>
+          <p>Edibility Rating: </p>
+        </td>
+        <td><span class="icon-carrot results-rating-icon" ng-repeat="i in getNum(plant.edibility) track by $index"></span></td>
+      </tr>
+    </table>
+    <!-- <div ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
+            {{prop}}: <div ng-repeat="uses in use" > {{uses}}</div>
+        </div> -->
+    <br/>
+    <button class="modal-button" ng-click="showCustom(plant)">More Info</button>
+  </div>
 </div>

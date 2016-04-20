@@ -1,11 +1,17 @@
 <div id="custom-modal">
   <div id="overlay">
     <div class="modal-img-container">
-
+<div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
     </div>
     <div class="modal-title-container">
       <h4>{{plant.name}}</h4>
       <h6>{{plant.latin}}</h6>
+      <span ng-repeat="n in [] | range:5 track by $index">
+        <span title="Medicinal Rating" class="icon-bandaid results-rating-icon" ng-class="{'bandaid-active': $index <= plant.medicinal}"></span>
+      </span><br/>
+      <span ng-repeat="n in [] | range:5 track by $index">
+        <span title="Edibility Rating" class="icon-carrot results-rating-icon" ng-class="{'carrot-active': $index <= plant.edibility}"></span>
+      </span>
     </div>
 
     <table class="u-full-width">

@@ -2,8 +2,8 @@
 
   <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant)">
     <div class="plant-image-container">
+      <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
     </div>
-    <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
 
 
     <div class="clearfix"></div>

@@ -80,14 +80,14 @@
 #overlay {
     position: fixed;
     left: 25%;
-    top: 25%;
+    top: 12.5%;
     padding: 25px;
     -webkit-box-shadow: 1px #ccc;
     -moz-box-shadow:    1px #ccc;
     box-shadow:         1px #ccc;
     background-color: #ffffff;
     width: 50%;
-    height: 50%;
+    height: 75%;
     z-index: 100;
     overflow: auto;
 }
@@ -124,6 +124,10 @@
   opacity: 0;
 }
 
+#custom-modal table {
+  display: inline-table;
+}
+
 #custom-modal td {
   border-bottom: none;
 }
@@ -132,8 +136,13 @@
   border-bottom: none;
 }
 
-.modal-title-container {
-  // float: right;
+.modal-title-container h4 {
+  font-size: 3em;
+}
+
+.modal-title-container h6 {
+  font-size: 1.5em;
+  font-style: italic;
 }
 
 .modal-img-container {
@@ -159,7 +168,7 @@
   right: 0;
   padding: 10px;
   font-size: 2em;
-  color: #444B6E;
+  color: #434644;
 }
 
 .table-head {

@@ -16,11 +16,19 @@
       <table>
         <tr>
 
-          <td><span class="icon-bandaid results-rating-icon" ng-repeat="i in getNum(plant.medicinal) track by $index" title="Medicinal Rating"></span></td>
+          <td>
+            <span ng-repeat="n in [] | range:5 track by $index">
+              <span title="Medicinal Rating" class="icon-bandaid results-rating-icon" ng-class="{'bandaid-active': $index <= plant.medicinal}"></span>
+            </span>
+          </td>
         </tr>
         <tr>
 
-          <td><span class="icon-carrot results-rating-icon" ng-repeat="i in getNum(plant.edibility) track by $index" title="Edibility Rating"></span></td>
+          <td title="Edibility Rating">
+            <span ng-repeat="n in [] | range:5 track by $index">
+              <span title="Edibility Rating" class="icon-carrot results-rating-icon" ng-class="{'carrot-active': $index <= plant.edibility}"></span>
+            </span>
+          </td>
         </tr>
         <tr>
 
@@ -37,3 +45,5 @@
     </div>
   </div>
 </div>
+
+<!-- ng-repeat="i in getNum(plant.medicinal) track by $index" -->

@@ -73,6 +73,9 @@ let plant = new Schema({
     },
     "size": {
         type: Array
+    },
+    "pic":{
+        type:String
     }
 });
 

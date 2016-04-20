@@ -45,20 +45,21 @@ module.exports = {
     },
     postUses(data){
         let defer = q.defer();
-        plant.findOne({latin: data.latin}, (err, result)=>{
-            if(result){
-            result.uses.push(data);
-            result.save((err, s) => {
-                // console.log(data);
-                if (err) {
-                    console.log(err);
-                    defer.reject(new Error(err));
-                } else {
-                    // console.log(s)
-                    defer.resolve();
-                }
-            });}
-            else{
+        plant.findOne({latin: data.latin}, (err, result)=> {
+            if (result) {
+                result.uses.push(data);
+                result.save((err, s) => {
+                    // console.log(data);
+                    if (err) {
+                        console.log(err);
+                        defer.reject(new Error(err));
+                    } else {
+                        // console.log(s)
+                        defer.resolve();
+                    }
+                });
+            }
+            else {
                 defer.reject();
             }
         });
@@ -75,9 +76,55 @@ module.exports = {
         });
         return defer.promise;
     },
+    getLatin: () => {
+        let defer = q.defer();
+        plant.find({}, {latin: 1}, (err, s)=> {
+            if (err) {
+                console.log(err);
+                defer.reject(new Error(err));
+            } else {
+                // console.log(s)
+                defer.resolve(s);
+            }
+        });
+        return defer.promise;
+    },
+    addPic: (data, url)=> {
+        let defer = q.defer();
+        plant.findOneAndUpdate({latin: data}, {$set: {"pic": url}}, {new: true}, (err, s) => {
+            // console.log(data);
+            if (err) {
+                console.log(err);
+                defer.reject(new Error(err));
+            } else {
+                // console.log(s);
+                defer.resolve();
+            }
+        });
+        promises.push(defer.promise);
+    },
+    checked: (check)=> {
+        let defer = q.defer();
+        plant.findOne({"latin": check},'pic',
+            function (err, docs) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    // console.log(docs.pic);
+                    if (docs.pic) {
+                        defer.resolve(true);
+                    } else {
+                        defer.resolve(false);
+                    }
+                }
+            }
+        );
+        return defer.promise;
+    },
     close: ()=> {
         q.allSettled(promises).done(()=> {
             mongoose.connection.close();
         })
     }
-};
+}
+;

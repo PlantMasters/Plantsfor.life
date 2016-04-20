@@ -1,9 +1,9 @@
 <div class="mainContainer three columns">
     <div class="searchContainer">
-        <div class="searchInputBox">
+        <div ng-controller="SuggestiveCtrl"class="searchInputBox">
             <div class="searchInputSpacer">
-                <form ng-submit="searchInputUse()">
-                    <input class="input" placeholder="Search by use" ng-model="typedUse">
+                <form ng-submit="searchName()">
+                    <input class="input" placeholder="Search plants by name" ng-model="search" ng-change="plantSuggest()">
                 </form>
             </div>
         </div>

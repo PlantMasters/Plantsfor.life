@@ -59,13 +59,18 @@ a, a:link, a:visited, a:hover, a:active {
     margin: 20px auto 0;
 }
 
+.left {
+  float: left;
+}
+
 .results-desc-container {
-      border-top: 1px solid #bfbfbf;
+        text-align: left;
 }
 
 .plant-image-container {
-  height: 200px;
+  height: 250px;
   font-size: 2.5em;
+  border-bottom: 1px solid #bfbfbf;
 }
 
 nav {
@@ -288,10 +293,10 @@ nav {
 }
 
 .add-to-garden-results {
-  // font-size: 2.5em;
   color: #9AB87A;
   float: right;
-  padding: 10px;
+  padding: 10px 20px 10px 10px;
+  font-size: 2.5em;
 }
 
 .add-to-garden-results:hover {
@@ -300,6 +305,11 @@ nav {
 }
 .add-to-garden-results:active {
     color:#8DAF69;
+}
+
+.plant-img {
+  width: 400px;
+  height: 300px;
 }
 
 //ICONS

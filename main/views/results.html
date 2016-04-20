@@ -1,8 +1,7 @@
 <div class="resultsContainer nine columns">
 
   <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant)">
-    <div class="plant-image-container">
-      <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
+    <div class="plant-image-container" back-img="{{plant.pic}}">
     </div>
 
 
@@ -10,9 +9,14 @@
 
     <div class="results-desc-container">
 
+      <div class="left">
       <div class="plantName">{{plant.name}}</div>
       <div class="plantLatin">{{plant.latin}}</div>
+    </div>
 
+    <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id)"></div>
+
+<div class="clearfix"></div>
       <table>
         <tr>
 

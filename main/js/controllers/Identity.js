@@ -8,8 +8,7 @@ angular.module('plantMasters').factory('Identity', function($http) {
       console.log(data);
     }).catch(function (err){
       currentUser = undefined;
-      console.log("ERROR!!!!");
-    })
+    });
   };
   userCall();
 

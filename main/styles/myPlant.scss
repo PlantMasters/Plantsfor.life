@@ -8,6 +8,7 @@
     min-height: 400px;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px;
 }
 
 .myPlantName {
@@ -28,43 +29,70 @@
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 23px;
     font-weight: 300;
+    margin-bottom: 20px;
 }
 
 .myPlantDetails {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 100%;
+}
+
+.myPlantImageContainer {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .myPlantImage {
     background-color: #000;
     width: 250px;
     height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.myPlantEditDetailContainer {
+    width: 50%;
     display: inline-block;
-    margin: 10px;
+    //padding-left: 20px;
 }
 
 .editDetailContainer {
-    width: calc(100% - 271px);
-    display: inline-block;
-    vertical-align: top;
+    display: block;
 }
 
 .editDetail {
     display:inline-block;
-    margin-left: 10px;
+    //margin-left: 10px;
+    cursor: pointer;
 }
 
 .myPlantDetailHeader {
-    display: block;
-    margin-left: 10px;
+    display: inline-block;
+    //margin-left: 10px;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .editDetailInput:hover {
     cursor: pointer;
 }
 
-// .myPlantDetailValue {
-    
-// }
+.myPlantDetailValue {
+    display: inline-block;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding-left: 20px;
+}
+
+.myPlantInfo {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

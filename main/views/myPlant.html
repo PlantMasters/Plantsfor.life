@@ -3,22 +3,62 @@
         <div class="myPlantName">{{myPlant.plant.name}}</div>
         <div class="myPlantLatin">{{myPlant.plant.latin}}</div>
         <div class="myPlantDetails">
-            <div class="myPlantImage"></div>
-            <div class="editDetailContainer">
-                <div class="myPlantDetailHeader">Variety:</div>
-                <form class="editDetailInput" ng-submit="hideVarietyInput();updateVariety(newVar)">
-                    <input type="text" ng-hide="varietyBoolean" placeholder="myPlantDate" ng-model="newVar" class="editDetail"/>
-                </form>
-                <!--<button class="editDetail" ng-hide="varietyBoolean" ng-click="hideVarietyInput();updateVariety(newVar)">Update</button>-->
-                <div class="myPlantDetailValue editDetail editDetailInput" ng-show="varietyBoolean" ng-click="showVarietyInput()">{{myPlantDate}}</div>
-                <!--<button class="editDetail" ng-show="varietyBoolean" ng-click="showVarietyInput()">Edit</button>-->
+            <div class="myPlantImageContainer">
+                <div class="myPlantImage"></div>
             </div>
-            <div class="editDetailContainer">
-                <div class="myPlantDetailHeader">Date Planted:</div>
-                <input type="text" ng-hide="dateBoolean" placeholder="myPlantDate" ng-model="newDate" class=""/>
-                <button ng-hide="dateBoolean" ng-click="hideDateInput();updateDate(newDate)">Update</button>
-                <div ng-show="dateBoolean">{{myPlantDate}}</div>
-                <button ng-show="dateBoolean" ng-click="showDateInput()">Edit</button>
+            <div class="myPlantEditDetailContainer">
+                <div class="editDetailContainer">
+                    <div class="myPlantDetailHeader">Variety:</div>
+                    <div class="myPlantDetailValue editDetail" ng-show="dateBoolean">{{myPlantVariety}}</div>
+                    <form class="editDetailInput" ng-submit="hideVarietyInput();updateVariety(newVar)">
+                        <label for="variety" class="editDetail" ng-click="showVarietyInput()">E</label>
+                        <input type="text" ng-hide="varietyBoolean" placeholder="" ng-model="newVar" id="variety" class="editDetailInput" ng-blur="hideVarietyInput();updateVariety(newVar)" autofocus/>
+                    </form>
+                    <!--<div class="myPlantDetailValue editDetail" ng-show="varietyBoolean" >{{myPlantVariety}}</div>-->
+                </div>
+                <div class="editDetailContainer">
+                    <div class="myPlantDetailHeader">Date Planted:</div>
+                    <div class="myPlantDetailValue editDetail" ng-show="dateBoolean" >{{myPlantDate}}</div>   
+                    <form class="editDetailInput" ng-submit="hideDateInput();updateDate(newDate)">
+                        <label for="date" class="editDetail" ng-click="showDateInput()">E</label>
+                        <input type="text" ng-hide="dateBoolean" placeholder="" ng-model="newDate" id="date" class="editDetailInput" ng-blur="hideVarietyInput();updateDate(newDate)" autofocus/>
+                    </form>
+                   
+                </div>
+                <div class="editDetailContainer">
+                    <div class="myPlantDetailHeader">Purchased At:</div>
+                    <div class="myPlantDetailValue editDetail" ng-show="locationBoolean" >{{myPlantLocation}}</div>
+                    <form class="editDetailInput" ng-submit="hideLocationInput();updateLocation(newVar)">
+                        <label for="location" class="editDetail" ng-click="showLocationInput()">E</label>
+                        <input type="text" ng-hide="locationBoolean" placeholder="" ng-model="newLoc" id="location" class="editDetailInput" ng-blur="hideLocationInput();updateLocation(newLoc)" autofocus/>
+                    </form>  
+                </div>
+                <div class="editDetailContainer">
+                    <div class="myPlantDetailHeader">Notes:</div>
+                    <div class="myPlantDetailValue editDetail" ng-show="notesBoolean">{{myPlantNotes}}</div>
+                    <form class="editDetailInput" ng-submit="hideNotesInput();updateNotes(newNotes)">
+                        <label for="notes" class="editDetail" ng-click="showNotesInput()">E</label>
+                        <input type="text" ng-hide="notesBoolean" placeholder="" ng-model="newNotes" id="notes" class="editDetailInput" ng-blur="hideNotesInput();updateNotes(newNotes)" autofocus/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="myPlantDetail">
+            <div class="editDetailContainer myPlantInfo">
+                <div class="myPlantDetailHeader">Zone:</div>
+                <div class="myPlantDetailValue editDetail">{{myPlant.plant.zone}}</div>
+            </div>
+            <div class="editDetailContainer myPlantInfo">
+                <div class="myPlantDetailHeader">Family:</div>
+                <div class="myPlantDetailValue editDetail">{{myPlant.plant.family}}</div>
+            </div>
+            <div class="editDetailContainer myPlantInfo">
+                <div class="myPlantDetailHeader">Range:</div>
+                <div class="myPlantDetailValue editDetail">{{myPlant.plant.range}}</div>
+            </div>
+            <div class="editDetailContainer myPlantInfo">
+                <div class="myPlantDetailHeader">Hazards:</div>
+                <div class="myPlantDetailValue editDetail">{{myPlant.plant.hazards}}</div>
             </div>
         </div>
         

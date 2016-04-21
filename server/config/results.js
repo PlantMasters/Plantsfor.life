@@ -51,8 +51,8 @@ module.exports = {
     // TODO: Create a lowercase_name field in the database for the latin and common name fields.  This will negate the need for toUpperCase thing...
     searchResults: (req, res)=> {
 
-        var result = String(req.body.name.toLowerCase());
-        Plants.find({$or: [{'nameL': result}, {'latinL': result}]}, {}, {limit: 50},
+        var reger = new RegExp(".*"+ req.body.name.toLowerCase() +".*");
+        Plants.find({$or: [{'nameL': {$regex:reger}}, {'latinL': {$regex:reger}}]}, {}, {limit: 50},
             function (err0, plants) {
                 if (err0) {
                     res.status(500).send(err0);

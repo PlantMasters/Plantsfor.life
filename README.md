@@ -9,10 +9,10 @@ The site was designed to assist in selecting and saving lists of plants based
 
 ## Table of Contents
 
--   [Team](#Team)
--   [Tech](#Tech)
--   [Feedback](#Feedback)
--   [License](#License)
+-   [Team](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Team)
+-   [Tech](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Tech)
+-   [Feedback](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Feedback)
+-   [License](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#License)
 
 ##Team
 

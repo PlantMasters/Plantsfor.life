@@ -10,6 +10,7 @@
 }
 
 .plantsContainer {
+   word-wrap: break-word;
     border: 1px solid #bfbfbf;
     margin-right: 30px;
     border-radius: 2px;
@@ -22,7 +23,7 @@
     -webkit-box-shadow: 0 1px 1px 0 #ccc;
     -moz-box-shadow:    0 1px 1px 0 #ccc;
     box-shadow:         0 1px 1px 0 #ccc;
-    min-width: 340px;
+    width: 340px;
     min-height: 400px;
     flex-basis: auto;
     position: relative;
@@ -147,10 +148,11 @@
 }
 
 .modal-img-container {
-  height: 300px;
-  width: 450px;
+  height: 350px;
+  width: 475px;
   float: left;
   margin-right: 15px;
+  background-size: contain;
 }
 
 .modal-title-container h4 {

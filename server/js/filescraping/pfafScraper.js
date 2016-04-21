@@ -76,7 +76,12 @@ let searchForTerms = (text) => {
                 //common name
                 case 1:
                     temp = text.slice(i + len, i + len + 200);
-                    ret.name = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
+                    temp = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
+                    if (temp === "&nbsp;") {
+                        ret.name = ret.latin;
+                    } else {
+                        ret.name = temp;
+                    }
                     break;
                 //family
                 case 2:

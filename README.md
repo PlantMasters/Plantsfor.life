@@ -7,13 +7,6 @@ of plants.  The database is a superset of the data found on the [PFAF website](h
 The site was designed to assist in selecting and saving lists of plants based
  on use and function.
 
-## Table of Contents
-
--   [Team](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Team)
--   [Tech](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Tech)
--   [Feedback](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#Feedback)
--   [License](https://github.com/PlantMasters/masters-of-the-plants/tree/readme#License#License)
-
 ##Team
 
 -   [Jessica Hathaway](https://github.com/hathawayjess)
@@ -41,7 +34,7 @@ Building the site as a MEAN app from the ground-up required the team to
 
 -   Angular Animate, Angular Resource, UI Router, Body Parser, Cookie Parser
 -   Cors, EJS, Express Session, Mongoose, Morgan, Passport, Passport local
--   Gulp, SASS, Webserver, Babel, and many more...
+-   Gulp, SASS, Slack, Webserver, Babel, and many more...
 
 ##Feedback
 

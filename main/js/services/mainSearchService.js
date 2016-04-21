@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 "use strict";
 
 angular.module('plantMasters').service('mainSearchService', function ($http) {
@@ -46,6 +45,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //search plants when zone changes
     this.manageZone = function (zones) {
+        currentHardinessZone = 0;
         for (let obj in zones) {
                 if (zones[obj]) {
                 currentHardinessZone = obj;
@@ -56,6 +56,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //search plants when edible changes
     this.manageEdible = (edibs)=> {
+        edibleSelected = [];
         for (let obj in edibs) {
             if (edibs[obj]) {
                 edibleSelected.push(obj);
@@ -106,7 +107,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //search plants when other changes
     this.addOtherSpecific = (others) => {
-        this.finalOtherArray = [];
+        finalOtherArray = [];
 
         let otherCats = {
             "Building": ['Insulation', 'Pipes', 'Pitch', 'Plaster', 'Roofing', 'Thatching'],

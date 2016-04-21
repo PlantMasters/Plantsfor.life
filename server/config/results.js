@@ -13,17 +13,19 @@ module.exports = {
     //searches plants
     searchPlants: function (req, res) {
         if (req.body.zone) {
-            Plants.find({$or: [
-                {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
-                {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]},
-                {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {},
-                {limit: 50}, (err0, plants) =>{
-                if (err0) {
-                    res.status(500).send(err0);
-                } else {
-                    res.send(plants);
-                }
-            })
+            Plants.find({
+                    $or: [
+                        {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
+                        {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]},
+                        {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]
+                }, {},
+                {limit: 50}, (err0, plants) => {
+                    if (err0) {
+                        res.status(500).send(err0);
+                    } else {
+                        res.send(plants);
+                    }
+                }).sort({views: 1});
         }
         else {
             Plants.find({$or: [{'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, {}, {limit: 50}, function (err0, plants) {
@@ -40,7 +42,7 @@ module.exports = {
     },
     samplePlants: (req, res)=> {
         Plants.aggregate(
-            {$sample: {size: 25}}, (err,plants)=>{
+            {$sample: {size: 25}}, (err, plants)=> {
                 err ? res.status(500).send(err) : res.send(plants);
             }
         );
@@ -49,15 +51,16 @@ module.exports = {
     // TODO: Create a lowercase_name field in the database for the latin and common name fields.  This will negate the need for toUpperCase thing...
     searchResults: (req, res)=> {
 
-      var result = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
-      var reger = new RegExp(".*"+ result +".*");
-      Plants.find({$or: [{'name': {$regex:reger}}, {'latin': {$regex:reger}}]}, {}, {limit: 50}, function (err0, plants) {
-          if (err0) {
-              res.status(500).send(err0);
-          } else {
-              res.send(plants);
-          }
+        var result = String(req.body.name.toLowerCase());
+        Plants.find({$or: [{'nameL': result}, {'latinL': result}]}, {}, {limit: 50},
+            function (err0, plants) {
+                if (err0) {
+                    res.status(500).send(err0);
+                } else {
+                    console.log(plants);
+                    res.send(plants);
+                }
 
-      });
+            });
     }
 };

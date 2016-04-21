@@ -1,10 +1,9 @@
 "use strict";
 
-angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService, $rootScope, ModalService, gardenService) {
+angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService, ModalService, gardenService) {
 
     //initialize plants and get random plants for page load
 
-    $scope.plants;
     mainSearchService.samplePlants();
 
     //watches plants for change
@@ -19,7 +18,7 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
 
     $scope.getNum = function(num) {
       return new Array(num);
-    }
+    };
 
     $scope.addToGarden = function (plant) {
         gardenService.postPlant(plant);
@@ -32,7 +31,7 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
                 plant: plant
             }
         }).then(function (modal) {
-            modal.close.then(function (result) {
+            modal.close.then(function () {
                 console.log('HOORAY');
             });
         });

@@ -82,6 +82,9 @@ let plant = new Schema({
     },
     "nameL":{
         type:String
+    },
+    "views":{
+        type:Number
     }
 });
 

@@ -81,7 +81,7 @@ let searchForTerms = (text) => {
                     temp = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
                     if (temp === "&nbsp;") {
                         ret.name = ret.latin;
-                        ret.name = ret.latinL;
+                        ret.nameL = ret.latinL;
                     } else {
                         ret.name = temp;
                         ret.nameL = temp.toLowerCase();

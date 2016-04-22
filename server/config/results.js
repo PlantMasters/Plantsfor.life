@@ -35,7 +35,7 @@ module.exports = {
                     res.send(plants);
                 }
 
-            })
+            }).sort({views: 1});
 
         }
 

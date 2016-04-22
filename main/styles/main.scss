@@ -63,14 +63,9 @@ a, a:link, a:visited, a:hover, a:active {
 
 .results-desc-container {
         text-align: left;
-        padding-left: 5px;
+        padding-left: 10px;
 }
 
-.plant-image-container {
-  height: 250px;
-  font-size: 2.5em;
-  border-bottom: 1px solid #bfbfbf;
-}
 
 nav {
   padding: 5px;
@@ -313,13 +308,28 @@ nav {
     color:#8DAF69;
 }
 
+.plant-image-container {
+  height: 250px;
+  font-size: 2.5em;
+}
+
 .plant-img {
-  width: 400px;
-  height: 300px;
-  border: 1px solid #434644;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 //ICONS
+.icon-checkmark:before {
+    content: "\e91a";
+}
+.icon-pencil:before {
+    content: "\e91b";
+}
+.icon-trashcan:before {
+    content: "\e91c";
+}
 .icon-bandaid:before {
     content: "\e917";
 }
@@ -405,19 +415,7 @@ nav {
     content: "\e916";
 }
 
-// @media screen and (min-width: 600px) {
-//     .mainContainer {
-//         background-color: #fff;
-//         width: 35%;
-//         padding-right: 20px;
-//         padding-left: 20px;
-//     }
-//     // .searchInputSpacer {
-//     //     width: 70%;
-//     //     padding: 30px;
-//     //     padding-left: 0px;
-//     // }
-// }
+
 //
 // @media screen and (min-width: 900px) {
 //   .mainContainer {

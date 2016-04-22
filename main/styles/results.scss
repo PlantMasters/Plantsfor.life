@@ -10,6 +10,7 @@
 }
 
 .plantsContainer {
+   word-wrap: break-word;
     border: 1px solid #bfbfbf;
     margin-right: 30px;
     border-radius: 2px;
@@ -22,8 +23,8 @@
     -webkit-box-shadow: 0 1px 1px 0 #ccc;
     -moz-box-shadow:    0 1px 1px 0 #ccc;
     box-shadow:         0 1px 1px 0 #ccc;
-    min-width: 340px;
-    min-height: 400px;
+    width: 340px;
+    height: 510px;
     flex-basis: auto;
     position: relative;
     cursor: pointer;
@@ -147,13 +148,16 @@
 }
 
 .modal-img-container {
+  height: 350px;
+  width: 475px;
   float: left;
   margin-right: 15px;
+  background-size: contain;
 }
 
 .modal-title-container h4 {
   margin-bottom: 0;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 
@@ -191,4 +195,19 @@
   color: #fff;
   background-color: #A7C18B;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1500px) {
+  #custom-modal {
+    text-align: center;
+  }
+
+  .modal-img-container {
+    float: none;
+    margin: 0 auto;
+  }
+
+  .modal-title-container {
+    float: none;
+  }
 }

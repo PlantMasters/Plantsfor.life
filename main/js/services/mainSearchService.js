@@ -59,7 +59,6 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     this.manageZone = function (zone) {
         currentHardinessZone = zone;
         if (finalOtherArray == [] && finalMedicalArray == [] && edibleSelected == []) {
-            console.log(   `whatever`);
             findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
         }
     };

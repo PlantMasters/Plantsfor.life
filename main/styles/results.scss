@@ -196,3 +196,18 @@
   background-color: #A7C18B;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1500px) {
+  #custom-modal {
+    text-align: center;
+  }
+
+  .modal-img-container {
+    float: none;
+    margin: 0 auto;
+  }
+
+  .modal-title-container {
+    float: none;
+  }
+}

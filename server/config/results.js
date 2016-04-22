@@ -13,7 +13,7 @@ module.exports = {
     //searches plants
     searchPlants: function (req, res) {
         if (req.body.zone) {
-            Plants.paginate({$or: [
+            Plants.find({$or: [
                 {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
                 {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]},
                 {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]}, {},
@@ -26,7 +26,7 @@ module.exports = {
             });
         }
         else {
-            Plants.paginate({$or: [{'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, {}, {limit: 50}, function (err0, plants) {
+            Plants.find({$or: [{'uses.edible': {$in: req.body.edible}}, {'uses.medical': {$in: req.body.medical}}, {'uses.other': {$in: req.body.other}}]}, {}, {limit: 50}, function (err0, plants) {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
@@ -50,7 +50,7 @@ module.exports = {
 
       var result = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
       var reger = new RegExp(".*"+ result +".*");
-      Plants.paginate({$or: [{'name': {$regex:reger}}, {'latin': {$regex:reger}}]}, {}, {limit: 50}, function (err0, plants) {
+      Plants.find({$or: [{'name': {$regex:reger}}, {'latin': {$regex:reger}}]}, {}, {limit: 50}, function (err0, plants) {
           if (err0) {
               res.status(500).send(err0);
           } else {

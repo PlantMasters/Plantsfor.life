@@ -1,4 +1,3 @@
-
 "use strict";
 
 angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSearchService) => {
@@ -72,7 +71,6 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         8: false,
         9: false
     };
-    $scope.typedUse = [];
 
     //watches medicalSelected array for changes, pushes specific changes
     $scope.$watch('medicalUses', (newVal, oldVal) => {
@@ -95,27 +93,15 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         }
     }, true);
 
-    //watches zones for changes
-    $scope.$watch('zones', (newVal, oldVal) => {
-        if (newVal != oldVal) {
-            mainSearchService.manageZone(newVal);
-        }
-    }, true);
-
-    $scope.searchInputUse = function () {
-        //send typed use to backend and return plants with that use;
-    };
-
     //ensures only one zone is selected at a time
     $scope.hardinessZone = function (aNum) {
         for (let obj in $scope.zones) {
             if ($scope.zones[obj] && obj != aNum) {
                 $scope.zones[obj] = false;
+                break;
             }
-
-            //TODO: fix hardiness unclick
         }
-        $scope.zones[aNum] = true;
-        mainSearchService.manageZone(aNum);
+        $scope.zones[aNum] = !$scope.zones[aNum];
+        mainSearchService.manageZone($scope.zones);
     };
 });

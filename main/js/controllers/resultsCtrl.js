@@ -1,5 +1,6 @@
 "use strict";
 
+
 angular.module('plantMasters').controller('resultsCtrl', function($scope, Identity, mvNotifier, mainSearchService, ModalService, gardenService) {
     //$scope.plants = mainSearchService.plants;
     $scope.identity = Identity;
@@ -15,6 +16,8 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
     }
 
     $scope.plants;
+    
+    //get random plants for page load
     mainSearchService.samplePlants();
 
     //watches plants for change
@@ -27,13 +30,12 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
         }
     }, true);
 
-    $scope.getNum = function(num) {
-      return new Array(num);
-    }
-
+    //adds plant to garden
     $scope.addToGarden = function (plant) {
         gardenService.postPlant(plant);
     };
+
+    //pops up a modal of the selected plant
     $scope.showCustom = function (plant) {
         ModalService.showModal({
             templateUrl: "../views/plant-modal.html",
@@ -42,7 +44,7 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
                 plant: plant
             }
         }).then(function (modal) {
-            modal.close.then(function (result) {
+            modal.close.then(function () {
                 console.log('HOORAY');
             });
         });
@@ -50,11 +52,13 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
     };
 });
 
-angular.module('plantMasters').filter('range', function() {
-  return function(val, range) {
-    range = parseInt(range);
-    for (var i=0; i<range; i++)
-      val.push(i);
-    return val;
-  };
+//used to color the correct amount of bandaids or carrots in plant card
+angular.module('plantMasters').filter('range', function () {
+    return function (val, range) {
+        range = parseInt(range);
+        for (var i = 0; i < range; i++)
+            val.push(i);
+        return val;
+    };
 });
+

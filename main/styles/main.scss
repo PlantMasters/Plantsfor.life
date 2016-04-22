@@ -316,6 +316,15 @@ nav {
 }
 
 //ICONS
+.icon-checkmark:before {
+    content: "\e91a";
+}
+.icon-pencil:before {
+    content: "\e91b";
+}
+.icon-trashcan:before {
+    content: "\e91c";
+}
 .icon-bandaid:before {
     content: "\e917";
 }

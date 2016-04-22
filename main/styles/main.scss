@@ -1,74 +1,69 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
-
 @font-face {
-    font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?q23mq');
-    src:    url('../fonts/icomoon.eot?q23mq#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?q23mq') format('truetype'),
-        url('../fonts/icomoon.woff?q23mq') format('woff'),
-        url('../fonts/icomoon.svg?q23mq#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?q23mq');
+  src: url('../fonts/icomoon.eot?q23mq#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?q23mq') format('truetype'), url('../fonts/icomoon.woff?q23mq') format('woff'), url('../fonts/icomoon.svg?q23mq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-
-
 body {
   background-color: #eee;
   margin: 0;
   // overflow-y: hidden;
 }
-
-a, a:link, a:visited, a:hover, a:active {
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
   color: #434644;
   text-decoration: none;
 }
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           /* non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
                                   not supported by any browser */
 }
-
-
 .clearfix:after {
-    content:"";
-    display:block;
-    clear:both;
-    display: block;
-    width: 100%;
-    margin: 20px auto 0;
+  content: "";
+  display: block;
+  clear: both;
+  display: block;
+  width: 100%;
+  margin: 20px auto 0;
 }
-
 .left {
   float: left;
 }
-
 .results-desc-container {
-        text-align: left;
-        padding-left: 10px;
+  text-align: left;
+  padding-left: 10px;
 }
-
-
 nav {
   padding: 5px;
   display: inline-block;
@@ -80,17 +75,15 @@ nav {
   top: 0;
   left: 0;
   background-color: #444B6E;
-  box-shadow: 0px 4px 20px #888888;
+  box-shadow: 0 4px 20px #888888;
 }
 #navbar a {
-    color: #9AB87A;
+  color: #9AB87A;
 }
-
 #navbar a:hover {
   color: #A7C18B;
   cursor: pointer;
 }
-
 .nav-link {
   display: inline-block;
   font-size: 20px;
@@ -99,63 +92,53 @@ nav {
   padding-right: 5px;
   color: #fff;
 }
-
 .leaf-home {
   font-size: 2em;
   -moz-transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
 }
-
 .signin {
   display: inline-block;
   float: right;
   padding-right: 40px;
 }
-
 .signin input {
   margin-right: 10px;
 }
-
 .signInButton {
-    background-color: #9AB87A;
-    color: #fff;
+  background-color: #9AB87A;
+  color: #fff;
 }
-
 .signInButton:hover {
-    background-color: #A7C18B;
-    color: #fff
+  background-color: #A7C18B;
+  color: #fff;
 }
 .toast-top-right {
   top: 120px;
 }
-
 .zones {
   display: inline-block;
+  margin: 5px;
 }
-
 .mainContainer {
   background-color: #fff;
   min-width: 15%;
 }
-
 .searchContainer {
   overflow: auto;
   height: calc(100vh - 45px);
   float: left;
   margin-top: 45px;
 }
-
 .searchInputBox {
   width: 100%;
   margin-top: 20px;
 }
-
 .searchType {
   margin-left: 5px;
 }
-
 .searchInputBox:after {
   content: "";
   display: block;
@@ -163,7 +146,6 @@ nav {
   margin: 20px auto 0;
   border-bottom: 1px solid #bfbfbf;
 }
-
 .input {
   display: block;
   width: 80%;
@@ -175,21 +157,19 @@ nav {
   text-align: left;
   border: 1px solid #bfbfbf;
   margin-bottom: 30px;
-  -webkit-transition: border-color .5s; /* Safari */
-  transition: border-color .5s;
+  -webkit-transition: border-color 0.5s;
+  /* Safari */
+  transition: border-color 0.5s;
   padding: 5px 5px 5px 10px;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
 }
-
 .input:focus {
   border-color: #000;
   outline: none;
 }
-
 .input:placeholder {
   color: #434644;
 }
-
 .searchTitle {
   font-family: 'Oswald', 'Helvetica', 'Arial', sans-serif;
   text-align: left;
@@ -200,92 +180,45 @@ nav {
   color: #434644;
   width: 100%;
 }
-
 .arrow {
   background-size: cover;
-  background: url(../images/down-arrow.png) no-repeat top center;
+  background: url("../images/down-arrow.png") no-repeat top center;
   width: 17px;
   height: 17px;
   display: inline-block;
   margin-right: 10px;
-
 }
-
 .arrow:hover {
   cursor: pointer;
 }
-
 .usesRepeatCont {
   display: inline-block;
 }
-
 .usesRepeat {
   display: inline-block;
   border: 1px solid #bfbfbf;
   border-radius: 2px;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 3px;
   background-color: #f1f1f1;
-  padding: 3px 12px 3px 12px;
+  padding: 3px 12px;
 }
-
 .usesRepeat:hover {
   cursor: pointer;
 }
-
 .usesRepeat:after {
   background-color: #9AB87A;
 }
-
 .selectedToSearch {
   background-color: #9AB87A;
   color: #fff;
 }
-
 .selectedToSearch:hover {
-  background-color: #A7C18B
+  background-color: #A7C18B;
 }
-
 .zones {
   display: inline-block;
-}
-
-.circle {
-  display: inline-block;
-  font-size: 2em;
-  color: #A5A5A5;
-  border: 1px solid #bfbfbf;
-  background-color: #fff;
-  -webkit-transition: border-color .5s; /* Safari */
-  transition: border-color .5s;
-  padding: 0 5px 10px 5px;
-  margin: 5px;
-  width: 40px;
-  height: 40px;
-  border-radius: 200px;
-  text-align: center;
-  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-  font-weight: 300;
-
-}
-
-.circle:hover {
-  background-color: #A7C18B;
-  -webkit-transition: .5s; /* Safari */
-  transition: .5s;
-  cursor: pointer;
-  color: #fff;
-}
-
-.circle:active {
-  border-color: #000;
-}
-
-.zoneSelectedToSearch {
-  border-color: #000;
-  background-color: #9AB87A;
-  color: #fff;
 }
 
 .add-to-garden-results {
@@ -294,20 +227,17 @@ nav {
   padding: 10px 20px 10px 10px;
   font-size: 2.5em;
 }
-
 .add-to-garden-results:hover {
   color: #A7C18B;
   cursor: pointer;
 }
 .add-to-garden-results:active {
-    color:#8DAF69;
+  color: #81a659;
 }
-
 .plant-image-container {
   height: 250px;
   font-size: 2.5em;
 }
-
 .plant-img {
   width: 100%;
   height: 100%;
@@ -315,106 +245,144 @@ nav {
   background-repeat: no-repeat;
 }
 
+.tater-box {
+  width: 75px;
+  height: 75px;
+  text-align: center;
+}
+.taters {
+  font-size: 3.4em;
+  padding: 5px;
+  color: #A5A5A5;
+  -webkit-transition: color 0.5s;
+  /* Safari */
+  transition: color 0.5s;
+  display: inline;
+  font-weight: 400;
+}
+.taters:hover {
+  color: #81a659;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  /* Safari */
+  transition: 0.5s;
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+
+
+
+.zoneSelectedToSearch {
+  color: #A7C18B;
+}
+.zone-num {
+  display: inline;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  position: relative;
+  font-size: 0.5em;
+  right: 33px;
+  bottom: 13px;
+  font-weight: 300;
+}
+.zone-num:hover {
+  -webkit-transition: 0.5s;
+  /* Safari */
+  transition: 0.5s;
+}
+
 //ICONS
 .icon-checkmark:before {
-    content: "\e91a";
+  content: "\e91a";
 }
 .icon-pencil:before {
-    content: "\e91b";
+  content: "\e91b";
 }
 .icon-trashcan:before {
-    content: "\e91c";
+  content: "\e91c";
 }
 .icon-bandaid:before {
-    content: "\e917";
+  content: "\e917";
 }
 .icon-hamburger:before {
-    content: "\e918";
+  content: "\e918";
 }
 .icon-x:before {
-    content: "\e919";
+  content: "\e919";
 }
 .icon-garden:before {
-    content: "\e902";
+  content: "\e902";
 }
 .icon-greenhouse:before {
-    content: "\e903";
+  content: "\e903";
 }
 .icon-tools:before {
-    content: "\e905";
+  content: "\e905";
 }
 .icon-wateringcan:before {
-    content: "\e908";
+  content: "\e908";
 }
 .icon-carrot:before {
-    content: "\e909";
+  content: "\e909";
 }
 .icon-garlic:before {
-    content: "\e90a";
+  content: "\e90a";
 }
 .icon-potato:before {
-    content: "\e90d";
+  content: "\e90d";
 }
 .icon-tree:before {
-    content: "\e90e";
+  content: "\e90e";
 }
 .icon-downarrow:before {
-    content: "\e90f";
-    font-size: 16px;
-    padding-right: 15px;
+  content: "\e90f";
+  font-size: 16px;
+  padding-right: 15px;
 }
-
 .icon-loading:before {
-    content: "\e910";
+  content: "\e910";
 }
 .icon-rightarrow:before {
-    content: "\e911";
-    font-size: 26px;
+  content: "\e911";
+  font-size: 26px;
 }
 .icon-info:before {
-    content: "\e912";
+  content: "\e912";
 }
 .icon-leaf2:before {
-    content: "\e913";
+  content: "\e913";
 }
 .icon-home:before {
-    content: "\e900";
+  content: "\e900";
 }
 .icon-droplet:before {
-    content: "\e901";
+  content: "\e901";
 }
 .icon-spinner2:before {
-    content: "\e904";
+  content: "\e904";
 }
 .icon-leaf:before {
-    content: "\e906";
+  content: "\e906";
 }
 .icon-earth:before {
-    content: "\e907";
+  content: "\e907";
 }
 .icon-plus:before {
-    content: "\e914";
+  content: "\e914";
 }
 .icon-minus:before {
-    content: "\e915";
+  content: "\e915";
 }
 .icon-circle-right:before {
-    content: "\e90b";
-    padding-right: 15px;
+  content: "\e90b";
+  padding-right: 15px;
 }
 .icon-circle-down:before {
-    content: "\e90c";
-    padding-right: 15px;
+  content: "\e90c";
+  padding-right: 15px;
 }
 .icon-leaf-flipped:before {
-    content: "\e916";
+  content: "\e916";
 }
-
-
-//
-// @media screen and (min-width: 900px) {
-//   .mainContainer {
-//     background-color: #fff;
-//     width: 30%;
-//   }
-// }

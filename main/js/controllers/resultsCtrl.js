@@ -15,11 +15,6 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
         }
     }, true);
 
-    //returns a new array of length num
-    $scope.getNum = function (num) {
-        return new Array(num);
-    };
-
     //adds plant to garden
     $scope.addToGarden = function (plant) {
         gardenService.postPlant(plant);
@@ -42,7 +37,7 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
     };
 });
 
-//
+//used to color the correct amount of bandaids or carrots in plant card
 angular.module('plantMasters').filter('range', function () {
     return function (val, range) {
         range = parseInt(range);

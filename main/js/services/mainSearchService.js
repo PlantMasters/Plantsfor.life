@@ -19,20 +19,32 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //gets plants that meet search criteria
     let findPlants = function (z, o, m, e) {
+        for (let obj in z) {
+            if (z[obj]) {
+                z = Number(obj);
+                break;
+            }
+        }
+        if (typeof z != `number`) {
+            z = 0;
+        }
         $http({
             method: 'PUT',
             url: '/plants',
-            data: {zone: z, other: o, medical: m, edible: e}})
+            data: {zone: z, other: o, medical: m, edible: e}
+        })
             .then((response) => {
                 _this.plants = response.data;
             })
     };
+
     //gets plants that match the input field data...
-     this.searchName = function (n) {
+    this.searchName = function (n) {
         $http({
             method: 'POST',
             url: '/plants',
-            data: {name: n}})
+            data: {name: n}
+        })
             .then((response) => {
                 _this.plants = response.data;
             });
@@ -44,14 +56,12 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     };
 
     //search plants when zone changes
-    this.manageZone = function (zones) {
-        currentHardinessZone = 0;
-        for (let obj in zones) {
-                if (zones[obj]) {
-                currentHardinessZone = obj;
-            }
+    this.manageZone = function (zone) {
+        currentHardinessZone = zone;
+        if (finalOtherArray == [] && finalMedicalArray == [] && edibleSelected == []) {
+            console.log(   `whatever`);
+            findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
         }
-        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
     };
 
     //search plants when edible changes

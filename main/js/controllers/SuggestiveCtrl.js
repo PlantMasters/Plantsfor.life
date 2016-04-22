@@ -5,7 +5,7 @@ angular.module('plantMasters').controller('SuggestiveCtrl', function ($scope, ma
     mainSearchService.searchName($scope.search);
 
   };
-  // Gets call when the input changes //
+  // searches by input when the input changes //
   $scope.plantSuggest = function() {
     mainSearchService.searchName($scope.search);
   };

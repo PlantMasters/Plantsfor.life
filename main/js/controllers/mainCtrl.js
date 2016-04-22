@@ -1,4 +1,3 @@
-
 "use strict";
 
 angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSearchService) => {
@@ -111,11 +110,11 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         for (let obj in $scope.zones) {
             if ($scope.zones[obj] && obj != aNum) {
                 $scope.zones[obj] = false;
+                break;
             }
-
-            //TODO: fix hardiness unclick
         }
-        $scope.zones[aNum] = true;
-        mainSearchService.manageZone(aNum);
+        $scope.zones[aNum] = !$scope.zones[aNum];
+        mainSearchService.manageZone($scope.zones);
+
     };
 });

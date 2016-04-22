@@ -14,7 +14,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     //gets a random sample of plants to populate page on load
     this.samplePlants = ()=> {
         $http.get("/plants").then((response) => {
-            _this.plants = response.data
+            _this.plants = response.data;
         });
     };
 
@@ -26,7 +26,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             data: {zone: z, other: o, medical: m, edible: e}})
             .then((response) => {
                 _this.plants = response.data;
-            })
+            });
     };
     //gets plants that match the input field data...
      this.searchName = function (n) {
@@ -37,6 +37,12 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             .then((response) => {
                 _this.plants = response.data;
             });
+    };
+     this.moarPlants = function () {
+       if (currentHardinessZone === 0 && finalOtherArray === [] && finalMedicalArray === [] && edibleSelected === []) {
+         this.samplePlants();
+       }
+      //  findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
     //return plants
@@ -51,7 +57,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
                 currentHardinessZone = obj;
             }
         }
-        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
     //search plants when edible changes
@@ -61,7 +67,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
                 edibleSelected.push(obj);
             }
         }
-        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
     //search plants when medical changes
@@ -97,7 +103,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         for (let obj in medCats) {
             if (meds[obj]) {
                 for (let i = 0; i < medCats[obj].length; i++) {
-                    finalMedicalArray.push(medCats[obj][i])
+                    finalMedicalArray.push(medCats[obj][i]);
                 }
             }
         }
@@ -126,7 +132,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         for (let obj in otherCats) {
             if (others[obj]) {
                 for (let i = 0; i < otherCats[obj].length; i++) {
-                    finalOtherArray.push(otherCats[obj][i])
+                    finalOtherArray.push(otherCats[obj][i]);
                 }
             }
         }

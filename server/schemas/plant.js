@@ -1,10 +1,13 @@
+/*jshint esversion: 6 */
 /**
  * Created by Tom on 3/23/2016.
  */
 "use strict";
 
 let mongoose = require('mongoose');
+let mongoosePaginate = require('mongoose-paginate');
 let Schema = mongoose.Schema;
+
 let Uses = new Schema({
     "medical": {
         type: Array,
@@ -78,6 +81,7 @@ let plant = new Schema({
         type:String
     }
 });
+plant.plugin(mongoosePaginate);
 
 //noinspection JSUnresolvedFunction
 module.exports = mongoose.model("plants", plant);

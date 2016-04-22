@@ -47,9 +47,9 @@ module.exports = {
             );
         }
     },
-    samplePlants: (req, res)=> {
+    samplePlants: (req, res, next)=> {
         Plants.aggregate(
-            {$sample: {size: 25}}, (err, plants)=> {
+            {$sample: {size: 24}}, (err, plants)=> {
                 err ? res.status(500).send(err) : res.send(plants);
             }
         );

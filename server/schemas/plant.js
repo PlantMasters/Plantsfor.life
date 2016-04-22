@@ -6,6 +6,7 @@
 
 let mongoose = require('mongoose');
 let mongoosePaginate = require('mongoose-paginate');
+let mongooseAggregatePaginate = require('mongoose-aggregate-paginate');
 let Schema = mongoose.Schema;
 
 let Uses = new Schema({
@@ -91,6 +92,7 @@ let plant = new Schema({
     }
 });
 plant.plugin(mongoosePaginate);
+plant.plugin(mongooseAggregatePaginate);
 
 //noinspection JSUnresolvedFunction
 module.exports = mongoose.model("plants", plant);

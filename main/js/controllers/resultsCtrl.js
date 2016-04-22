@@ -1,21 +1,18 @@
-/*jshint esversion: 6 */
-(function() {
-  'use strict';
-  // this function is strict...
+"use strict";
 
 angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService, ModalService, gardenService) {
 
     //get random plants for page load
-    mainSearchService.samplePlants();
+    mainSearchService.samplePlants()
 
     //watches plants for change
     $scope.$watch(() => {
-      return mainSearchService.plants;
+        return mainSearchService.plants
     }, (newVal, oldVal) => {
-      //prevents watch from triggering on page load
-      if (newVal != oldVal) {
-        $scope.plants = mainSearchService.getPlants();
-      }
+        //prevents watch from triggering on page load
+        if (newVal != oldVal) {
+            $scope.plants = mainSearchService.getPlants();
+        }
     }, true);
 
     //adds plant to garden
@@ -33,16 +30,10 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
             }
         }).then(function (modal) {
             modal.close.then(function () {
-                console.log('HOORAY');
             });
         });
-      });
-    };
 
-    $scope.moar = () => {
-      mainSearchService.moarPlants();
     };
-  });
 });
 
 //used to color the correct amount of bandaids or carrots in plant card

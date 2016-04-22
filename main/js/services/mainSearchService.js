@@ -49,12 +49,6 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
                 _this.plants = response.data;
             });
     };
-     this.moarPlants = function () {
-       if (currentHardinessZone === 0 && finalOtherArray === [] && finalMedicalArray === [] && edibleSelected === []) {
-         this.samplePlants();
-       }
-      //  findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
-    };
 
     //return plants
     this.getPlants = () => {

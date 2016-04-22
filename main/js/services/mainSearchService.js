@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 "use strict";
 
 angular.module('plantMasters').service('mainSearchService', function ($http) {
@@ -20,20 +19,32 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //gets plants that meet search criteria
     let findPlants = function (z, o, m, e) {
+        for (let obj in z) {
+            if (z[obj]) {
+                z = Number(obj);
+                break;
+            }
+        }
+        if (typeof z != `number`) {
+            z = 0;
+        }
         $http({
             method: 'PUT',
             url: '/plants',
-            data: {zone: z, other: o, medical: m, edible: e}})
+            data: {zone: z, other: o, medical: m, edible: e}
+        })
             .then((response) => {
                 _this.plants = response.data;
             });
     };
+
     //gets plants that match the input field data...
-     this.searchName = function (n) {
+    this.searchName = function (n) {
         $http({
             method: 'POST',
             url: '/plants',
-            data: {name: n}})
+            data: {name: n}
+        })
             .then((response) => {
                 _this.plants = response.data;
             });
@@ -51,17 +62,17 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     };
 
     //search plants when zone changes
-    this.manageZone = function (zones) {
-        for (let obj in zones) {
-                if (zones[obj]) {
-                currentHardinessZone = obj;
-            }
+    this.manageZone = function (zone) {
+        currentHardinessZone = zone;
+        if (finalOtherArray != [] && finalMedicalArray != [] && edibleSelected != []) {
+            console.log(`whatever`);
+            findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
         }
-        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
     //search plants when edible changes
     this.manageEdible = (edibs)=> {
+        edibleSelected = [];
         for (let obj in edibs) {
             if (edibs[obj]) {
                 edibleSelected.push(obj);
@@ -112,13 +123,13 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
 
     //search plants when other changes
     this.addOtherSpecific = (others) => {
-        this.finalOtherArray = [];
+        finalOtherArray = [];
 
         let otherCats = {
             "Building": ['Insulation', 'Pipes', 'Pitch', 'Plaster', 'Roofing', 'Thatching'],
             "Clothing": ['Buttons', 'Darning ball', 'Fibre', 'Latex', 'Leather', 'Needles', 'Pins', 'Raffia', 'Starch', 'Stuffing', 'Tannin', 'Weaving'],
             "Dyes/Paints/Ink/Paper": ['Blotting paper', 'Dye', 'Ink', 'Mordant', 'Paint', 'Paper', 'Pencil', 'Size'],
-            "Fertilizer": ['Compost', 'Fertilizer', 'Green manure', 'Liquid feed', 'Potash'],
+            "Fertilizers": ['Compost', 'Fertilizer', 'Green manure', 'Liquid feed', 'Potash'],
             "Fire/Lighting": ['Alcohol', 'Biomass', 'Charcoal', 'Friction sticks', 'Fuel', 'Kindling', 'Lighting', 'Oil', 'Tinder', 'Wax', 'Wick'],
             "Bathroom": ['Baby care', 'Cleanser', 'Cosmetic', 'Cotton wool', 'Deodorant', 'Disinfectant', 'Essential', 'Hair', 'Resin', 'Soap', 'Soap making', 'Teeth'],
             "Garden": ['Fencing', 'Fire retardant', 'Hedge', 'Mulch', 'Pioneer', 'Plant breeding', 'Plant support', 'Rooting hormone', 'Rootstock', 'Shelterbelt', 'Soil conditioner', 'Soil reclamation', 'Soil stabilization'],

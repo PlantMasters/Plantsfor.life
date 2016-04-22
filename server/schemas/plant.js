@@ -79,6 +79,15 @@ let plant = new Schema({
     },
     "pic":{
         type:String
+    },
+    "latinL":{
+        type:String
+    },
+    "nameL":{
+        type:String
+    },
+    "views":{
+        type:Number
     }
 });
 plant.plugin(mongoosePaginate);

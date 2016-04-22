@@ -1,0 +1,88 @@
+<div class="myPlantView">
+    <div class="myPlantContainer">
+        <div class="myPlantName">{{myPlant.plant.name}}</div>
+        <div class="myPlantLatin">{{myPlant.plant.latin}}</div>
+        <div class="">
+            <div class="myPlantEditDetailContainer">
+                <div class="myPlantEditDetailSubBlock">        
+                    <div class="editDetailContainer">
+                        <div class="myPlantDetailHeader">Variety</div>
+                        <form class="editDetailInput" ng-submit="hideVarietyInput();updateVariety(newVar)">
+                            <label for="variety" class="icon-pencil editDetail" ng-show="varietyBoolean" ng-click="showVarietyInput()"></label>
+                            <input type="text" ng-hide="varietyBoolean" placeholder="" ng-model="newVar" id="variety" class="editDetailInput" ng-blur="hideVarietyInput();updateVariety(newVar)" autofocus/>
+                        </form>
+                        <div class="myPlantDetailValue">{{myPlantVariety}}</div>
+                        <!--<div class="myPlantDetailValue editDetail" ng-show="varietyBoolean" >{{myPlantVariety}}</div>-->
+                    </div>
+                    <div class="editDetailContainer">
+                        <div class="myPlantDetailHeader">Notes</div>
+                        <form class="editDetailInput" ng-submit="hideNotesInput();updateNotes(newNotes)">
+                            <label for="notes" class="icon-pencil editDetail" ng-show="notesBoolean" ng-click="showNotesInput()"></label>
+                            <input type="text" ng-hide="notesBoolean" placeholder="" ng-model="newNotes" id="notes" class="editDetailInput" ng-blur="hideNotesInput();updateNotes(newNotes)" autofocus/>
+                        </form>
+                        <div class="myPlantDetailValue">{{myPlantNotes}}</div>
+                    </div>
+                </div>
+                <div class="myPlantEditDetailSubBlock">
+                    <div class="editDetailContainer">
+                        <div class="myPlantDetailHeader">Location Purchased</div>
+                        <form class="editDetailInput" ng-submit="hideLocationInput();updateLocation(newVar)">
+                            <label for="location" class="icon-pencil editDetail" ng-show="locationBoolean" ng-click="showLocationInput()"></label>
+                            <input type="text" ng-hide="locationBoolean" placeholder="" ng-model="newLoc" id="location" class="editDetailInput" ng-blur="hideLocationInput();updateLocation(newLoc)" autofocus/>
+                        </form>  
+                        <div class="myPlantDetailValue" >{{myPlantLocation}}</div>
+                    </div>
+                    <div class="editDetailContainer">
+                        <div class="myPlantDetailHeader">Date Planted</div>   
+                        <form class="editDetailInput" ng-submit="hideDateInput();updateDate(newDate)">
+                            <label for="date" class="icon-pencil editDetail" ng-show="dateBoolean" ng-click="showDateInput()"></label>
+                            <input type="text" ng-hide="dateBoolean" placeholder="" ng-model="newDate" id="date" class="editDetailInput" ng-blur="hideVarietyInput();updateDate(newDate)" autofocus/>
+                        </form>
+                        <div class="myPlantDetailValue" >{{myPlantDate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="myPlantDetails">
+            <div class="myPlantInformation">
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Zone</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.zone}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Family</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.family}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Range</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.range}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Habitat</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.habitat}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Hazards</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.hazards}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Medical Uses</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.mDesc}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Edible Uses</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.eDesc}}</div>
+                </div>
+                <div class="editDetailContainer myPlantInfo">
+                    <div class="myPlantDetailHeader">Other Uses</div>
+                    <div class="myPlantDetailValue editDetail">{{myPlant.plant.oDesc}}</div>
+                </div>
+            </div>
+            <div class="myPlantImageContainer">
+                <div class="myPlantImage">
+                    <img class="plant-img" ng-style="{'background-image': 'url(' + (myPlant.plant.pic || '/images/defaultplant.png') + ')'}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

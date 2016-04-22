@@ -76,7 +76,12 @@ let searchForTerms = (text) => {
                 //common name
                 case 1:
                     temp = text.slice(i + len, i + len + 200);
-                    ret.name = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
+                    temp = temp.match(/>([^<]*)</)[1].replace(/<[^>]*>/g, "").trim();
+                    if (temp === "&nbsp;") {
+                        ret.name = ret.latin;
+                    } else {
+                        ret.name = temp;
+                    }
                     break;
                 //family
                 case 2:
@@ -163,7 +168,7 @@ let searchForTerms = (text) => {
                     ret.cultivation = String(temp.match(/(.*?)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;
                 //propagation
-                case 14:git 
+                case 14:
                     temp = text.slice(i + len, i + len + 5000 > text.length ? text.length : i + len + 5000);
                     ret.propagation = String(temp.match(/(.*)<h2/)[1].replace(/<[^>]*>/g, "").trim());
                     break;

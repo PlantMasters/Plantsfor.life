@@ -49,3 +49,23 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
 
     };
 });
+
+angular.module('plantMasters').filter('range', function() {
+  return function(val, range) {
+    range = parseInt(range);
+    for (var i=0; i<range; i++)
+      val.push(i);
+    return val;
+  };
+});
+
+angular.module('plantMasters').directive('backImg', function(){
+    return function(scope, element, attrs){
+        attrs.$observe('backImg', function(value) {
+            element.css({
+                'background-image': 'url(' + value +')',
+                'background-size' : 'cover'
+            });
+        });
+    };
+});

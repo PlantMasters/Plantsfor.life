@@ -79,4 +79,47 @@ module.exports = function (app) {
             }
         })
     })
+    
+    app.put('/myPlantVariety', function(req, res, next) {
+        //req.body = {plantId: myPlantId, newVariety = newVar}
+        GardenPlant.findByIdAndUpdate(req.body.plantId, {$set: {variety: req.body.newVariety}}, {new: true}, function(err, plant) {
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.send(plant);
+            }
+        })
+    })
+    app.put('/myPlantNotes', function(req, res, next) {
+        //req.body = {plantId: myPlantId, newNote = newNote}
+        GardenPlant.findByIdAndUpdate(req.body.plantId, {$set: {notes: req.body.newNote}}, {new: true}, function(err, plant) {
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.send(plant);
+            }
+        })
+    })
+    app.put('/myPlantDate', function(req, res, next) {
+        //req.body = {plantId: myPlantId, newDate = newDate}
+        console.log('DATE');
+        console.log(req.body.date);
+        GardenPlant.findByIdAndUpdate(req.body.plantId, {$set: {date: req.body.date}}, {new: true}, function(err, plant) {
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.send(plant);
+            }
+        })
+    })
+    app.put('/myPlantLocation', function(req, res, next) {
+        //req.body = {plantId: myPlantId, newLocation = newLoc}
+        GardenPlant.findByIdAndUpdate(req.body.plantId, {$set: {location: req.body.newLocation}}, {new: true}, function(err, plant) {
+            if (err) {
+                res.status(500).json(err);
+            } else {
+                res.send(plant);
+            }
+        })
+    })
 };

@@ -1,18 +1,17 @@
-angular.module('plantMasters').controller('myPlantCtrl', function($scope, plantRef) {
+angular.module('plantMasters').controller('myPlantCtrl', function($scope, plantRef, myPlantService) {
     $scope.myPlant = plantRef;
-    console.log("MY PLANT")
+    console.log("MY PLANT");
     console.log($scope.myPlant);
     
-    $scope.myPlantDate;
-    $scope.myPlantVariety;
-    $scope.myPlantLocation;
-    $scope.myPlantNotes;
+    $scope.myPlantDate = $scope.myPlant.date;
+    $scope.myPlantVariety = $scope.myPlant.variety;
+    $scope.myPlantLocation = $scope.myPlant.location;
+    $scope.myPlantNotes = $scope.myPlant.notes;
     
     
     $scope.updateDate = function(newDate) {
-        console.log('NEW DATE');
-        console.log(newDate);
         $scope.myPlantDate = newDate;
+        myPlantService.putDate($scope.myPlant._id, newDate);
     }
     $scope.dateBoolean = true;
     $scope.hideDateInput = function() {
@@ -27,6 +26,8 @@ angular.module('plantMasters').controller('myPlantCtrl', function($scope, plantR
     
     $scope.updateVariety = function(newVar) {
         $scope.myPlantVariety = newVar;
+        //send query with newVar;
+        myPlantService.putVariety($scope.myPlant._id, newVar);
     }
     $scope.varietyBoolean = true;
     $scope.hideVarietyInput = function() {
@@ -41,6 +42,7 @@ angular.module('plantMasters').controller('myPlantCtrl', function($scope, plantR
     
     $scope.updateLocation = function(newLoc) {
         $scope.myPlantLocation = newLoc;
+        myPlantService.putLocation($scope.myPlant._id, newLoc);
     }
     $scope.locationBoolean = true;
     $scope.hideLocationInput = function() {
@@ -53,6 +55,7 @@ angular.module('plantMasters').controller('myPlantCtrl', function($scope, plantR
     
     $scope.updateNotes = function(newNote) {
         $scope.myPlantNotes = newNote;
+        myPlantService.putNote($scope.myPlant._id, newNote);
     }
     $scope.notesBoolean = true;
     $scope.hideNotesInput = function() {

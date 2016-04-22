@@ -1,12 +1,16 @@
 <div class="myGardenContainer twelve columns">
     <div class="plantsMargin">
         <div class="gardenImage"><div class="gardenHeader">My Garden</div></div>
-        
-        <div class="gardenPlantsContainer" ng-class="{ 'myPlants': checkMyGarden() }" ng-repeat="aPlant in myGarden" ui-sref="myPlant({plantId: aPlant._id})">
-            <div class="gardenPlantName">
-                <div class="gardenPlantNameText">{{aPlant.plant.name}}</div> <br>
-                <div class="gardenPlantNameText gardenPlantLatin">{{aPlant.plant.latin}}</div>
-                <button class="removeMyGardenPlant" ng-click="removePlant(aPlant._id)">Remove</button>
+        <div class="gardenPlantsContainerBox">
+            <div class="gardenPlantsContainer" ng-class="{ 'myPlants': checkMyGarden() }" ng-repeat="aPlant in myGarden">
+                <div class="gardenPlantImage" ui-sref="myPlant({plantId: aPlant._id})">
+                    <img class="plant-img" ng-style="{'background-image': 'url(' + (aPlant.plant.pic || '/images/defaultplant.png') + ')'}">
+                </div>
+                <div class="gardenPlantName" ui-sref="myPlant({plantId: aPlant._id})">
+                    <div class="gardenPlantNameText">{{aPlant.plant.name}}</div> <br>
+                    <div class="gardenPlantNameText gardenPlantLatin">{{aPlant.plant.latin}}</div>
+                </div>
+                <div class="removeMyGardenPlant" ng-click="removePlant(aPlant._id)"><span class="icon-trashcan"></span></div>
             </div>
         </div>
     </div>

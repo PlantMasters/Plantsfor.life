@@ -30,14 +30,14 @@
 }
 
 .gardenPlantsContainer {
-    width: 30%;
+    width: 28%;
     border: 1px solid #bfbfbf;
     margin-right: 30px;
     border-radius: 2px;
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: .8em;
     background-color: #f9f9f9;
-    padding: 3px 12px 3px 12px;
+    //padding: 3px 12px 3px 12px;
     word-wrap: break-word;
     margin-bottom: 20px;
     margin-top: 100px;
@@ -51,19 +51,31 @@
     position: relative;
     display: inline-block; 
     cursor: pointer;
+    //z-index: -1;
+}
+
+.gardenPlantsContainerBox {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .plantsMargin {
     margin-top: 50px;
 }
 
+.gardenPlantImage {
+    width: 100%;
+    height: 200px;
+    cursor: pointer;
+}
+
 .gardenPlantName {
     display: block;
-    width: 98%;
-    position: absolute;
-    bottom: 0px;
-    left: 3px;
-    border-top: 1px solid #bfbfbf; 
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .gardenPlantNameText {
@@ -76,8 +88,17 @@
     font-size: 1.5em;
 }
 
-.removeGardenPlant {
-    //background-color: #C50727;/*#AC0622;/*#BD362F;/*#C95D57;/*#9E142B;*/
-    color: #fff;
+.removeMyGardenPlant {
+    color: #333333;
     display: inline-block;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 30px;
+    //margin: 15px;
+    cursor: pointer;
+}
+
+.removeMyGardenPlant:hover {
+    color: #000;
 }

@@ -58,7 +58,8 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     //search plants when zone changes
     this.manageZone = function (zone) {
         currentHardinessZone = zone;
-        if (finalOtherArray == [] && finalMedicalArray == [] && edibleSelected == []) {
+        if (finalOtherArray != [] && finalMedicalArray != [] && edibleSelected != []) {
+            console.log(`whatever`);
             findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
         }
     };
@@ -122,7 +123,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             "Building": ['Insulation', 'Pipes', 'Pitch', 'Plaster', 'Roofing', 'Thatching'],
             "Clothing": ['Buttons', 'Darning ball', 'Fibre', 'Latex', 'Leather', 'Needles', 'Pins', 'Raffia', 'Starch', 'Stuffing', 'Tannin', 'Weaving'],
             "Dyes/Paints/Ink/Paper": ['Blotting paper', 'Dye', 'Ink', 'Mordant', 'Paint', 'Paper', 'Pencil', 'Size'],
-            "Fertilizer": ['Compost', 'Fertilizer', 'Green manure', 'Liquid feed', 'Potash'],
+            "Fertilizers": ['Compost', 'Fertilizer', 'Green manure', 'Liquid feed', 'Potash'],
             "Fire/Lighting": ['Alcohol', 'Biomass', 'Charcoal', 'Friction sticks', 'Fuel', 'Kindling', 'Lighting', 'Oil', 'Tinder', 'Wax', 'Wick'],
             "Bathroom": ['Baby care', 'Cleanser', 'Cosmetic', 'Cotton wool', 'Deodorant', 'Disinfectant', 'Essential', 'Hair', 'Resin', 'Soap', 'Soap making', 'Teeth'],
             "Garden": ['Fencing', 'Fire retardant', 'Hedge', 'Mulch', 'Pioneer', 'Plant breeding', 'Plant support', 'Rooting hormone', 'Rootstock', 'Shelterbelt', 'Soil conditioner', 'Soil reclamation', 'Soil stabilization'],

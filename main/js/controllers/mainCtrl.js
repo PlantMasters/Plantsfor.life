@@ -115,6 +115,5 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
         }
         $scope.zones[aNum] = !$scope.zones[aNum];
         mainSearchService.manageZone($scope.zones);
-
     };
 });

@@ -42,12 +42,9 @@ module.exports = {
                     } else {
                         res.send(plants);
                     }
-
                 }
             );
-
         }
-
     },
     samplePlants: (req, res)=> {
         Plants.aggregate(

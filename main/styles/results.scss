@@ -198,6 +198,21 @@
 }
 
 @media screen and (max-width: 1500px) {
+  #overlay {
+    top: 0;
+    height: 100%;
+  }
+
+  .modal-img-container {
+    height: 300px;
+    width: 400px;
+  }
+
+  .add-to-garden-button {
+    margin-bottom: 30px;
+  }
+
+
   #custom-modal {
     text-align: center;
   }

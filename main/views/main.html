@@ -50,10 +50,9 @@
             </div>
             <br>
             <div ng-hide="hardinessShow">
-                <!--<input type="text" class="input" ng-model="zip" placeholder="Or search by zip code" />-->
                 <div class="zones" ng-repeat="(zone, val) in zones">
                     <div ng-class="{ 'zoneSelectedToSearch': zones[zone] }" ng-click="hardinessZone(zone)"
-                         class="circle noselect">{{zone}}
+                         class="icon-potato taters noselect"><span class="zone-num">{{zone}}</span>
                     </div>
                 </div>
             </div>

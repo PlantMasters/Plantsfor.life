@@ -1,5 +1,5 @@
 .resultsContainer {
-    overflow: auto;
+    //overflow: auto;
     height: calc(100vh - 55px);
     float: right;
     margin-top: 55px;
@@ -7,6 +7,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  z-index: -1;
 }
 
 .plantsContainer {
@@ -76,6 +77,10 @@
   word-break:break-all;
 }
 
+#more{
+  float:bottom !important;
+  display: block !important;
+}
 
 //MODALS
 #overlay {

@@ -30,7 +30,7 @@
                 <a ui-sref="user"  class="">
                     {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
                 </a>
-                <button ng-click="whatever = !whatever">opts</button>
+                <a class="nav-link" ng-click="whatever = !whatever">Options</a>
                 <ul class="" ng-show="whatever">
                     <!-- <li ng-if="identity.currentUser.isAdmin()">
                                         <a href="/admin/users">User Admin</a>

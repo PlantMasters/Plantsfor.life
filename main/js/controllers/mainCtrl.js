@@ -44,7 +44,7 @@ angular.module('plantMasters').controller('mainCtrl', ($scope, $window, mainSear
     $scope.edibleUses = {
         "Chocolate": false,
         "Coffee": false,
-        "Coloring": false,
+        // "Coloring": false,
         "Condiment": false,
         "Curdling": false,
         "Drink": false,

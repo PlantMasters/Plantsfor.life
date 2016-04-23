@@ -8,46 +8,63 @@
 "use strict";
 
 let Plants = require('../schemas/plant');
+let page = 1;
+let query;
+// let aggregate;
 
 module.exports = {
     //searches plants
     searchPlants: function (req, res) {
+        console.log(`sdgdfg`);
+        page = 1;
         if (req.body.zone != 0) {
-            Plants.find({
+            Plants.paginate({
                     $or: [
                         {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
                         {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]},
                         {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]
-                }, {}, {limit: 50},
+                }, {select: {}, page: page, limit: 24},
                 (err0, plants) => {
                     if (err0) {
                         res.status(500).send(err0 + req.body.zone);
                     } else {
+                        query = {
+                            $or: [
+                                {$and: [{'uses.edible': {$in: req.body.edible}}, {'zone': req.body.zone}]},
+                                {$and: [{'uses.medical': {$in: req.body.medical}}, {'zone': req.body.zone}]},
+                                {$and: [{'uses.other': {$in: req.body.other}}, {'zone': req.body.zone}]}]
+                        };
                         res.send(plants);
                     }
                 }
             );
         }
         else {
-            Plants.find({
+            Plants.paginate({
                     $or: [
                         {'uses.edible': {$in: req.body.edible}},
                         {'uses.medical': {$in: req.body.medical}},
                         {'uses.other': {$in: req.body.other}}]
-                },
-                {}, {limit: 50},
+                }, {select: {}, page: page, limit: 24},
                 function (err0, plants) {
                     if (err0) {
                         res.status(500).send(err0);
                     } else {
+                        query = {
+                            $or: [
+                                {'uses.edible': {$in: req.body.edible}},
+                                {'uses.medical': {$in: req.body.medical}},
+                                {'uses.other': {$in: req.body.other}}]
+                        };
+                        // console.log(res);
+                        // console.log(plants);
                         res.send(plants);
                     }
                 }
-
             );
         }
     },
-    samplePlants: (req, res, next)=> {
+    samplePlants: (req, res)=> {
         Plants.aggregate(
             {$sample: {size: 24}}, (err, plants)=> {
                 err ? res.status(500).send(err) : res.send(plants);
@@ -56,16 +73,37 @@ module.exports = {
     },
     //This searches for plants that match the string input into the input field...
     searchResults: (req, res)=> {
+        page = 1;
         var reger = new RegExp(".*" + req.body.name.toLowerCase() + ".*");
-        Plants.find({$or: [{'nameL': {$regex: reger}}, {'latinL': {$regex: reger}}]}, {}, {limit: 50},
+        Plants.paginate({$or: [{'nameL': {$regex: reger}}, {'latinL': {$regex: reger}}]}, {page: page, limit: 24},
             function (err0, plants) {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
-                    console.log(plants);
+                    query = {$or: [{'nameL': {$regex: reger}}, {'latinL': {$regex: reger}}]};
                     res.send(plants);
                 }
             }
         );
+    },
+    getMore: (req, res) => {
+        page++;
+        Plants.paginate(query, {page: page, limit: 24},
+            (err0, plants) => {
+                if (err0) {
+                    res.status(500).send(err0 + req.body.zone);
+                } else {
+                    res.send(plants);
+                }
+            }
+        )
+    },
+    sampleMore: (req, res) => {
+        Plants.aggregate(
+            {$sample: {size: 24}}, (err, plants)=> {
+                err ? res.status(500).send(err) : res.send(plants);
+            }
+        );
     }
+
 };

@@ -14,7 +14,11 @@ let gardenPlant = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    variety: {type: String},
+    notes: {type: String},
+    date: {type: String},
+    location: {type: String}
 });
 gardenPlant.pre('find', populator).pre('findOne', populator);
 function populator(next) {

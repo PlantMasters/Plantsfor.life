@@ -17,6 +17,15 @@ angular.module('plantMasters').service('gardenService', function($http, $q, $roo
             method: 'DELETE',
             url: '/removePlant/' + plant
         })
+    };
+    this.getPlant = function(plantId) {
+        return $http({
+            method: 'GET',
+            url: '/getGardenPlant/' + plantId
+        }).then(function(response) {
+            console.log(response.data);
+            return response.data;
+        })
     }
     
 })

@@ -46,4 +46,3 @@ angular.module('plantMasters').filter('range', function () {
         return val;
     };
 });
-

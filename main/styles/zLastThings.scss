@@ -1,0 +1,57 @@
+.editDetailInput {
+    background-color: #E5E5E5 !important;
+    border: none !important;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+.editDetailInput:focus {
+    border: none !important;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .gardenPlantsContainer {
+        width: 40%;
+    }
+    
+    .gardenPlantsContainerBox {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .gardenPlantsContainerBox {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 818px) {
+    .gardenPlantsContainerBox {
+        width: 90%;
+    }
+    .gardenPlantsContainer {
+        width: 70%;
+        display: block;
+        margin: 40px auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .gardenPlantsContainerBox {
+        width: 100%;
+    }
+    .gardenPlantsContainer {
+        width: 80%;
+        display: block;
+        margin: 40px auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gardenPlantsContainer {
+        width: 90%;
+        display: block;
+        margin: 40px auto;
+    }
+}

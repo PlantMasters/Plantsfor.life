@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="container">
+
+        <h1>Plants for Life</h1>
+
+        <p>Have you ever browsed for a tree or plant at a garden center thinking, &quot;I wonder if this tree or plant is good for somthing besides just looks?&quot; What if you could have both?</p>
+        <p>Plantsfor.life is an interactive search tool designed to help you select and save litst of plants and trees by use.</p>
+        <p>In addition you can sort plants by hardiness zone to better identify if a plant or tree will grow well in your area.</p>
+        <p>A detailed results page for each plant helps you understand cultivation requirements of the plant itself &#8212; its soil, light, moisture, exposure, and size &#8212; is crucial to choosing plants that will thrive.</p>
+
+        <a href="">
+            <u><h2 ng-click="account = !account">Getting started</h2></u>
+        </a>
+        <div ng-show="account">
+            <ol>
+                <li>Enter your email address</li>
+                <li>Create a password</li>
+                <li>Enter your First Name</li>
+                <li>Enter your Last Name</li>
+                <li>Click Submit</li>
+                <li>Click this button to:
+                  <button class="register signInButton ng-scope" ui-sref="signup" href="#/signup">Register</button>
+                </li>
+            </ol>
+            <p>Questions? Contact
+                <a href="mailto:iandelin@outlook.com">iandelin@outlook.com</a>
+            </p>
+        </div>
+        <a href="">
+            <u><h3 ng-click="searching = !searching">Searching for plants</h3></u>
+        </a>
+        <div ng-show="searching">
+            <p>Users will not find every plant available in this database.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Symphytum_officinale_01.jpg/300px-Symphytum_officinale_01.jpg" style="background-image">
+            <p>The useful Comfry plant (<em>Symphytum officinale</em>) is among the many amazing plants in the database.</p>
+            <p>
+                On page load, the database will provide you with 24 random plants.
+            </p>
+            <p>The plant Uses are the characteristics we look for when selecting plants. The process of plant selection begins with knowing what zone you are in. You can find your zone at the
+                <u><a href="http://planthardiness.ars.usda.gov/PHZMWeb/">USDA Plant Hardiness Zone Map</a></u>
+                site.</p>
+            <p>To begin using the database, select the category of use. For example you could select under
+                <strong>Edible Uses</strong>
+                Sweetener; and then browse some of the maple species that produce a sugery sap. Or you could view under
+                <strong>Medical Uses</strong>
+                plants that are used in the treatment of Bites/Stings.
+            </p>
+            <p>Once you have selected a plant use, you can narrow the results by selecting a Hardiness Zone</p>
+            <p>The more categories entered the more broad the results. If you search in the
+                <strong>Edible Uses</strong>
+                category and select Salt and Oil, you will have the combination of plants that are used for both of these things</p>
+            <p>
+                <strong>Plant Height, Plant Width: Height and width of plants are shown in meters.</strong>
+                Measurements indicate the expected mature size of the plant when informally pruned.
+            </P>
+            <p>
+                <strong>Hazards</strong>
+                of plants defines the possible negative effects if the plant is misused.
+            </p>
+            <p>
+                <strong>
+                    Habitat</strong>
+                refers to the specific area that the plant grows in in the wild.
+            </p>
+            <p>
+                <strong>Characteristics</strong>
+                all the additional detailed information optimal for plant performance or use or conditions that a plant will tolerate. Most plants can survive in a wide range of soil conditions with proper care and maintenance.</p>
+
+            <h4>Searching by plant name</h4>
+            <p>Users may search for a plant based on its name. For example, a search of "berry" will produce a list of all plants with "berry" as part of its common or scientific name. Since common names differ greatly and are often used indiscriminately, it is
+                useful to know the scientific names when buying plants to be sure you buy the correct ones. Common plant names often have no scientific basis and can vary greatly.</p>
+        </div>
+        <h4>Disclaimer</h4>
+        <p>Information provided is obtained from the PFAF database and neither we nor they will guarantee that anyone will react positivly to edible plants or other plant uses</p>
+        <p>It is commonly known that many people suffer allergic reactions to conventional foods and products. Even amongst the more commonly eaten fruits, for example, there are plenty of instances where people react badly to them:
+        </p>
+        <ul>
+            <li>Many people are allergic to strawberries and will evince a rash if they eat them.</li>
+            <li>Some people develop a rash if they touch the stems of parsnips.</li>
+            <li>Potatoes become poisonous if they turn green.</li>
+            <li>Eating large quantities of cabbage can adversely affect the thyroid gland.</li>
+        </ul>
+        <blockquote cite="http://www.pfaf.org/user/default.aspx">
+            We strongly recommend the following preventative precautions when trying anything new:
+            <ul>
+                <li>Make sure you have identified the plant correctly</li>
+                <li>Try a small taste of anything new in your diet. If there are no side effects increase the quantity at the next meal.</li>
+                <li>When trying new soaps or skin applications try them on a very small area before proceeding to larger areas of the body. Look for any uncomfortable reactions or changes and if there is do not proceed with further application.</li>
+            </ul>
+        </blockquote>
+
+    </div>
+</div>

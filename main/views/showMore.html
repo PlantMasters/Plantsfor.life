@@ -1,0 +1,8 @@
+<span>
+    <div ng-style='showLessStyle' ng-hide='expanded' ng-transclude>
+    </div>
+    <div ng-show='expanded' ng-transclude>
+    </div>
+    <a style='float:right;' ng-hide='expanded || !expandable' ng-click='expanded = !expanded' localize>show more</a>
+    <a style='float:right;' ng-show='expanded && expandable' ng-click='expanded = !expanded'>show less</a>
+</span>

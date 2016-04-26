@@ -8,75 +8,65 @@
     flex-wrap: wrap;
     justify-content: center;
   z-index: -1;
-}
 
+}
 .plantsContainer {
-   word-wrap: break-word;
-    border: 1px solid #bfbfbf;
-    margin-right: 30px;
-    border-radius: 2px;
-    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-    font-size: .8em;
-    background-color: #f9f9f9;
-    padding: 0;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    -webkit-box-shadow: 0 1px 1px 0 #ccc;
-    -moz-box-shadow:    0 1px 1px 0 #ccc;
-    box-shadow:         0 1px 1px 0 #ccc;
-    width: 340px;
-    height: 510px;
-    flex-basis: auto;
-    position: relative;
-    cursor: pointer;
+  word-wrap: break-word;
+  border: 1px solid #bfbfbf;
+  margin-right: 30px;
+  border-radius: 2px;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  font-size: 0.8em;
+  background-color: #f9f9f9;
+  padding: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0 1px 1px 0 #ccc;
+  -moz-box-shadow: 0 1px 1px 0 #ccc;
+  box-shadow: 0 1px 1px 0 #ccc;
+  width: 340px;
+  height: 510px;
+  flex-basis: auto;
+  position: relative;
+  cursor: pointer;
 }
-
 .plantsContainer p {
   font-size: 1.3em;
   margin-bottom: 0;
 }
-
 .plantsContainer td {
   border: none;
 }
-
 .plant-title-container {
   float: left;
 }
-
 .plantName {
-    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-    font-size: 2em;
-    display: block;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  font-size: 2em;
+  display: block;
 }
-
 .plantLatin {
-    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
-    font-size: 1.3em;
-    display: block;
-    font-style: italic;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.3em;
+  display: block;
+  font-style: italic;
 }
-
 .results-rating-icon {
   font-size: 3em;
   font-weight: 500;
   color: #bfbfbf;
 }
-
 .bandaid-active {
   color: #a6270c;
 }
-
 .carrot-active {
   color: #f4a149;
 }
-
 #uses-div {
   max-width: 100%;
   word-wrap: break-word;
-  word-break:break-all;
+  word-break: break-all;
 }
-
 #more{
   float:bottom !important;
   display: block !important;
@@ -84,74 +74,66 @@
 
 //MODALS
 #overlay {
-    position: fixed;
-    left: 25%;
-    top: 12.5%;
-    padding: 15px;
-    -webkit-box-shadow: 1px #ccc;
-    -moz-box-shadow:    1px #ccc;
-    box-shadow:         1px #ccc;
-    background-color: #ffffff;
-    width: 50%;
-    height: 75%;
-    z-index: 100;
-    overflow: auto;
+  position: fixed;
+  left: 25%;
+  top: 12.5%;
+  padding: 15px;
+  -webkit-box-shadow: 1px #ccc;
+  -moz-box-shadow: 1px #ccc;
+  box-shadow: 1px #ccc;
+  background-color: #ffffff;
+  width: 50%;
+  height: 75%;
+  z-index: 100;
+  overflow: auto;
 }
 #fade {
-    position: fixed;
-    left: 0%;
-    top: 0%;
-    background-color: black;
-    -moz-opacity: 0.7;
-    opacity: .70;
-    filter: alpha(opacity=70);
-    width: 100%;
-    height: 100%;
-    z-index: 90;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: black;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter:alpha(opacity=70);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
 }
-
 #custom-modal {
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
 }
-
 #custom-modal.ng-enter {
-  transition: opacity .5s ease-out;
+  transition: opacity 0.5s ease-out;
   opacity: 0;
 }
 #custom-modal.ng-enter.ng-enter-active {
   opacity: 1;
 }
 #custom-modal.ng-leave {
-  transition: opacity .5s ease-out;
+  transition: opacity 0.5s ease-out;
   opacity: 1;
 }
 #custom-modal.ng-leave.ng-leave-active {
   opacity: 0;
 }
-
 #custom-modal table {
   display: inline-table;
   padding-left: 5px;
 }
-
 #custom-modal td {
   border-bottom: none;
 }
-
 #custom-modal .clearfix {
   border-bottom: none;
 }
-
 .modal-title-container h4 {
   font-size: 3em;
 }
-
 .modal-title-container h6 {
   font-size: 1.5em;
   font-style: italic;
 }
-
 .modal-img-container {
   height: 350px;
   width: 475px;
@@ -159,18 +141,14 @@
   margin-right: 15px;
   background-size: contain;
 }
-
 .modal-title-container h4 {
   margin-bottom: 0;
   padding-left: 15px;
 }
-
-
 .modal-button {
   position: absolute;
   bottom: 0;
 }
-
 .modal-close-icon {
   position: absolute;
   top: 0;
@@ -179,23 +157,19 @@
   font-size: 2em;
   color: #434644;
 }
-
 .modal-close-icon:hover {
   cursor: pointer;
   color: #4f5351;
 }
-
 .table-head {
   font-weight: bold;
 }
-
 .add-to-garden-button {
   margin: 0 auto;
   display: block;
   background-color: #9AB87A;
   color: #fff;
 }
-
 .add-to-garden-button:hover {
   color: #fff;
   background-color: #A7C18B;
@@ -203,15 +177,24 @@
 }
 
 @media screen and (max-width: 1500px) {
+  #overlay {
+    top: 0;
+    height: 100%;
+  }
+  .modal-img-container {
+    height: 300px;
+    width: 400px;
+  }
+  .add-to-garden-button {
+    margin-bottom: 30px;
+  }
   #custom-modal {
     text-align: center;
   }
-
   .modal-img-container {
     float: none;
     margin: 0 auto;
   }
-
   .modal-title-container {
     float: none;
   }

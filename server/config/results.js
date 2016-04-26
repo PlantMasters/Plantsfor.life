@@ -1,7 +1,3 @@
-/*jshint esversion: 6 */
-/**
- * Created by Tom on 4/18/2016.
- */
 
 // TODO: Add the ability to switch to adidtional pages of results...
 

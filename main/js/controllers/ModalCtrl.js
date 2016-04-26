@@ -1,13 +1,13 @@
 angular.module('plantMasters')
 
-.controller('ModalCtrl', ['$scope', 'close', 'plant', function($scope, close, plant, Identity, mvNotifier, gardenService) {
+.controller('ModalCtrl', ['$scope', 'close', 'plant', 'identity', 'gardenService', 'mvNotifier', function($scope, close, plant, identity, mvNotifier, gardenService) {
 
   $scope.plant = plant;
   $scope.close = close;
   
-  $scope.identity = Identity;
-  console.log("IDENTITY");
-  console.log($scope.identity)
+  $scope.identity = identity;
+  console.log("IDENTITY MODAL");
+  console.log($scope.identity);
   
 //   $scope.identity = Identity;
 //     console.log("IDENTITY");

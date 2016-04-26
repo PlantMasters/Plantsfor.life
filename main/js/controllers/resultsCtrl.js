@@ -32,12 +32,13 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
     }, true);
 
     //pops up a modal of the selected plant
-    $scope.showCustom = function (plant) {
+    $scope.showCustom = function (plant, identity) {
         ModalService.showModal({
             templateUrl: "../views/plant-modal.html",
             controller: "ModalCtrl",
             inputs: {
-                plant: plant
+                plant: plant,
+                identity: identity
             }
         }).then(function (modal) {
             modal.close.then(function () {

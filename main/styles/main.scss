@@ -101,6 +101,37 @@ nav {
   transform: rotate(360deg);
   filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
 }
+
+.hamburger {
+    display: inline-block;
+    color: #9AB87A;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-right: 0px;
+    cursor: pointer;
+    
+}
+
+.userNameNav {
+    padding-top: 10px;
+}
+
+.userName {
+    cursor: default;
+}
+
+.profileFormContainer {
+    padding-top: 60px;
+}
+
+.dropDown {
+    background-color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #bfbfbf;
+    border-radius: 2px;
+}
+
 .signin {
   display: inline-block;
   float: right;

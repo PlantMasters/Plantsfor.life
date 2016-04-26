@@ -26,12 +26,12 @@
                 <button ng-click="signin(username, password)" class="signInButton">Sign In</button>
                 <button class="register signInButton" ui-sref="signup" ng-if="!identity.currentUser._id">Register</button>
             </form>
-            <div ng-if="identity.currentUser._id" class="">
-                <a ui-sref="user"  class="">
+            <div ng-if="identity.currentUser._id" class="userNameNav">
+                <a ui-sref="profile"  class="userName">
                     {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
                 </a>
-                <button class="signInButton" ng-click="whatever = !whatever">opts</button>
-                <ul class="" ng-show="whatever">
+                <div class="hamburger icon-hamburger" ng-click="whatever = !whatever"></div>
+                <ul class="dropDown" ng-show="whatever">
                     <!-- <li ng-if="identity.currentUser.isAdmin()">
                                         <a href="/admin/users">User Admin</a>
                                     </li> -->

@@ -1,6 +1,6 @@
 <div class="resultsContainer nine columns">
 
-  <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant)">
+  <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant, identity)">
     <div class="plant-image-container">
     <img class="plant-img" ng-style="{'background-image': 'url(' + (plant.pic || '/images/defaultplant.png') + ')'}">
     </div>

@@ -4,10 +4,16 @@ angular.module('plantMasters')
 
   $scope.plant = plant;
   $scope.close = close;
+  
   $scope.identity = Identity;
-    console.log("IDENTITY");
-    console.log($scope.identity)
-    $scope.addToGarden = function(plant) {
+  console.log("IDENTITY");
+  console.log($scope.identity)
+  
+//   $scope.identity = Identity;
+//     console.log("IDENTITY");
+//     console.log($scope.identity)
+    
+$scope.addToGarden = function(plant) {
         console.log('ADDING');
         if ($scope.identity.currentUser._id) {
             gardenService.postPlant(plant)
@@ -15,6 +21,6 @@ angular.module('plantMasters')
         } else {
             mvNotifier.error('Please log in or sign up to add to your garden');
         }
-    }
+}
 
 }]);

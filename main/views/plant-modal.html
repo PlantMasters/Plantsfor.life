@@ -47,8 +47,8 @@
         </tr>
       </tbody>
     </table>
-
-    <button class="add-to-garden-button">Add to My Garden</button>
+    {{plant._id}}
+    <button class="add-to-garden-button" ng-click="addToGarden(plant._id)">Add to My Garden</button>
 
     <span href class="icon-x modal-close-icon" ng-click="close()"></span>
   </div>

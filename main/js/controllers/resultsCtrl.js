@@ -1,7 +1,23 @@
 "use strict";
 
-angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainSearchService, ModalService, gardenService) {
 
+angular.module('plantMasters').controller('resultsCtrl', function($scope, Identity, mvNotifier, mainSearchService, ModalService, gardenService) {
+    //$scope.plants = mainSearchService.plants;
+    $scope.identity = Identity;
+    console.log("IDENTITY");
+    console.log($scope.identity)
+    $scope.addToGarden = function(plant) {
+        console.log('ADDING');
+        if ($scope.identity.currentUser._id) {
+            gardenService.postPlant(plant)
+            mvNotifier.notify('Plant successfully added to your garden');
+        } else {
+            mvNotifier.error('Please log in or sign up to add to your garden');
+        }
+    }
+
+    $scope.plants;
+    
     //get random plants for page load
     mainSearchService.samplePlants();
 
@@ -15,18 +31,14 @@ angular.module('plantMasters').controller('resultsCtrl', function ($scope, mainS
         }
     }, true);
 
-    //adds plant to garden
-    $scope.addToGarden = function (plant) {
-        gardenService.postPlant(plant);
-    };
-
     //pops up a modal of the selected plant
-    $scope.showCustom = function (plant) {
+    $scope.showCustom = function (plant, identity) {
         ModalService.showModal({
             templateUrl: "../views/plant-modal.html",
             controller: "ModalCtrl",
             inputs: {
-                plant: plant
+                plant: plant,
+                identity: identity
             }
         }).then(function (modal) {
             modal.close.then(function () {

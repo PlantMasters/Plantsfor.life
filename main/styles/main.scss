@@ -21,6 +21,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 body {
   background-color: #eee;
   margin: 0;
@@ -75,7 +76,8 @@ nav {
   top: 0;
   left: 0;
   background-color: #444B6E;
-  box-shadow: 0 4px 20px #888888;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, .6);
+  z-index: 1;
 }
 #navbar a {
   color: #9AB87A;
@@ -99,6 +101,37 @@ nav {
   transform: rotate(360deg);
   filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
 }
+
+.hamburger {
+    display: inline-block;
+    color: #9AB87A;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-right: 0px;
+    cursor: pointer;
+    
+}
+
+.userNameNav {
+    padding-top: 10px;
+}
+
+.userName {
+    cursor: default;
+}
+
+.profileFormContainer {
+    padding-top: 60px;
+}
+
+.dropDown {
+    background-color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #bfbfbf;
+    border-radius: 2px;
+}
+
 .signin {
   display: inline-block;
   float: right;
@@ -126,8 +159,16 @@ nav {
   background-color: #fff;
   min-width: 15%;
 }
+
 .searchContainer {
   overflow: auto;
+  /* Firefox */
+  height: -moz-calc(100vh - 45px);
+  /* WebKit */
+  height: -webkit-calc(100vh - 45px);
+  /* Opera */
+  //height: -o-calc(100vh - 45px);
+  /* Standard */
   height: calc(100vh - 45px);
   float: left;
   margin-top: 45px;

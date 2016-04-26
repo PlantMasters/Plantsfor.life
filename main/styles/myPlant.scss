@@ -1,0 +1,112 @@
+.myPlantContainer {
+    border: 1px solid #bfbfbf;
+    background-color: #e5e5e5;
+    box-shadow: 0 5px 5px 0 #ccc;
+    border-radius: 2px;
+    margin-top: 100px;
+    width: 70%;
+    min-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.myPlantName {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: 300;  
+    text-align: center; 
+}
+
+.myPlantLatin {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.myPlantDetails {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.myPlantInformation {
+    display: inline-block;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.myPlantImageContainer {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+.myPlantImage {
+    width: 350px;
+    height: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.myPlantEditDetailContainer {
+    width: 80%;
+    display: block;
+    margin: auto;
+    vertical-align: top;
+}
+
+.myPlantEditDetailSubBlock {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.editDetailContainer {
+    display: block;
+    
+}
+
+.editDetail {
+    display:inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.myPlantDetailHeader {
+    display: inline-block;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.editDetailInput:hover {
+    cursor: pointer;
+}
+
+.myPlantDetailValue {
+    display: inline-block;
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding-left: 20px;
+}
+
+.myPlantInfo {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

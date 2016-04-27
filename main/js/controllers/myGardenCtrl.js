@@ -5,6 +5,7 @@ angular.module('plantMasters').controller('myGardenCtrl', function($scope, garde
         if(c === true) {
             gardenService.deletePlant(plant)
             .then(function(response) {
+                console.log(response.data);
                 $scope.myGarden = response.data;
             })
         }

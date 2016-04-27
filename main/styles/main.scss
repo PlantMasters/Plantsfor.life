@@ -109,7 +109,7 @@ nav {
     margin-left: 15px;
     margin-right: 0px;
     cursor: pointer;
-    
+
 }
 
 .userNameNav {
@@ -154,14 +154,17 @@ nav {
 .zones {
   display: inline-block;
   margin: 5px;
+  width: 56px;
 }
 .mainContainer {
   background-color: #fff;
   min-width: 15%;
+  overflow-x: hidden;
 }
 
 .searchContainer {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   /* Firefox */
   height: -moz-calc(100vh - 45px);
   /* WebKit */
@@ -315,6 +318,15 @@ nav {
 
 .zoneSelectedToSearch {
   color: #A7C18B;
+  width: 56px;
+}
+
+.zoneSelectedToSearch:after {
+  content: "\e91a";
+  position: relative;
+  right: 83px;
+  bottom: 0;
+  width: 56px;
 }
 .zone-num {
   display: inline;
@@ -334,6 +346,7 @@ nav {
 //ICONS
 .icon-checkmark:before {
   content: "\e91a";
+  width: 56px;
 }
 .icon-pencil:before {
   content: "\e91b";

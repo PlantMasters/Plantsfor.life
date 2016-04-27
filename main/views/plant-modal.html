@@ -9,7 +9,8 @@
       <h6>{{plant.latin}}</h6>
       <span ng-repeat="n in [] | range:5 track by $index">
         <span title="Medicinal Rating" class="icon-bandaid results-rating-icon" ng-class="{'bandaid-active': $index <= plant.medicinal}"></span>
-      </span><br/>
+      </span>
+      <br/>
       <span ng-repeat="n in [] | range:5 track by $index">
         <span title="Edibility Rating" class="icon-carrot results-rating-icon" ng-class="{'carrot-active': $index <= plant.edibility}"></span>
       </span>
@@ -42,9 +43,18 @@
           <td>{{plant.range}}</td>
         </tr>
         <tr>
-          <td class="table-head">Hazards</td>
-          <td>{{plant.hazards}}</td>
+          <td class="table-head" valign="top">Hazards</td>
+          <td><div show-more show-more-height='50'>
+            <div class='showMoreContent'>{{plant.hazards}}</div>
+          </div></td>
         </tr>
+        <tr>
+          <td class="table-head" valign="top">Characteristics</td>
+          <td><div show-more show-more-height='25'>
+            <div class='showMoreContent'>{{plant.characteristics}}</div>
+          </div></td>
+        </tr>
+
       </tbody>
     </table>
     <button class="add-to-garden-button" ng-click="addToGarden(plant._id)">Add to My Garden</button>

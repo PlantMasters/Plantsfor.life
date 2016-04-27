@@ -9,16 +9,19 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
     let edibleSelected = [];
     this.plants = [];
     let _this = this;
+    let landing = true;
 
     //gets a random sample of plants to populate page on load
     this.samplePlants = ()=> {
         $http.get("/plants").then((response) => {
-            _this.plants = response.data
+            console.log(response);
+            _this.plants = response.data;
         });
     };
 
     //gets plants that meet search criteria
     let findPlants = function (z, o, m, e) {
+        landing = false;
         for (let obj in z) {
             if (z[obj]) {
                 z = Number(obj);
@@ -34,21 +37,34 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
             data: {zone: z, other: o, medical: m, edible: e}
         })
             .then((response) => {
-                _this.plants = response.data;
-            })
+                console.log(response);
+                _this.plants = response.data.docs
+            });
     };
 
     //gets plants that match the input field data...
     this.searchName = function (n) {
+        landing = false;
         $http({
             method: 'POST',
             url: '/plants',
             data: {name: n}
         })
             .then((response) => {
-                _this.plants = response.data;
+                _this.plants = response.data.docs;
             });
     };
+
+    this.getMore = ()=> {
+        if (landing) {
+            this.samplePlants();
+        } else {
+            $http.get("/more").then((response) => {
+                _this.plants = response.data.docs;
+            });
+        }
+    };
+
 
     //return plants
     this.getPlants = () => {
@@ -71,7 +87,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
                 edibleSelected.push(obj);
             }
         }
-        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected)
+        findPlants(currentHardinessZone, finalOtherArray, finalMedicalArray, edibleSelected);
     };
 
     //search plants when medical changes
@@ -107,7 +123,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         for (let obj in medCats) {
             if (meds[obj]) {
                 for (let i = 0; i < medCats[obj].length; i++) {
-                    finalMedicalArray.push(medCats[obj][i])
+                    finalMedicalArray.push(medCats[obj][i]);
                 }
             }
         }
@@ -136,7 +152,7 @@ angular.module('plantMasters').service('mainSearchService', function ($http) {
         for (let obj in otherCats) {
             if (others[obj]) {
                 for (let i = 0; i < otherCats[obj].length; i++) {
-                    finalOtherArray.push(otherCats[obj][i])
+                    finalOtherArray.push(otherCats[obj][i]);
                 }
             }
         }

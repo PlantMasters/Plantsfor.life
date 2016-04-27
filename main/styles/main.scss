@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/icomoon.eot?q23mq');
@@ -7,6 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 [class^="icon-"],
 [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -27,6 +29,7 @@ body {
   margin: 0;
   // overflow-y: hidden;
 }
+
 a,
 a:link,
 a:visited,
@@ -35,6 +38,7 @@ a:active {
   color: #434644;
   text-decoration: none;
 }
+
 .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -50,6 +54,7 @@ a:active {
   /* non-prefixed version, currently
                                   not supported by any browser */
 }
+
 .clearfix:after {
   content: "";
   display: block;
@@ -58,13 +63,16 @@ a:active {
   width: 100%;
   margin: 20px auto 0;
 }
+
 .left {
   float: left;
 }
+
 .results-desc-container {
   text-align: left;
   padding-left: 10px;
 }
+
 nav {
   padding: 5px;
   display: inline-block;
@@ -77,15 +85,19 @@ nav {
   left: 0;
   background-color: #444B6E;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, .6);
-  z-index: 1;
+  z-index: 1000;
+
 }
+
 #navbar a {
   color: #9AB87A;
 }
+
 #navbar a:hover {
   color: #A7C18B;
   cursor: pointer;
 }
+
 .nav-link {
   display: inline-block;
   font-size: 20px;
@@ -94,42 +106,42 @@ nav {
   padding-right: 5px;
   color: #fff;
 }
+
 .leaf-home {
   font-size: 2em;
   -moz-transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=4);
 }
 
 .hamburger {
-    display: inline-block;
-    color: #9AB87A;
-    font-size: 20px;
-    margin-left: 15px;
-    margin-right: 0px;
-    cursor: pointer;
-
+  display: inline-block;
+  color: #9AB87A;
+  font-size: 20px;
+  margin-left: 15px;
+  margin-right: 0px;
+  cursor: pointer;
 }
 
 .userNameNav {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .userName {
-    cursor: default;
+  cursor: default;
 }
 
 .profileFormContainer {
-    padding-top: 60px;
+  padding-top: 60px;
 }
 
 .dropDown {
-    background-color: #fff;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 1px solid #bfbfbf;
-    border-radius: 2px;
+  background-color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #bfbfbf;
+  border-radius: 2px;
 }
 
 .signin {
@@ -137,29 +149,36 @@ nav {
   float: right;
   padding-right: 40px;
 }
+
 .signin input {
   margin-right: 10px;
 }
+
 .signInButton {
   background-color: #9AB87A;
   color: #fff;
 }
+
 .signInButton:hover {
   background-color: #A7C18B;
   color: #fff;
 }
+
 .toast-top-right {
   top: 120px;
 }
+
 .zones {
   display: inline-block;
   margin: 5px;
   width: 56px;
 }
+
 .mainContainer {
   background-color: #fff;
   min-width: 15%;
-  overflow-x: hidden;
+  position:fixed;
+  overflow-x:hidden;
 }
 
 .searchContainer {
@@ -176,13 +195,16 @@ nav {
   float: left;
   margin-top: 45px;
 }
+
 .searchInputBox {
   width: 100%;
   margin-top: 20px;
 }
+
 .searchType {
   margin-left: 5px;
 }
+
 .searchInputBox:after {
   content: "";
   display: block;
@@ -190,6 +212,7 @@ nav {
   margin: 20px auto 0;
   border-bottom: 1px solid #bfbfbf;
 }
+
 .input {
   display: block;
   width: 80%;
@@ -207,13 +230,16 @@ nav {
   padding: 5px 5px 5px 10px;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
 }
+
 .input:focus {
   border-color: #000;
   outline: none;
 }
+
 .input:placeholder {
   color: #434644;
 }
+
 .searchTitle {
   font-family: 'Oswald', 'Helvetica', 'Arial', sans-serif;
   text-align: left;
@@ -224,6 +250,7 @@ nav {
   color: #434644;
   width: 100%;
 }
+
 .arrow {
   background-size: cover;
   background: url("../images/down-arrow.png") no-repeat top center;
@@ -232,12 +259,15 @@ nav {
   display: inline-block;
   margin-right: 10px;
 }
+
 .arrow:hover {
   cursor: pointer;
 }
+
 .usesRepeatCont {
   display: inline-block;
 }
+
 .usesRepeat {
   display: inline-block;
   border: 1px solid #bfbfbf;
@@ -248,19 +278,24 @@ nav {
   background-color: #f1f1f1;
   padding: 3px 12px;
 }
+
 .usesRepeat:hover {
   cursor: pointer;
 }
+
 .usesRepeat:after {
   background-color: #9AB87A;
 }
+
 .selectedToSearch {
   background-color: #9AB87A;
   color: #fff;
 }
+
 .selectedToSearch:hover {
   background-color: #A7C18B;
 }
+
 .zones {
   display: inline-block;
 }
@@ -271,17 +306,21 @@ nav {
   padding: 10px 20px 10px 10px;
   font-size: 2.5em;
 }
+
 .add-to-garden-results:hover {
   color: #A7C18B;
   cursor: pointer;
 }
+
 .add-to-garden-results:active {
   color: #81a659;
 }
+
 .plant-image-container {
   height: 250px;
   font-size: 2.5em;
 }
+
 .plant-img {
   width: 100%;
   height: 100%;
@@ -294,6 +333,7 @@ nav {
   height: 75px;
   text-align: center;
 }
+
 .taters {
   font-size: 4em;
   padding: 5px;
@@ -304,6 +344,7 @@ nav {
   display: inline;
   font-weight: 400;
 }
+
 .taters:hover {
   color: #81a659;
   cursor: pointer;
@@ -312,9 +353,6 @@ nav {
   cursor: pointer;
   position: relative;
 }
-
-
-
 
 .zoneSelectedToSearch {
   color: #A7C18B;
@@ -328,6 +366,7 @@ nav {
   bottom: 0;
   width: 56px;
 }
+
 .zone-num {
   display: inline;
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
@@ -337,6 +376,7 @@ nav {
   bottom: 15px;
   font-weight: 300;
 }
+
 .zone-num:hover {
   -webkit-transition: 0.5s;
   /* Safari */
@@ -348,92 +388,120 @@ nav {
   content: "\e91a";
   width: 56px;
 }
+
 .icon-pencil:before {
   content: "\e91b";
 }
+
 .icon-trashcan:before {
   content: "\e91c";
 }
+
 .icon-bandaid:before {
   content: "\e917";
 }
+
 .icon-hamburger:before {
   content: "\e918";
 }
+
 .icon-x:before {
   content: "\e919";
 }
+
 .icon-garden:before {
   content: "\e902";
 }
+
 .icon-greenhouse:before {
   content: "\e903";
 }
+
 .icon-tools:before {
   content: "\e905";
 }
+
 .icon-wateringcan:before {
   content: "\e908";
 }
+
 .icon-carrot:before {
   content: "\e909";
 }
+
 .icon-garlic:before {
   content: "\e90a";
 }
+
 .icon-potato:before {
   content: "\e90d";
 }
+
 .icon-tree:before {
   content: "\e90e";
 }
+
 .icon-downarrow:before {
   content: "\e90f";
   font-size: 16px;
   padding-right: 15px;
 }
+
 .icon-loading:before {
   content: "\e910";
 }
+
 .icon-rightarrow:before {
   content: "\e911";
   font-size: 26px;
 }
+
 .icon-info:before {
   content: "\e912";
 }
+
 .icon-leaf2:before {
   content: "\e913";
 }
+
 .icon-home:before {
   content: "\e900";
 }
+
 .icon-droplet:before {
   content: "\e901";
 }
+
 .icon-spinner2:before {
   content: "\e904";
 }
+
 .icon-leaf:before {
   content: "\e906";
 }
+
 .icon-earth:before {
   content: "\e907";
 }
+
 .icon-plus:before {
   content: "\e914";
 }
+
 .icon-minus:before {
   content: "\e915";
 }
+
 .icon-circle-right:before {
   content: "\e90b";
   padding-right: 15px;
 }
+
 .icon-circle-down:before {
   content: "\e90c";
   padding-right: 15px;
 }
+
 .icon-leaf-flipped:before {
   content: "\e916";
 }

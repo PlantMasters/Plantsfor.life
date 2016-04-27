@@ -50,15 +50,15 @@ angular.module('plantMasters', ['ngResource', 'ui.router', 'angularModalService'
       controller: 'AboutCtrl'
     })
     .state('myPlant', {
-      url: '/myPlant/:plantId',
-      templateUrl: 'views/myPlant.html',
-      controller: 'myPlantCtrl',
-      resolve: {
-        plantRef: function(gardenService, $stateParams) {
-          return gardenService.getPlant($stateParams.plantId);
+        url: '/myPlant/:plantId',
+        templateUrl: 'views/myPlant.html',
+        controller: 'myPlantCtrl',
+        resolve: {
+            plantRef: function(gardenService, $stateParams) {
+                return gardenService.getPlant($stateParams.plantId);
+            }
         }
-      }
-    });
+    })
 
   $urlRouterProvider.otherwise('/');
 });

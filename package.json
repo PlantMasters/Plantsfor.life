@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlantMasters/Plantsfor.life"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "forever start -o stdout.out -e stderr.out -l forever.out server.js"
@@ -33,8 +37,11 @@
     "cors": "^2.7.1",
     "ejs": "^2.4.1",
     "express": "~4.13.1",
+    "express-paginate": "^0.2.0",
     "express-session": "^1.13.0",
     "mongoose": "^4.4.11",
+    "mongoose-aggregate-paginate": "^1.0.4",
+    "mongoose-paginate": "^5.0.0",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

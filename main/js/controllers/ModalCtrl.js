@@ -1,20 +1,24 @@
 angular.module('plantMasters')
 
-.controller('ModalCtrl', ['$scope', 'close', 'plant', 'identity', 'gardenService', 'mvNotifier', function($scope, close, plant, identity, mvNotifier, gardenService) {
+.controller('ModalCtrl', ['$http', '$scope', 'close', 'plant', 'identity', 'mvNotifier', 'gardenService', function($http, $scope, close, plant, identity, mvNotifier, gardenService) {
 
   $scope.plant = plant;
   $scope.close = close;
 
-  $scope.toolCall = function() {
+  $scope.toolCall = function(use) {
     $http.get('../medCats.json').then(function(response) {
       var definition = response.data;
-      console.log(definition);
+      var tooltiptext = "";
+      for (var key in definition) {
+        if (use == key) {
+          tooltiptext = definition[key];
+        }
+      }
+      console.log(tooltiptext);
     });
   };
 
   $scope.identity = identity;
-  console.log("IDENTITY MODAL");
-  console.log($scope.identity);
 
   $scope.addToGarden = function(plant) {
     console.log('ADDING');

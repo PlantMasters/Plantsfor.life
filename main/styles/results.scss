@@ -1,16 +1,27 @@
 .resultsContainer {
-  //overflow: auto;
   height: calc(100vh - 55px);
   float: right;
   margin-top: 55px;
+  justify-content: center;
+  z-index: -1;
+}
+
+.plantWrap {
+  justify-content: center;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  z-index: -1;
+}
+#more {
+  margin-right:2vw;
 
 }
-
+.buttonWrap{
+  width:100%;
+  align-items:center;
+  display: flex;
+  justify-content: center;
+}
 .plantsContainer {
   word-wrap: break-word;
   border: 1px solid #bfbfbf;
@@ -78,15 +89,7 @@
   word-break: break-all;
 }
 
-#more {
-  //float: bottom !important;
-  //display: block !important;
-  display: block;
-  position: fixed;
-  padding-top: 10px;
-  bottom: 0;
-  right:50%;
-}
+
 
 //MODALS
 #overlay {

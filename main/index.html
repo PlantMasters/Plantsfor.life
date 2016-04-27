@@ -14,10 +14,9 @@
     <div id="navbar" class="navContainer">
         <div class="nav-link">
             <a class="nav-link" ui-sref="main"><span class="icon-leaf-flipped leaf-home"></span></a>
+            <a class="nav-link" ui-sref="main">Home</a>
             <span ng-click="goToGarden()"><a class="nav-link" ui-sref="myGarden">Garden</a></span>
-            <a class="nav-link" ui-sref="app">App</a>
             <a class="nav-link" ui-sref="about">About</a>
-            <a class="nav-link" ui-sref="feedback">Feedback</a>
         </div>
         <div ng-controller="NavBarLoginCtrl" class="signin">
             <form ng-if="!identity.currentUser._id" class="">

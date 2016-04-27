@@ -53,4 +53,4 @@ gulp.task('run', function() {
   , env: { 'NODE_ENV': 'development' }
   })
 })
-gulp.task('default', ['sass', 'css', 'javascript', 'html', 'index']);
+gulp.task('default', ['sass', 'css', 'javascript', 'html', 'index', 'run']);

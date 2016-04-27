@@ -21,6 +21,21 @@
     text-align: center; 
 }
 
+.myPlantNameText {
+    display: inline-block;
+    position: relative;
+    left: 85px;
+}
+
+.backToGarden {
+    background-color: #434644;
+    float: right;
+}
+
+.backToGarden:hover {
+    background-color: #4F5351;
+}
+
 .myPlantLatin {
     display: block;
     margin-left: auto;
@@ -83,6 +98,11 @@
 .editDetail {
     display:inline-block;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+.plantDetail {
+    display:inline-block;
     margin-left: 10px;
 }
 

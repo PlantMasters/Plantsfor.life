@@ -3,15 +3,6 @@ angular.module('plantMasters').controller('NavBarLoginCtrl', function ($scope, I
     console.log("NAV BAR ID")
     console.log("IDENTITY");
     console.log($scope.identity)
-    $scope.goToGarden = function() {
-        console.log('ADDING');
-        if ($scope.identity.currentUser._id) {
-            //gardenService.postPlant(plant)
-            //mvNotifier.notify('Plant successfully added to your garden');
-        } else {
-            mvNotifier.error('Please log in or sign up to view your garden');
-        }
-    }
 
     $scope.signin = function (username, password) {
         Auth.authenticateUser(username, password).then(function (success) {

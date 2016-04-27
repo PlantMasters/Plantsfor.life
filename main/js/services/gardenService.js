@@ -10,6 +10,10 @@ angular.module('plantMasters').service('gardenService', function($http, $q, $roo
         return $http({
             method: 'GET',
             url: '/gardenPlant'
+        }).then(function (response) {
+            return response;
+        }, function (error) {
+            console.log("CANT GET GARDEN NEED TO LOG IN")
         })
     };
     this.deletePlant = function(plant) {

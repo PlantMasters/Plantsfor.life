@@ -4,19 +4,26 @@ angular.module('plantMasters')
 
   $scope.plant = plant;
   $scope.close = close;
+  $http.get('../medCats.json').then(function(response) {
+  $scope.definition = response.data;
 
+  });
   $scope.toolCall = function(use) {
-    $http.get('../medCats.json').then(function(response) {
-      var definition = response.data;
-      var tooltiptext = "";
-      for (var key in definition) {
-        if (use == key) {
-          tooltiptext = definition[key];
-        }
+    var tooltiptext = "";
+    for (var key in $scope.definition) {
+      if (use == key) {
+        tooltiptext = $scope.definition[key];
       }
-      console.log(tooltiptext);
-    });
+    }
+    $scope.tooltiptext = tooltiptext;
   };
+
+  $(function() {
+    $( document ).tooltip({
+      track: true
+    });
+  });
+
 
   $scope.identity = identity;
 

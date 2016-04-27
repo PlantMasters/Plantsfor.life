@@ -14,12 +14,16 @@
     "node"
   ],
   "dependencies": {
-    "jquery": "^2.2.3",
-    "toastr": "^2.1.2",
-    "angular": "^1.5.3",
-    "angular-ui-router": "^0.2.18",
-    "angular-resource": "^1.5.3",
-    "angular-animate": "^1.5.5",
-    "angular-modal-service": "^0.6.10"
+    "jquery": "latest",
+    "toastr": "latest",
+    "angular": "latest",
+    "angular-ui-router": "latest",
+    "angular-resource": "latest",
+    "angular-animate": "latest",
+    "angular-modal-service": "latest",
+    "jquery-ui": "^1.11.4"
+  },
+  "resolutions": {
+    "angular": "1.5.5"
   }
 }

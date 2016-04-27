@@ -18,11 +18,7 @@ angular.module('plantMasters')
     $scope.tooltiptext = tooltiptext;
   };
 
-  $(function() {
-    $( document ).tooltip({
-      track: true
-    });
-  });
+
 
 
   $scope.identity = identity;

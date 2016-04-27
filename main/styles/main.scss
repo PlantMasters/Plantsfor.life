@@ -137,11 +137,14 @@ nav {
 }
 
 .dropDown {
-  background-color: #fff;
+  background-color: #E4E4E4;
+  margin-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
   border: 1px solid #bfbfbf;
   border-radius: 2px;
+  align-items: bottom;
+
 }
 
 .signin {
@@ -157,6 +160,7 @@ nav {
 .signInButton {
   background-color: #9AB87A;
   color: #fff;
+  margin-right: 10px;
 }
 
 .signInButton:hover {

@@ -14,10 +14,9 @@
     <div id="navbar" class="navContainer">
         <div class="nav-link">
             <a class="nav-link" ui-sref="main"><span class="icon-leaf-flipped leaf-home"></span></a>
+            <a class="nav-link" ui-sref="main">Home</a>
             <a class="nav-link" ui-sref="myGarden">Garden</a>
-            <a class="nav-link" ui-sref="app">App</a>
             <a class="nav-link" ui-sref="about">About</a>
-            <a class="nav-link" ui-sref="feedback">Feedback</a>
         </div>
         <div ng-controller="NavBarLoginCtrl" class="signin">
             <form ng-if="!identity.currentUser._id" class="">
@@ -32,13 +31,13 @@
                     {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
                 </a>
 
-                <div class="hamburger icon-hamburger" ng-click="whatever = !whatever"></div>
-                <ul class="dropDown" ng-show="whatever">
+                <div class="hamburger icon-hamburger" ng-mouseenter="whatever = !whatever"></div>
+                <ul class="dropDown" ng-show="whatever"ng-mouseleave="whatever = !whatever">
                     <li>
-                        <a ui-sref="profile">Profile</a>
+                        <strong><a ui-sref="profile">Profile</a></strong>
                     </li>
                     <li>
-                        <a href="" ng-click="signout()">Sign Out</a>
+                        <strong><a href="" ng-click="signout()">Sign Out</a></strong>
                     </li>
                 </ul>
                 </li>

@@ -1,8 +1,5 @@
 angular.module('plantMasters').controller('NavBarLoginCtrl', function ($scope, Identity, mvNotifier, Auth, $location, $window) {
     $scope.identity = Identity;
-    console.log("NAV BAR ID")
-    console.log("IDENTITY");
-    console.log($scope.identity)
 
     $scope.signin = function (username, password) {
         Auth.authenticateUser(username, password).then(function (success) {

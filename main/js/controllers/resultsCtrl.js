@@ -58,6 +58,12 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
 
         mainSearchService.getMore();
     };
+
+    $(function() {
+      $( document ).tooltip({
+        track: true
+      });
+    });
 });
 
 //used to color the correct amount of bandaids or carrots in plant card

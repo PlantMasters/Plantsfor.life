@@ -1,54 +1,50 @@
-<div class="resultsContainer nine columns">
+    <div class="resultsContainer nine columns">
+        <div class="plantWrap">
+            <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants"
+                 ng-click="showCustom(plant, identity)">
+                <div class="plant-image-container">
+                    <img class="plant-img"
+                         ng-style="{'background-image': 'url(' + (plant.pic || '/images/defaultplant.png') + ')'}">
+                </div>
+                <div class="clearfix"></div>
 
-  <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant, identity)">
-    <div class="plant-image-container">
-    <img class="plant-img" ng-style="{'background-image': 'url(' + (plant.pic || '/images/defaultplant.png') + ')'}">
-    </div>
+                <div class="results-desc-container">
 
+                    <div class="left">
+                        <div class="plantName">{{plant.name}}</div>
+                        <div class="plantLatin">{{plant.latin}}</div>
+                    </div>
 
-    <div class="clearfix"></div>
+                    <div class="icon-plus add-to-garden-results" title="Add to My Garden"
+                         ng-click="addToGarden(plant._id); $event.stopPropagation()"></div>
 
-    <div class="results-desc-container">
+                    <div class="clearfix"></div>
+                    <table>
+                        <tr>
 
-      <div class="left">
-      <div class="plantName">{{plant.name}}</div>
-      <div class="plantLatin">{{plant.latin}}</div>
-    </div>
-
-    <div class="icon-plus add-to-garden-results" title="Add to My Garden" ng-click="addToGarden(plant._id); $event.stopPropagation()"></div>
-
-<div class="clearfix"></div>
-      <table>
-        <tr>
-
-          <td>
+                            <td>
             <span ng-repeat="n in [] | range:5 track by $index">
-              <span title="Medicinal Rating" class="icon-bandaid results-rating-icon" ng-class="{'bandaid-active': $index <= plant.medicinal}"></span>
+              <span title="Medicinal Rating" class="icon-bandaid results-rating-icon"
+                    ng-class="{'bandaid-active': $index <= plant.medicinal}"></span>
             </span>
-          </td>
-        </tr>
-        <tr>
-
-          <td title="Edibility Rating">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="Edibility Rating">
             <span ng-repeat="n in [] | range:5 track by $index">
-              <span title="Edibility Rating" class="icon-carrot results-rating-icon" ng-class="{'carrot-active': $index <= plant.edibility}"></span>
+              <span title="Edibility Rating" class="icon-carrot results-rating-icon"
+                    ng-class="{'carrot-active': $index <= plant.edibility}"></span>
             </span>
-          </td>
-        </tr>
-        <tr>
+                            </td>
+                        </tr>
+                    </table>
 
-          <!-- <td>
-            <p title="Hardiness Zone">{{plant.zone}}</p>
-            </span>
-          </td> -->
-        </tr>
-      </table>
-      <!-- <div id="uses-div" ng-repeat="(prop,use) in plant.uses[0]" ng-if="$index > 0">
-            {{prop}}: <div ng-repeat="uses in use"> {{uses}}, &nbsp</div>
-        </div> -->
-      <br/>
+                    <br/>
+                </div>
+            </div>
+
+        </div>
+        <div class="buttonWrap">
+            <button id="more" ng-click="getMore()">More?</button>
+        </div>
     </div>
-  </div>
-</div>
-
-<!-- ng-repeat="i in getNum(plant.medicinal) track by $index" -->

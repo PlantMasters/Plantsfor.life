@@ -28,6 +28,7 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
         //prevents watch from triggering on page load
         if (newVal != oldVal) {
             $scope.plants = mainSearchService.getPlants();
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
     }, true);
 
@@ -42,10 +43,19 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
             }
         }).then(function (modal) {
             modal.close.then(function () {
-                console.log('HOORAY');
             });
         });
 
+    };
+
+    $scope.getMore = () => {
+        // $('.resultsContainer').css("overflow", "hidden");
+        // $(document).animate({ scrollTop: 0 }, 'fast');
+        // $('.resultsContainer').css("overflow", "auto");
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+
+        mainSearchService.getMore();
     };
 });
 

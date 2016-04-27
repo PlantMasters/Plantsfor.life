@@ -1,4 +1,4 @@
-
+/*jshint esversion: 6 */
 // TODO: Add the ability to switch to adidtional pages of results...
 
 "use strict";
@@ -76,7 +76,9 @@ module.exports = {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
+
                     query = {$or: [{'nameL': {$regex: reger}}, {'latinL': {$regex: reger}}]};
+
                     res.send(plants);
                 }
             }

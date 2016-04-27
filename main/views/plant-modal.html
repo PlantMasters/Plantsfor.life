@@ -24,7 +24,7 @@
         </tr>
         <tr ng-if="plant.uses[0].medical.length > 0">
           <td class="table-head">Medical Uses</td>
-          <td><span ng-repeat="use in plant.uses[0].medical">{{use}}{{$last ? '' : ', '}}</span></td>
+          <td><span ng-repeat="use in plant.uses[0].medical" ng-mouseover="toolCall(use)" title="{{tooltiptext}}">{{use}}{{$last ? '' : ', '}}</span></td>
         </tr>
         <tr ng-if="plant.uses[0].edible.length > 0">
           <td class="table-head">Edible Uses</td>

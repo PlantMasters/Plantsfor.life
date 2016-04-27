@@ -1,26 +1,40 @@
 angular.module('plantMasters')
 
-.controller('ModalCtrl', ['$scope', 'close', 'plant', 'identity', 'mvNotifier', 'gardenService', function($scope, close, plant, identity, mvNotifier, gardenService) {
+.controller('ModalCtrl', ['$http', '$scope', 'close', 'plant', 'identity', 'mvNotifier', 'gardenService', function($http, $scope, close, plant, identity, mvNotifier, gardenService) {
 
   $scope.plant = plant;
   $scope.close = close;
+  $http.get('../medCats.json').then(function(response) {
+  $scope.definition = response.data;
+
+  });
+  $scope.toolCall = function(use) {
+    var tooltiptext = "";
+    for (var key in $scope.definition) {
+      if (use == key) {
+        tooltiptext = $scope.definition[key];
+      }
+    }
+    $scope.tooltiptext = tooltiptext;
+  };
+
+  $(function() {
+    $( document ).tooltip({
+      track: true
+    });
+  });
+
 
   $scope.identity = identity;
-  console.log("IDENTITY MODAL");
-  console.log($scope.identity);
 
-//   $scope.identity = Identity;
-//     console.log("IDENTITY");
-//     console.log($scope.identity)
-
-$scope.addToGarden = function(plant) {
-        console.log('ADDING');
-        if ($scope.identity.currentUser._id) {
-            gardenService.postPlant(plant)
-            mvNotifier.notify('Plant successfully added to your garden');
-        } else {
-            mvNotifier.error('Please log in or sign up to add to your garden');
-        }
-}
+  $scope.addToGarden = function(plant) {
+    console.log('ADDING');
+    if ($scope.identity.currentUser._id) {
+      gardenService.postPlant(plant);
+      mvNotifier.notify('Plant successfully added to your garden');
+    } else {
+      mvNotifier.error('Please log in or sign up to add to your garden');
+    }
+  };
 
 }]);

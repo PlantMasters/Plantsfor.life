@@ -1,9 +1,9 @@
 angular.module('plantMasters')
 
-.controller('ModalCtrl', ['$http', '$scope', 'close', 'plant', 'identity', 'mvNotifier', 'gardenService', function($http, $scope, close, plant, identity, mvNotifier, gardenService) {
+.controller('ModalCtrl', ['$http', '$scope', '$rootScope', 'close', 'plant', 'identity', 'mvNotifier', 'gardenService', function($http, $scope, $rootScope, close, plant, identity, mvNotifier, gardenService) {
 
   $scope.plant = plant;
-  $scope.close = close;
+  $rootScope.close = close;
   $http.get('../medCats.json').then(function(response) {
   $scope.definition = response.data;
 

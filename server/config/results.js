@@ -76,11 +76,9 @@ module.exports = {
                 if (err0) {
                     res.status(500).send(err0);
                 } else {
-<<<<<<< HEAD
 
-=======
                     query = {$or: [{'nameL': {$regex: reger}}, {'latinL': {$regex: reger}}]};
->>>>>>> master
+
                     res.send(plants);
                 }
             }

@@ -7,6 +7,7 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
     console.log("IDENTITY");
     console.log($scope.identity)
     $scope.addToGarden = function(plant) {
+        console.log('ADDING');
         if ($scope.identity.currentUser._id) {
             gardenService.postPlant(plant)
             mvNotifier.notify('Plant successfully added to your garden');
@@ -31,18 +32,14 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
         }
     }, true);
 
-    //adds plant to garden
-    $scope.addToGarden = function (plant) {
-        gardenService.postPlant(plant);
-    };
-
     //pops up a modal of the selected plant
-    $scope.showCustom = function (plant) {
+    $scope.showCustom = function (plant, identity) {
         ModalService.showModal({
             templateUrl: "../views/plant-modal.html",
             controller: "ModalCtrl",
             inputs: {
-                plant: plant
+                plant: plant,
+                identity: identity
             }
         }).then(function (modal) {
             modal.close.then(function () {

@@ -1,12 +1,10 @@
 <div class="resultsContainer nine columns">
-
-    <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants" ng-click="showCustom(plant)">
+    <div class="plantsContainer" title="Click for more info" ng-repeat="plant in plants"
+         ng-click="showCustom(plant, identity)">
         <div class="plant-image-container">
             <img class="plant-img"
                  ng-style="{'background-image': 'url(' + (plant.pic || '/images/defaultplant.png') + ')'}">
         </div>
-
-
         <div class="clearfix"></div>
 
         <div class="results-desc-container">
@@ -31,7 +29,6 @@
                     </td>
                 </tr>
                 <tr>
-
                     <td title="Edibility Rating">
             <span ng-repeat="n in [] | range:5 track by $index">
               <span title="Edibility Rating" class="icon-carrot results-rating-icon"

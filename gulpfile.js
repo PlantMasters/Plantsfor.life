@@ -4,15 +4,14 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var uglifycss = require('gulp-uglifycss');
 var ngAnnotate = require('gulp-ng-annotate');
-var server = require('gulp-webserver');
 var htmlmin = require('gulp-htmlmin');
 var babel = require('gulp-babel');
-var nodemon = require('gulp-nodemon');
+// var nodemon = require('gulp-nodemon');
 
-var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/styles/*.css', './main/views/**/**/*.html', './main/*.html'], ['default']);
-watcher.on('change', function( event ) {
-        console.log('File ' + event.path + ' was ' + event.type + ' at ' + new Date() + ' , running tasks...');
-});
+// var watcher = gulp.watch(['./main/js/**/*.js', './main/styles/*.scss', './main/styles/*.css', './main/views/**/**/*.html', './main/*.html'], ['default']);
+// watcher.on('change', function( event ) {
+//         console.log('File ' + event.path + ' was ' + event.type + ' at ' + new Date() + ' , running tasks...');
+// });
 
 gulp.task('sass', function() {
     gulp.src('./main/styles/*.scss')

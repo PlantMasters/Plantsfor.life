@@ -53,4 +53,6 @@ gulp.task('index', function() {
 //   , env: { 'NODE_ENV': 'production' }
 //   })
 // })
-gulp.task('build', ['sass', 'css', 'javascript', 'html', 'index']);
+gulp.task('build', ['sass', 'css', 'javascript', 'html', 'index'], function (next) {
+  next();
+});

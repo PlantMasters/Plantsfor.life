@@ -7,7 +7,7 @@ module.exports = {
     port: process.env.PORT || 3000
   },
   production: {
-    db: 'mongodb://iandlelin:795282@ds019481.mlab.com:19481/plantsforlife',
+    db: 'mongodb://iandelin:795282@ds019481.mlab.com:19481/plantsforlife',
     rootPath: rootPath,
     port: process.env.PORT || 1029
 

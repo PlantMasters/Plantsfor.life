@@ -31,7 +31,7 @@ gulp.task('javascript', function() {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest('./public/scripts'));
 });

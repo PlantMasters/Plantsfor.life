@@ -61,12 +61,18 @@ module.exports = {
         }
     },
     samplePlants: (req, res)=> {
-        Plants.aggregate(
-            {$sample: {size: 24}}, (err, plants)=> {
-                err ? res.status(500).send(err) : res.send(plants);
-            }
-        );
-    },
+        // Plants.aggregate(
+        //     {$sample: {size: 24}}, (err, plants)=> {
+        //         err ? res.status(500).send(err) : res.send(plants);
+        //     }
+        // );
+        Plants.find().sort({views:-1}).limit(24).select({}).exec((err0, plants)=>{
+          if (err0) {
+              res.status(500).send(err0);
+          } else {
+              res.send(plants);
+          }});
+      },
     //This searches for plants that match the string input into the input field...
     searchResults: (req, res)=> {
         page = 1;
@@ -94,7 +100,7 @@ module.exports = {
                     res.send(plants);
                 }
             }
-        )
+        );
     },
     sampleMore: (req, res) => {
         Plants.aggregate(

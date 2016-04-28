@@ -61,7 +61,6 @@ angular.module('plantMasters').controller('resultsCtrl', function($scope, Identi
 
     $(function() {
       $( document ).tooltip({
-        track: true
       });
     });
 });

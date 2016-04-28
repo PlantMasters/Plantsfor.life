@@ -46,11 +46,11 @@ gulp.task('index', function() {
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./public'));
 });
-gulp.task('run', function() {
-  nodemon({
-    script: 'server.js'
-  , ext: 'js html'
-  , env: { 'NODE_ENV': 'production' }
-  })
-})
-gulp.task('default', ['sass', 'css', 'javascript', 'html', 'index', 'run']);
+// gulp.task('run', function() {
+//   nodemon({
+//     script: 'server.js'
+//   , ext: 'js html'
+//   , env: { 'NODE_ENV': 'production' }
+//   })
+// })
+gulp.task('build', ['sass', 'css', 'javascript', 'html', 'index']);
